@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="kremi_logo_red.png" type="image/png">
+<meta property="og:title" content="Our Story — Kremi Singapore">
+<meta property="og:description" content="The story behind Kremi — handcrafted Japanese crepes born from a love of Japan and a craving that became a calling.">
+<meta property="og:image" content="kremi-three-crepes.png">
+<meta property="og:url" content=""><!-- TODO: replace with absolute URL when deployed -->
+<meta property="og:type" content="website">
+<title>Our Story — Kremi Singapore</title>
+<meta name="description" content="The story behind Kremi — handcrafted Japanese crepes born from a love of Japan and a craving that became a calling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --matcha: #5a7a4a;
+  --matcha-light: #8aaa6a;
+  --matcha-pale: #d4e5c4;
+  --matcha-wash: #f0f5ea;
+  --red: #c8392b;
+  --red-warm: #d4504a;
+  --cream: #faf6ef;
+  --warm-white: #fffdf8;
+  --ink: #1a1714;
+  --ink-soft: #3d3530;
+  --blush: #f0d5c8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(250,246,239,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(90,122,74,0.15);
+}
+
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 250px;
+  height: 80px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  margin-left: -0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 100px;
+}
+
+.nav-cta:hover {
+  background: var(--red-warm) !important;
+}
+
+.nav-order {
+  color: var(--red) !important;
+  border: 1.5px solid var(--red);
+  padding: 0.5rem 1.3rem;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-order:hover {
+  background: var(--red) !important;
+  color: white !important;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px,-5px);
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(250,246,239,0.98);
+  backdrop-filter: blur(16px);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-mobile.open {
+  display: flex;
+}
+
+.nav-mobile a {
+  font-size: 1.4rem;
+  font-family: 'Shippori Mincho', serif;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--red);
+}
+
+.nav-mobile .nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.8rem 2.2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--red-warm);
+  display: block;
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2rem,3.5vw,3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+.section-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+body.js-ready .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+body.js-ready .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.d1 {
+  transition-delay: 0.1s;
+}
+
+.d2 {
+  transition-delay: 0.2s;
+}
+
+.d3 {
+  transition-delay: 0.3s;
+}
+
+.page-hero {
+  padding: 10rem 6rem 5rem;
+  background: var(--cream);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '物語';
+  position: absolute;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 20rem;
+  font-weight: 700;
+  color: rgba(90,122,74,0.04);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.page-hero-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--matcha);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.page-hero-label::before,
+.page-hero-label::after {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--matcha);
+  display: block;
+}
+
+.page-hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2.5rem,6vw,5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+.page-hero h1 .accent {
+  color: var(--red);
+}
+
+.page-hero p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.story {
+  padding: 7rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.story-visual {
+  position: relative;
+}
+
+.story-img-main {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.story-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-img-accent {
+  position: absolute;
+  width: 180px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  right: -40px;
+  bottom: 60px;
+  border: 5px solid white;
+}
+
+.story-img-accent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-stamp {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 90px;
+  height: 90px;
+  background: var(--matcha);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(90,122,74,0.3);
+}
+
+.story-stamp-jp {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.story-stamp-en {
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.founders-label {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 100px;
+  padding: 0.6rem 1.4rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  text-align: center;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.founder-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.founder-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 500;
+}
+
+.story-quote {
+  border-left: 3px solid var(--red);
+  padding-left: 1.2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--red-warm);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.values-strip {
+  background: var(--red);
+  padding: 5rem 6rem;
+}
+
+.values-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.values-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.values-header .section-label {
+  justify-content: center;
+  color: var(--ink);
+}
+
+.values-header .section-label::before {
+  background: var(--ink);
+}
+
+.values-header .section-title {
+  color: white;
+}
+
+.values-manifesto {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+  font-weight: 300;
+  max-width: 580px;
+  margin: 0 auto 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  padding: 2rem;
+}
+
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.value-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.6rem;
+}
+
+.value-desc {
+  font-size: 0.83rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+}
+
+.visit-section {
+  background: var(--warm-white);
+  padding: 7rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.map-card {
+  background: var(--matcha-wash);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+}
+
+.map-embed {
+  width: 100%;
+  height: 320px;
+  display: block;
+  border: none;
+}
+
+.map-info {
+  padding: 2rem 2.5rem;
+}
+
+.map-address {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.map-sub {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.hour-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.hour-row:last-child {
+  border: none;
+}
+
+.hour-day {
+  color: var(--ink-soft);
+}
+
+.hour-time {
+  color: var(--red);
+  font-weight: 500;
+}
+
+.visit-detail {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.visit-icon {
+  display: none;
+}
+
+.visit-text h4 {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.visit-text p {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.visit-text a {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.social-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+}
+
+.social-btn.ig {
+  background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366);
+  color: white;
+}
+
+.social-btn.tt {
+  background: #010101;
+  color: white;
+}
+
+footer {
+  background: var(--ink);
+  color: white;
+  padding: 5rem 6rem 3rem;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.footer-col h5 {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c8392b;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-bottom: 0.7rem;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-jp {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.15);
+  letter-spacing: 0.1em;
+}
+
+.footer-credit {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-credit:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 1024px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    z-index: 101;
+    position: relative;
+  }
+
+  .nav-logo img {
+    width: 140px;
+    height: auto;
+  }
+
+  .page-hero {
+    padding: 8rem 2.5rem 4rem;
+  }
+
+  .story {
+    grid-template-columns: 1fr;
+    padding: 5rem 2.5rem;
+    gap: 4rem;
+    max-width: 100%;
+  }
+
+  .story-img-accent {
+    right: -20px;
+    bottom: 40px;
+    width: 140px;
+    height: 170px;
+  }
+
+  .values-strip {
+    padding: 4rem 2.5rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .visit-section {
+    grid-template-columns: 1fr;
+    padding: 5rem 2.5rem;
+    gap: 3rem;
+    max-width: 100%;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  footer {
+    padding: 4rem 2.5rem 2rem;
+  }
+}
+
+@media(min-width:641px) {
+  .footer-cols-row { display: contents; }
+}
+
+@media (max-width: 640px) {
+  .nav-logo img {
+    width: 110px;
+    height: auto;
+  }
+
+  .page-hero {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .story {
+    padding: 4rem 1.5rem;
+    gap: 3rem;
+  }
+
+  .story-img-accent {
+    display: none;
+  }
+
+  .story-stamp {
+    width: 70px;
+    height: 70px;
+    top: -15px;
+    left: -10px;
+  }
+
+  .founders-label {
+    bottom: -14px;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .values-strip {
+    padding: 4rem 1.5rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-section {
+    padding: 4rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-top > div:first-child {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-cols-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .footer-col {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-col a,
+  .footer-col p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.78rem;
+  }
+  .footer-col h5 {
+    font-size: 0.58rem;
+  }
+  footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="our-story.html" style="color:var(--red);font-weight:700;">Our Story</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-order">Order Now</a></li>
+    <li><a href="events.html#enquiry" class="nav-cta">Book an Event</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html#menu">Menu</a>
+  <a href="our-story.html">Our Story</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="events.html">Events</a>
+  <a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-cta" style="background:var(--red);">Order Now</a>
+  <a href="events.html#enquiry" class="nav-cta" style="background:transparent;border:1.5px solid var(--ink);color:var(--ink)!important;">Book an Event</a>
+</div>
+
+<div class="page-hero reveal">
+  <p class="page-hero-label">Founded in Singapore</p>
+  <h1>A craving that<br>became a <span class="accent">calling</span></h1>
+  <p>Two friends, a love for Japan, and over 15kg of flour later — Kremi was born.</p>
+</div>
+
+<section class="story" id="story">
+  <div class="story-visual reveal">
+    <div class="story-img-main"><img src="boss-founders-first.jpg" alt="Lia and Tessa, co-founders of Kremi" loading="lazy"></div>
+    <div class="story-img-accent"><img src="boss-founders-second.jpg" alt="Kremi co-founders" loading="lazy"></div>
+    <div class="story-stamp"><span class="story-stamp-jp">旅</span><span class="story-stamp-en">born of travel</span></div>
+    <div class="founders-label"><span class="founder-name">Lia Lim &amp; Tessa Foo</span><span class="founder-title">Co-founders, Kremi</span></div>
+  </div>
+  <div class="reveal d2">
+    <p class="section-label">Our Story</p>
+    <h2 class="section-title">A craving that<br>became a calling</h2>
+    <p class="section-body">Lia Lim, 23, and Tessa Foo, 27, first met while working as cabin crew in the aviation industry. They became inseparable friends — and on every trip to Japan, they kept stopping at street stalls, ordering cone after cone.</p>
+    <div class="story-quote">"We tried a lot of crepes in Japan and then we fell in love with it. We realised there weren't many options back then."<span style="display:block;margin-top:0.5rem;font-style:normal;font-size:0.75rem;opacity:0.7;">— Tessa Foo, Co-founder</span></div>
+    <p class="section-body">Lia left aviation first and spent nearly a year developing the recipe at home — going through over 15kg of flour before finding the right blend. Tessa joined in late 2025, bringing structure and a sharp instinct for R&amp;D.</p>
+    <p class="section-body">Today, Lia leads marketing and the matcha station; Tessa runs crepe-making and product development. Kremi opened as one of the first tenants at the newly relaunched *SCAPE — a bet on youth, craft, and a little piece of Japan in the heart of Orchard.</p>
+  </div>
+</section>
+
+<section class="values-strip">
+  <div class="values-inner">
+    <div class="values-header reveal">
+      <p class="section-label">What We Stand For</p>
+      <h2 class="section-title">Made with intention,<br>served with care</h2>
+    </div>
+    <div class="values-grid" style="grid-template-columns:1fr;max-width:720px;margin:3rem auto 0;">
+      <div class="value-card reveal d1" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div>
+          <div class="value-title">Handmade. Honest. Inspired by Japan.</div>
+          <div class="value-desc">Every crepe is made fresh to order. We use first flush matcha powder and choose every ingredient for flavour first. From the streets of Tokyo to Orchard Road, we bring the craftsmanship and heartfelt warmth of Japanese food culture to you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit-section" id="visit">
+  <div class="map-card reveal">
+    <iframe class="map-embed" src="https://maps.google.com/maps?q=*SCAPE,+2+Orchard+Link,+Singapore+237978&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kremi at *SCAPE"></iframe>
+    <div class="map-info">
+      <div class="map-address">2 Orchard Link, #02-32, *SCAPE</div>
+      <div class="map-sub">Singapore 237978 · ~10 min walk from Orchard MRT</div>
+      <div class="hour-row"><span class="hour-day">Mon – Thu &amp; Sun</span><span class="hour-time">12:00pm – 8:45pm</span></div>
+      <div class="hour-row"><span class="hour-day">Friday &amp; Saturday</span><span class="hour-time">12:00pm – 9:00pm</span></div>
+    </div>
+  </div>
+  <div class="reveal d2">
+    <p class="section-label">Find Us</p>
+    <h2 class="section-title">Come say<br>hello at *SCAPE</h2>
+    <p class="section-body">Look for our signature retro-red kiosk on Level 2. You'll smell it before you see it.</p>
+    <div class="visit-detail"><div class="visit-icon"></div><div class="visit-text"><h4>Location</h4><p>2 Orchard Link, #02-32, *SCAPE<br>Singapore 237978</p></div></div>
+    <div class="visit-detail"><div class="visit-icon"></div><div class="visit-text"><h4>Getting Here</h4><p>~10 minute walk from Orchard MRT Station.<br>Take the underpass via 313 Somerset.</p></div></div>
+    <div class="visit-detail"><div class="visit-icon"></div><div class="visit-text"><h4>Contact</h4><p><a href="mailto:kremicollective@gmail.com">kremicollective@gmail.com</a></p></div></div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/kremi.sg/" target="_blank" rel="noopener noreferrer" class="social-btn ig"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@kremi.sg</a>
+      <a href="https://www.tiktok.com/@kremi.sg" target="_blank" rel="noopener noreferrer" class="social-btn tt"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.75a4.85 4.85 0 01-1.02-.06z"/></svg>TikTok</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div><img src="kremi_logo_white_removebg.png" alt="Kremi" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
+      <div class="footer-tagline">クレープと抹茶 · Japanese Crepes &amp; Matcha</div>
+      <p class="footer-desc">Handcrafted Japanese crepes and ceremonial-grade matcha, inspired by the streets of Japan. Made fresh for you at *SCAPE, Singapore.</p>
+    </div>
+    <div class="footer-cols-row">
+    <div class="footer-col"><h5>Explore</h5><a href="index.html#menu">Menu</a><a href="index.html#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
+    <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Kremi Singapore. All rights reserved.</span>
+    <a href="https://www.instagram.com/de.makers.space/" target="_blank" rel="noopener noreferrer" class="footer-credit">Website Designed by De Makers Space</a>
+    <span class="footer-jp">手作りクレープ</span>
+  </div>
+</footer>
+<script>
+var reveals=document.querySelectorAll('.reveal');
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.12});
+reveals.forEach(function(el){observer.observe(el);});
+document.body.classList.add('js-ready');
+document.addEventListener('DOMContentLoaded',function(){var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');if(h&&m){h.addEventListener('click',function(){
+    var isOpen=m.classList.contains('open');
+    if(isOpen){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}
+    else{h.classList.add('open');m.classList.add('open');document.body.style.overflow='hidden';}
+  });
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
+  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}});
+  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}); }});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
+</script>
+</body>
+</html>

@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="kremi_logo_red.png" type="image/png">
+<meta property="og:title" content="Events — Kremi Singapore">
+<meta property="og:description" content="Book Kremi for your private event — birthdays, corporate events, weddings and pop-ups. Live crepe stations and ceremonial matcha bars.">
+<meta property="og:image" content="kremi-three-crepes.png">
+<meta property="og:url" content=""><!-- TODO: replace with absolute URL when deployed -->
+<meta property="og:type" content="website">
+<title>Events — Kremi Singapore</title>
+<meta name="description" content="Book Kremi for your private event — birthdays, corporate events, weddings and pop-ups. Live crepe stations and ceremonial matcha bars.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --matcha: #5a7a4a;
+  --matcha-light: #8aaa6a;
+  --matcha-pale: #d4e5c4;
+  --matcha-wash: #f0f5ea;
+  --red: #c8392b;
+  --red-warm: #d4504a;
+  --cream: #faf6ef;
+  --warm-white: #fffdf8;
+  --ink: #1a1714;
+  --ink-soft: #3d3530;
+  --blush: #f0d5c8;
+  --honey: #f5c97a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(250,246,239,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(90,122,74,0.15);
+}
+
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}s
+
+.nav-logo img {
+  width: 250px;
+  height: 80px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  margin-left: -0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 100px;
+}
+
+.nav-cta:hover {
+  background: var(--red-warm) !important;
+}
+
+.nav-order {
+  color: var(--red) !important;
+  border: 1.5px solid var(--red);
+  padding: 0.5rem 1.3rem;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-order:hover {
+  background: var(--red) !important;
+  color: white !important;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px,-5px);
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(250,246,239,0.98);
+  backdrop-filter: blur(16px);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-mobile.open {
+  display: flex;
+}
+
+.nav-mobile a {
+  font-size: 1.4rem;
+  font-family: 'Shippori Mincho', serif;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--red);
+}
+
+.nav-mobile .nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.8rem 2.2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  display: block;
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2rem,3.5vw,3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+.section-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+body.js-ready .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+body.js-ready .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.d1 {
+  transition-delay: 0.1s;
+}
+
+.d2 {
+  transition-delay: 0.2s;
+}
+
+.d3 {
+  transition-delay: 0.3s;
+}
+
+.d4 {
+  transition-delay: 0.4s;
+}
+
+/* EVENTS HERO - centered */
+.events-divider {
+  background: var(--ink);
+  padding: 10rem 6rem 7rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.events-divider::before {
+  content: 'イベント';
+  position: absolute;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 18rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.03);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+}
+
+.events-divider-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.events-divider-content .section-label {
+  color: var(--red-warm);
+  justify-content: center;
+}
+
+.events-divider-content .section-label::before {
+  background: var(--red-warm);
+}
+
+.events-divider-content .section-title {
+  color: white;
+}
+
+.events-divider-content p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.events-divider-actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-events {
+  display: inline-flex;
+  align-items: center;
+  background: var(--red);
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-events:hover {
+  background: var(--red-warm);
+  transform: translateY(-2px);
+}
+
+.btn-events-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.btn-events-ghost:hover {
+  color: white;
+}
+
+.btn-events-ghost::after {
+  content: '→';
+}
+
+/* PAST EVENTS */
+.past-events {
+  padding: 7rem 6rem;
+  background: var(--cream);
+}
+
+.past-events-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 5rem;
+}
+
+.past-events-header .section-label {
+  justify-content: center;
+}
+
+.past-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ev-photo-card {
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: var(--ink);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s;
+}
+
+.ev-photo-card:hover {
+  transform: scale(1.025);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+.ev-photo-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s, opacity 0.4s;
+  opacity: 0.9;
+}
+
+.ev-photo-card:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.ev-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top,rgba(26,23,20,0.82) 0%,rgba(26,23,20,0) 65%);
+  padding: 1.6rem 1.6rem 1.4rem;
+}
+
+.ev-overlay-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  background: rgba(220, 220, 220, 0.85);
+  padding: 0.15rem 0.1rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.ev-overlay-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.ig-strip {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  background: white;
+  border-radius: 16px;
+  padding: 1.6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  flex-wrap: wrap;
+}
+
+.ig-strip-text {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.ig-strip-text strong {
+  color: var(--ink);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.ig-strip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.ig-strip-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200,57,43,0.3);
+}
+
+/* TESTIMONIALS */
+.ev-testimonials {
+  background: var(--matcha);
+  padding: 5rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ev-testimonials::before {
+  content: '喜び';
+  position: absolute;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 16rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.04);
+  right: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.ev-testimonials-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.ev-test-left .section-label {
+  color: var(--matcha-pale);
+}
+
+.ev-test-left .section-label::before {
+  background: var(--matcha-pale);
+}
+
+.ev-test-left .section-title {
+  color: white;
+}
+
+.ev-test-left p.desc {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.ev-test-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.ev-test-card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 1.6rem;
+}
+
+.ev-test-card p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.85);
+  font-weight: 300;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.ev-test-card-author {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ev-test-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ev-test-name {
+  font-size: 0.8rem;
+  color: white;
+  font-weight: 600;
+}
+
+.ev-test-role {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.ev-stars {
+  color: var(--honey);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+}
+
+/* HOW IT WORKS */
+.how-section {
+  background: var(--warm-white);
+  padding: 7rem 6rem;
+}
+
+.how-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.how-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 5rem;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.how-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(12.5% + 28px);
+  right: calc(12.5% + 28px);
+  border-top: 2px dashed var(--matcha-pale);
+}
+
+.how-step {
+  text-align: center;
+  position: relative;
+}
+
+.step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--matcha);
+  color: white;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(90,122,74,0.3);
+}
+
+.step-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+.step-desc {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+/* CTA BAND */
+.cta-band {
+  background: var(--red);
+  padding: 5rem 6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: '✦';
+  position: absolute;
+  font-size: 12rem;
+  color: rgba(255,255,255,0.04);
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.cta-band::after {
+  content: '✦';
+  position: absolute;
+  font-size: 8rem;
+  color: rgba(255,255,255,0.04);
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.cta-band h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.8rem,3.5vw,3rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.8rem;
+}
+
+.cta-band p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.cta-band-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-white {
+  background: white;
+  color: var(--red);
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.btn-ghost-white {
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.btn-ghost-white:hover {
+  opacity: 1;
+}
+
+/* ENQUIRY */
+.enquiry-section {
+  padding: 7rem 6rem;
+  background: var(--cream);
+}
+
+.enquiry-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.enquiry-form {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+}
+
+.form-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.form-subtitle {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+.form-group label .req {
+  color: var(--red);
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.85rem 1rem;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: var(--warm-white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--matcha);
+  box-shadow: 0 0 0 3px rgba(90,122,74,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a7a4a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--matcha);
+  cursor: pointer;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 100px;
+  background: var(--red);
+  color: white;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+
+.form-submit:hover {
+  background: var(--red-warm);
+  transform: translateY(-2px);
+}
+
+.form-note {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: 0.8rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.field-error {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--red);
+  margin-top: 0.3rem;
+  min-height: 1em;
+  font-weight: 400;
+}
+
+.date-mode-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.date-mode-btn {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.05em;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.date-mode-btn.active {
+  background: var(--red);
+  color: white;
+  border-color: var(--red);
+}
+
+.multi-date-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.multi-date-row input[type="date"] {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  background: white;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.multi-date-row input[type="date"]:focus {
+  border-color: var(--matcha);
+  box-shadow: 0 0 0 3px rgba(90,122,74,0.1);
+}
+
+.remove-date-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200,57,43,0.3);
+  background: transparent;
+  color: var(--red);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.remove-date-btn:hover {
+  background: var(--red);
+  color: white;
+}
+
+.add-date-btn {
+  background: none;
+  border: 1.5px dashed rgba(90,122,74,0.4);
+  color: var(--matcha);
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.25rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.add-date-btn:hover {
+  background: rgba(90,122,74,0.08);
+  border-color: var(--matcha);
+}
+
+.form-group input.invalid,
+.form-group select.invalid {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(200,57,43,0.1);
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-success.show {
+  display: flex;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--matcha-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.success-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--matcha);
+}
+
+.success-msg {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 320px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: white;
+  padding: 5rem 6rem 3rem;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.footer-col h5 {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c8392b;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-bottom: 0.7rem;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-jp {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.15);
+  letter-spacing: 0.1em;
+}
+
+.footer-credit {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-credit:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+@media(min-width:641px) {
+  .footer-cols-row { display: contents; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    z-index: 101;
+    position: relative;
+  }
+
+  .nav-logo img {
+    width: 140px;
+    height: auto;
+  }
+
+  .events-divider {
+    padding: 8rem 2.5rem 5rem;
+  }
+
+  .past-events {
+    padding: 5rem 2.5rem;
+  }
+
+  .past-events-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ev-photo-card img {
+    height: 280px;
+  }
+
+  .ev-testimonials {
+    padding: 5rem 2.5rem;
+  }
+
+  .ev-testimonials-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .how-section {
+    padding: 5rem 2.5rem;
+  }
+
+  .how-header {
+    grid-template-columns: 1fr;
+  }
+
+  .how-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .how-steps::before {
+    display: none;
+  }
+
+  .enquiry-section {
+    padding: 5rem 2.5rem;
+  }
+
+  .cta-band {
+    padding: 4rem 2.5rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  footer {
+    padding: 4rem 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-logo img {
+    width: 110px;
+    height: auto;
+  }
+
+  .events-divider {
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .past-events {
+    padding: 4rem 1.5rem;
+  }
+
+  .past-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ev-photo-card img {
+    height: 300px;
+  }
+
+  .ev-overlay-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .ev-overlay-title {
+    font-size: 0.85rem;
+  }
+
+  .ev-testimonials {
+    padding: 4rem 1.5rem;
+  }
+
+  .how-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .how-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .enquiry-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .enquiry-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .cta-band-actions {
+    flex-direction: column;
+  }
+
+  .ig-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-top > div:first-child {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-cols-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .footer-col {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-col a,
+  .footer-col p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.78rem;
+  }
+  .footer-col h5 {
+    font-size: 0.58rem;
+  }
+  footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .how-steps {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="events.html" style="color:var(--red);font-weight:700;">Events</a></li>
+    <li><a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-order">Order Now</a></li>
+    <li><a href="#enquiry" class="nav-cta">Book an Event</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html#menu">Menu</a>
+  <a href="our-story.html">Our Story</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="events.html">Events</a>
+  <a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-cta" style="background:var(--red);">Order Now</a>
+  <a href="#enquiry" class="nav-cta" style="background:transparent;border:1.5px solid var(--ink);color:var(--ink)!important;">Book an Event</a>
+</div>
+
+<section class="events-divider" id="events">
+  <div class="events-divider-content reveal">
+    <p class="section-label">Private Events &amp; Bookings</p>
+    <h2 class="section-title">Bring <span style="color:var(--red);">Kremi</span><br>to your event</h2>
+    <p>Birthdays, corporate gatherings, weddings, pop-ups — we bring fresh handcrafted Japanese crepes and ceremonial matcha right to your celebration.</p>
+    <div class="events-divider-actions">
+      <a href="#enquiry" class="btn-events">Book an Event</a>
+      <a href="#past-events" class="btn-events-ghost">See what we offer</a>
+    </div>
+  </div>
+</section>
+
+<span id="past-events" style="display:block;position:relative;top:-80px;visibility:hidden;" aria-hidden="true"></span>
+<section class="past-events">
+  <div class="past-events-header reveal">
+    <p class="section-label">In Action</p>
+    <h2 class="section-title">Events we've<br>been part of</h2>
+    <p style="font-size:0.95rem;color:var(--ink-soft);font-weight:300;line-height:1.8;margin-top:0.5rem;">From intimate birthday parties to corporate pop-ups — a few moments from our events.</p>
+  </div>
+  <div class="past-events-grid reveal">
+    <div class="ev-photo-card d1"><img loading="lazy" src="eventwedding.jpg" alt="Kremi matcha live station at wedding" style="object-position:center top;"><div class="ev-overlay"><div class="ev-overlay-label">Wedding · Matcha Live Station</div><div class="ev-overlay-title">Bridal Matcha Bar — complimentary ceremonial matcha for wedding guests</div></div></div>
+    <div class="ev-photo-card d2"><img loading="lazy" src="eventchristmascrepe.jpg" alt="Kremi live crepe station at Christmas event" style="object-position:center 20%;"><div class="ev-overlay"><div class="ev-overlay-label">Christmas · Crepe Live Station</div><div class="ev-overlay-title">Festive Crepe Station — fresh strawberry crepes made to order</div></div></div>
+    <div class="ev-photo-card d3"><img loading="lazy" src="eventmatchacorporate.jpg" alt="Kremi matcha live station at corporate event" style="object-position:center top;"><div class="ev-overlay"><div class="ev-overlay-label">Corporate · Matcha Live Station</div><div class="ev-overlay-title">Office Matcha Bar — guests queue for freshly whisked ceremonial matcha</div></div></div>
+  </div>
+  <div class="ig-strip reveal d2">
+    <div class="ig-strip-text"><strong>See more from our events</strong>Follow us on Instagram for the latest highlights, behind-the-scenes, and event content from the Kremi team.</div>
+    <a href="https://www.instagram.com/kremi.sg/" target="_blank" rel="noopener noreferrer" class="ig-strip-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@kremi.sg on Instagram</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Ready to make it happen?</h2>
+  <p>Send us an enquiry and let's plan something beautiful together — one crepe at a time.</p>
+  <div class="cta-band-actions">
+    <a href="#enquiry" class="btn-white">Send an Enquiry</a>
+    <a href="mailto:kremicollective@gmail.com" class="btn-ghost-white">Email Us</a>
+  </div>
+</section>
+
+<section class="enquiry-section" id="enquiry">
+  <div class="enquiry-inner">
+    <div class="reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Tell us about<br>your event</h2>
+      <p style="font-size:0.9rem;line-height:1.8;color:var(--ink-soft);font-weight:300;margin-bottom:2rem;">We'd love to be part of your celebration. Fill in the form and we'll get back to you within 2 business days.</p>
+      <div class="enquiry-form" id="formWrapper">
+        <form id="formContent" onsubmit="event.preventDefault(); submitForm();">
+          <div class="form-title">Event Enquiry Form</div>
+          <div class="form-subtitle">Fill in the details below and we'll craft a response just for you. Fields marked <span style="color:var(--red);">*</span> are required.</div>
+          <div class="form-row">
+            <div class="form-group"><label>Full Name <span class="req">*</span></label><input type="text" id="fname" placeholder="Jane Tan" autocomplete="name"><span class="field-error" id="err-fname"></span></div>
+            <div class="form-group"><label>Phone / WhatsApp <span class="req">*</span></label><input type="tel" id="fphone" placeholder="+65 9123 4567" inputmode="numeric" autocomplete="tel"><span class="field-error" id="err-fphone"></span></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Event Type <span class="req">*</span></label><select id="feventType"><option value="" disabled selected>Select event type</option><option>Birthday Party</option><option>Corporate Event</option><option>Pop-up / Market</option><option>Wedding</option><option>School / Community Event</option><option>Brand Activation</option><option>Other</option></select><span class="field-error" id="err-feventType"></span></div>
+            <div class="form-group"><label>Estimated Guest Count <span class="req">*</span></label><select id="fguests"><option value="" disabled selected>Number of guests</option><option>80</option><option>100</option><option>150</option><option>200</option><option>250</option><option>300 and above</option></select><span class="field-error" id="err-fguests"></span></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Event Date <span class="req">*</span></label>
+              <div class="date-mode-toggle">
+                <button type="button" class="date-mode-btn active" id="btnSingleDay" onclick="setDateMode('single')">Single Day</button>
+                <button type="button" class="date-mode-btn" id="btnMultiDay" onclick="setDateMode('multi')">Multiple Days</button>
+              </div>
+              <div id="singleDateWrap"><input type="date" id="fdate"></div>
+              <div id="multiDateWrap" style="display:none;">
+                <div id="multiDateList"></div>
+                <button type="button" class="add-date-btn" onclick="addDateField()">+ Add another date</button>
+              </div>
+              <span class="field-error" id="err-fdate"></span>
+            </div>
+            <div class="form-group"><label>Budget (optional)</label><select id="fbudget"><option value="" disabled selected>Approximate budget</option><option>Under S$300</option><option>S$300 – S$600</option><option>S$600 – S$1,000</option><option>S$1,000+</option><option>Not sure yet</option></select></div>
+          </div>
+          <div class="form-group"><label>Interested In</label><div class="checkbox-group"><label class="checkbox-item"><input type="checkbox"> Crepe Station</label><label class="checkbox-item"><input type="checkbox"> Matcha Drinks Bar</label><label class="checkbox-item"><input type="checkbox"> Custom Branding</label><label class="checkbox-item"><input type="checkbox"> Custom Menu</label><label class="checkbox-item"><input type="checkbox"> Not sure yet</label></div></div>
+          <div class="form-group"><label>Tell us more about your event</label><textarea id="fmsg" placeholder="Any special requests, dietary requirements, theme, or anything else you'd like us to know..."></textarea></div>
+          <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
+          <p class="form-note">We'll reply within 2 business days.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">📬</div>
+          <div class="success-title">Almost there!</div>
+          <p class="success-msg">Your enquiry details have been filled into your mail app — <strong>please press Send</strong> to complete your submission to Kremi.</p>
+          <p class="success-msg" style="margin-top:0.8rem;padding:0.8rem 1rem;background:var(--matcha-wash);border-radius:10px;border-left:3px solid var(--matcha);">If your mail app didn't open, reach us at <a href="mailto:kremicollective@gmail.com" style="color:var(--matcha);font-weight:600;">kremicollective@gmail.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div><img src="kremi_logo_white_removebg.png" alt="Kremi" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
+      <div class="footer-tagline">クレープと抹茶 · Japanese Crepes &amp; Matcha</div>
+      <p class="footer-desc">Handcrafted Japanese crepes and ceremonial-grade matcha, inspired by the streets of Japan. Made fresh for you at *SCAPE, Singapore.</p>
+    </div>
+    <div class="footer-cols-row">
+    <div class="footer-col"><h5>Explore</h5><a href="index.html#menu">Menu</a><a href="index.html#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
+    <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Kremi Singapore. All rights reserved.</span>
+    <a href="https://www.instagram.com/de.makers.space/" target="_blank" rel="noopener noreferrer" class="footer-credit">Website Designed by De Makers Space</a>
+    <span class="footer-jp">手作りクレープ</span>
+  </div>
+</footer>
+<script>
+var reveals=document.querySelectorAll('.reveal');
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.12});
+reveals.forEach(function(el){observer.observe(el);});
+document.body.classList.add('js-ready');
+document.addEventListener('DOMContentLoaded',function(){
+  var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');
+  if(h&&m){h.addEventListener('click',function(){
+    var isOpen=m.classList.contains('open');
+    if(isOpen){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}
+    else{h.classList.add('open');m.classList.add('open');document.body.style.overflow='hidden';}
+  });
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
+  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}});
+  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}); }
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
+  var ph=document.getElementById('fphone');
+  if(ph){ph.addEventListener('keypress',function(e){if(!/[0-9+\-\s]/.test(e.key)&&!['Backspace','Delete','Tab','Enter','ArrowLeft','ArrowRight'].includes(e.key))e.preventDefault();});ph.addEventListener('input',function(){this.value=this.value.replace(/[^0-9+\-\s]/g,'');});}
+  var di=document.getElementById('fdate');
+  if(di){var t=new Date();t.setDate(t.getDate()+7);di.min=t.toISOString().split('T')[0];}
+  addDateField();
+});
+var dateMode='single';
+function setDateMode(mode){
+  dateMode=mode;
+  document.getElementById('singleDateWrap').style.display=mode==='single'?'':'none';
+  document.getElementById('multiDateWrap').style.display=mode==='multi'?'':'none';
+  document.getElementById('btnSingleDay').classList.toggle('active',mode==='single');
+  document.getElementById('btnMultiDay').classList.toggle('active',mode==='multi');
+  setError('fdate','');
+}
+function getMinDate(){var t=new Date();t.setDate(t.getDate()+7);return t.toISOString().split('T')[0];}
+function addDateField(){
+  var list=document.getElementById('multiDateList');
+  var row=document.createElement('div');
+  row.className='multi-date-row';
+  var inp=document.createElement('input');
+  inp.type='date';inp.min=getMinDate();
+  var btn=document.createElement('button');
+  btn.type='button';btn.className='remove-date-btn';
+  btn.textContent='\u00d7';
+  btn.onclick=function(){if(document.querySelectorAll('.multi-date-row').length>1)row.remove();};
+  row.appendChild(inp);row.appendChild(btn);list.appendChild(row);
+}
+function setError(id,msg){var el=document.getElementById('err-'+id);var inp=document.getElementById(id);if(el)el.textContent=msg;if(inp){inp.classList.toggle('invalid',!!msg);inp.classList.toggle('valid',!msg&&inp.value.trim()!=='');}}
+function isValidPhone(v){return /^[+]?[0-9][0-9\s\-]{6,18}$/.test(v.trim());}
+function submitForm(){
+  var n=document.getElementById('fname').value.trim();
+  var p=document.getElementById('fphone').value.trim();
+  var t=document.getElementById('feventType').value;
+  var g=document.getElementById('fguests').value;
+  var d;
+  if(dateMode==='single'){d=document.getElementById('fdate').value;}
+  else{var picks=[];document.querySelectorAll('#multiDateList input[type="date"]').forEach(function(i){if(i.value)picks.push(i.value);});d=picks.join(', ');}
+  var budget=document.getElementById('fbudget').value||'Not specified';
+  var msg=document.getElementById('fmsg').value.trim();
+  var interests=[];document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(function(cb){if(cb.checked)interests.push(cb.parentElement.textContent.trim());});
+  var valid=true;
+  if(!n){setError('fname','Please enter your name.');valid=false;}else setError('fname','');
+  if(!p){setError('fphone','Please enter your phone number.');valid=false;}else if(!isValidPhone(p)){setError('fphone','Please enter a valid phone number.');valid=false;}else setError('fphone','');
+  if(!t){setError('feventType','Please select an event type.');valid=false;}else setError('feventType','');
+  if(!g){setError('fguests','Please select a guest count.');valid=false;}else setError('fguests','');
+  if(!d){setError('fdate',dateMode==='single'?'Please select your event date.':'Please select at least one date.');valid=false;}else setError('fdate','');
+  if(!valid){var fe=document.querySelector('.field-error:not(:empty)');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  var subj=encodeURIComponent('Event Enquiry — '+t+' | '+n);
+  var dateLabel=dateMode==='single'?'Event Date':'Event Date(s)';
+  var body=encodeURIComponent('Hi Kremi Team,\n\nI would like to enquire about booking Kremi for my event.\n\n──────────────────────\nName: '+n+'\nPhone / WhatsApp: '+p+'\n──────────────────────\nEvent Type: '+t+'\n'+dateLabel+': '+d+'\nEstimated Guests: '+g+'\nBudget: '+budget+'\nInterested In: '+(interests.length?interests.join(', '):'Not specified')+'\n──────────────────────\nAdditional Details:\n'+(msg||'Nil')+'\n\nLooking forward to hearing from you!');
+  location.href='mailto:kremicollective@gmail.com?subject='+subj+'&body='+body;
+  setTimeout(function(){document.getElementById('formContent').style.display='none';document.getElementById('formSuccess').classList.add('show');document.getElementById('formWrapper').scrollIntoView({behavior:'smooth',block:'center'});},400);
+}
+</script>
+</body>
+</html>

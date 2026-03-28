@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="kremi_logo_red.png" type="image/png">
+<meta property="og:title" content="Kremi — Japanese Crepes &amp; Matcha · Singapore">
+<meta property="og:description" content="Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Sweet &amp; savoury crepe cones made fresh to order.">
+<meta property="og:image" content="kremi-three-crepes.png">
+<meta property="og:url" content=""><!-- TODO: replace with absolute URL when deployed -->
+<meta property="og:type" content="website">
+<title>Kremi — Japanese Crepes & Matcha · Singapore</title>
+<meta name="description" content="Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Sweet & savoury crepe cones made fresh to order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --matcha: #5a7a4a;
+  --matcha-light: #8aaa6a;
+  --matcha-pale: #d4e5c4;
+  --matcha-wash: #f0f5ea;
+  --red: #c8392b;
+  --red-warm: #d4504a;
+  --cream: #faf6ef;
+  --warm-white: #fffdf8;
+  --ink: #1a1714;
+  --ink-soft: #3d3530;
+  --blush: #f0d5c8;
+  --honey: #f5c97a;
+  --honey-pale: #fdf3dc;
+  --peach: #f9e4d4;
+  --sage: #e8f0e2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(250,246,239,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(90,122,74,0.15);
+}
+
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 250px;
+  height: 80px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  margin-left: -0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 100px;
+}
+
+.nav-cta:hover {
+  background: var(--red-warm) !important;
+}
+
+.nav-order {
+  color: var(--red) !important;
+  border: 1.5px solid var(--red);
+  padding: 0.5rem 1.3rem;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-order:hover {
+  background: var(--red) !important;
+  color: white !important;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+  transition: transform 0.3s,opacity 0.3s;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px,-5px);
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(250,246,239,0.98);
+  backdrop-filter: blur(16px);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-mobile.open {
+  display: flex;
+}
+
+.nav-mobile a {
+  font-size: 1.4rem;
+  font-family: 'Shippori Mincho', serif;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--red);
+}
+
+.nav-mobile .nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.8rem 2.2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--red-warm);
+  display: block;
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2rem,3.5vw,3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+.section-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease,transform 0.7s ease;
+}
+
+body.js-ready .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+body.js-ready .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.d1 {
+  transition-delay: 0.1s;
+}
+
+.d2 {
+  transition-delay: 0.2s;
+}
+
+.d3 {
+  transition-delay: 0.3s;
+}
+
+.d4 {
+  transition-delay: 0.4s;
+}
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 13rem 4rem 6rem 6rem;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--red-warm);
+  display: block;
+}
+
+.hero-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(3rem,5.5vw,5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.hero-title .accent {
+  color: var(--red);
+}
+
+.hero-jp {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1rem;
+  color: var(--red);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 400px;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: transform 0.2s,background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: var(--red-warm);
+  transform: translateY(-2px);
+}
+
+.btn-ghost-dark {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+}
+
+.btn-ghost-dark:hover {
+  color: var(--matcha);
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.hero-right-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 15% 85%,rgba(90,122,74,0.1) 0%,transparent 55%),radial-gradient(ellipse at 85% 15%,rgba(90,122,74,0.07) 0%,transparent 50%),var(--cream);
+}
+
+.hero-image-stack {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 3rem;
+}
+
+.fan-wrapper {
+  position: relative;
+  width: 440px;
+  height: 440px;
+  transform-style: preserve-3d;
+  margin: auto;
+}
+
+.fan-tags {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.fan-card {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 260px;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  transform-origin: bottom center;
+  margin-left: -130px;
+  transition: transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s ease;
+}
+
+.fan-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fan-ll {
+  transform: rotate(-22deg);
+  z-index: 1;
+}
+
+.fan-l {
+  transform: rotate(-11deg);
+  z-index: 2;
+}
+
+.fan-c {
+  transform: rotate(0deg);
+  z-index: 5;
+}
+
+.fan-r {
+  transform: rotate(11deg);
+  z-index: 3;
+}
+
+.fan-rr {
+  transform: rotate(22deg);
+  z-index: 4;
+}
+
+.fan-wrapper:hover .fan-ll {
+  transform: rotate(-58deg);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.18);
+}
+
+.fan-wrapper:hover .fan-l {
+  transform: rotate(-26deg);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.18);
+}
+
+.fan-wrapper:hover .fan-c {
+  transform: rotate(0deg) translateY(-16px);
+  box-shadow: 0 36px 80px rgba(0,0,0,0.24);
+}
+
+.fan-wrapper:hover .fan-r {
+  transform: rotate(26deg);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.18);
+}
+
+.fan-wrapper:hover .fan-rr {
+  transform: rotate(58deg);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.18);
+}
+
+.hero-tag {
+  background: white;
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-tag.t-matcha {
+  color: var(--matcha);
+  border: 1.5px solid var(--matcha-pale);
+}
+
+.hero-tag.t-red {
+  color: var(--red);
+  border: 1.5px solid rgba(200,57,43,0.2);
+}
+
+.tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* MENU */
+.menu-section {
+  background: var(--cream);
+  padding: 6rem 0 0;
+}
+
+.menu-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 0.5rem;
+  padding: 0 2rem;
+}
+
+.menu-feat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  max-width: 1300px;
+  margin: 2rem auto 0;
+  padding: 0 6rem;
+}
+
+.feat-item {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.feat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.feat-icon.green {
+  background: var(--matcha-pale);
+}
+
+.feat-icon.red {
+  background: var(--blush);
+}
+
+.feat-body h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.feat-body p {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* TURNSTILE */
+.turnstile-wrap {
+  position: relative;
+  width: 100%;
+  padding: 0 0 1rem;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.turnstile-stage {
+  position: relative;
+  height: 500px;
+  perspective: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+}
+
+.tcard {
+  position: absolute;
+  width: 280px;
+  height: 390px;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: grab;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  transition: transform 0.65s cubic-bezier(0.23,1,0.32,1),opacity 0.55s ease,box-shadow 0.4s;
+}
+
+.tcard:active {
+  cursor: grabbing;
+}
+
+.tcard img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  background: #faf6ef;
+}
+
+.tcard-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.4rem 1.4rem;
+  background: none;
+  transform: translateY(6px);
+  transition: transform 0.3s ease;
+}
+
+.tcard:hover .tcard-info {
+  transform: translateY(0);
+}
+
+.tcard-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.22rem 0.65rem;
+  border-radius: 100px;
+  margin-bottom: 0.45rem;
+}
+.tb-sweet {
+  background: rgba(240,213,200,0.9);
+  color: #9a2b20;
+}
+
+.tb-savory {
+  background: rgba(80,110,65,0.88);
+  color: white;
+}
+
+.tb-special {
+  background: rgba(245,195,100,0.9);
+  color: #5a3800;
+}
+
+.tcard-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.tcard-price {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: 'Shippori Mincho', serif;
+}
+
+.tcard[data-pos="0"] {
+  transform: translateX(0) translateZ(0) scale(1);
+  z-index: 10;
+  opacity: 1;
+}
+
+.tcard[data-pos="1"] {
+  transform: translateX(230px) translateZ(-120px) scale(0.74);
+  z-index: 6;
+  opacity: 0.5;
+}
+
+.tcard[data-pos="-1"] {
+  transform: translateX(-230px) translateZ(-120px) scale(0.74);
+  z-index: 6;
+  opacity: 0.5;
+}
+
+.tcard[data-pos="2"] {
+  transform: translateX(370px) translateZ(-220px) scale(0.56);
+  z-index: 3;
+  opacity: 0.22;
+}
+
+.tcard[data-pos="-2"] {
+  transform: translateX(-370px) translateZ(-220px) scale(0.56);
+  z-index: 3;
+  opacity: 0.22;
+}
+
+.tcard[data-pos="hidden"] {
+  transform: translateX(0) translateZ(-600px) scale(0.3);
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.turnstile-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.tc-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(90,122,74,0.3);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  transition: all 0.2s;
+}
+
+.tc-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+  transform: scale(1.08);
+}
+
+.tc-dots {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.tc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(90,122,74,0.22);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tc-dot.on {
+  width: 18px;
+  border-radius: 3px;
+  background: var(--red-warm);
+}
+
+/* MENU MODAL */
+.menu-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,23,20,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.menu-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-modal {
+  background: var(--cream);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1);
+}
+
+.menu-modal-overlay.open .menu-modal {
+  transform: translateY(0) scale(1);
+}
+
+.menu-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 1.8rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: white;
+}
+
+.menu-modal-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.menu-modal-title span {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--matcha);
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.menu-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.menu-modal-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--ink);
+  color: white;
+  padding: 0.5rem 1.1rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s,transform 0.2s;
+}
+
+.menu-modal-download:hover {
+  background: var(--ink-soft);
+  transform: translateY(-1px);
+}
+
+.menu-modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1.5px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  transition: background 0.2s,color 0.2s;
+  line-height: 1;
+}
+
+.menu-modal-close:hover {
+  background: var(--red);
+  color: white;
+  border-color: var(--red);
+}
+
+.menu-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  background: #f5f2ec;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-modal-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.view-menu-strip {
+  text-align: center;
+  padding: 2rem 2rem 4rem;
+  background: var(--cream);
+}
+
+.view-menu-strip p {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.btn-view-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--ink);
+  color: white;
+  padding: 0.95rem 2.4rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s,transform 0.25s,box-shadow 0.25s;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.btn-view-menu:hover {
+  background: var(--red);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(200,57,43,0.28);
+}
+
+
+/* MATCHA */
+.matcha-section {
+  background: var(--matcha);
+  padding: 7rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.matcha-section::before {
+  content: '抹茶';
+  position: absolute;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 20rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.04);
+  right: -2rem;
+  bottom: -3rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.matcha-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.matcha-content .section-label {
+  color: var(--warm-white);
+}
+
+.matcha-content .section-label::before {
+  background: var(--warm-white);
+}
+
+.matcha-content .section-title {
+  color: white;
+}
+
+.matcha-content .section-body {
+  color: rgba(255,255,255,0.75);
+}
+
+.drinks-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem;
+}
+
+.matcha-latte-spotlight {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.5rem;
+}
+
+.ml-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  animation: ml-float 6s ease-in-out infinite;
+}
+
+.ml-orb1 {
+  width: 180px;
+  height: 180px;
+  background: rgba(90,122,74,0.35);
+  top: -20px;
+  right: -10px;
+}
+
+.ml-orb2 {
+  width: 120px;
+  height: 120px;
+  background: rgba(138,170,106,0.25);
+  bottom: 10px;
+  left: -10px;
+  animation-delay: 2s;
+}
+
+.ml-orb3 {
+  width: 80px;
+  height: 80px;
+  background: rgba(245,201,122,0.2);
+  top: 40%;
+  right: -30px;
+  animation-delay: 4s;
+}
+
+@keyframes ml-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.ml-kanji {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ml-glass-card {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  height: 380px;
+  border-radius: 28px;
+  background: linear-gradient(145deg,rgba(255,255,255,0.14) 0%,rgba(255,255,255,0.05) 100%);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.23,1,0.32,1);
+}
+
+.ml-glass-card:hover {
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.ml-img-wrap {
+  width: 90%;
+  height: 90%;
+  position: relative;
+  z-index: 2;
+}
+
+.ml-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.45));
+}
+
+.ml-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.05em;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.ml-badge-top {
+  top: -14px;
+  right: -20px;
+}
+
+.ml-badge-bottom {
+  bottom: -14px;
+  left: -20px;
+}
+
+.ml-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--matcha-pale);
+  flex-shrink: 0;
+}
+
+.ml-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  margin-top: 0.5rem;
+  z-index: 2;
+}
+
+.ml-label-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+}
+
+.ml-label-price {
+  font-size: 0.78rem;
+  color: var(--matcha-pale);
+  font-weight: 600;
+}
+
+.hot-sale-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: linear-gradient(135deg,#ff6b35,#f7c948);
+  color: white;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.55rem;
+  border-radius: 100px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  box-shadow: 0 2px 8px rgba(255,107,53,0.45);
+  animation: hot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hot-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(255,107,53,0.45);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(255,107,53,0.75);
+  }
+}
+
+@keyframes matcha-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.18),0 0 0 0 rgba(138,170,106,0);
+  }
+  50% {
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.18),0 0 50px 12px rgba(138,170,106,0.55),0 0 0 6px rgba(138,170,106,0.2);
+  }
+}
+
+.matcha-glow-active {
+  animation: matcha-glow-pulse 1.6s ease-in-out 3;
+}
+
+#matcha-arrow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 10;
+}
+
+#matcha-arrow-path {
+  fill: none;
+  stroke: rgba(200,230,180,0.7);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  stroke-linecap: round;
+}
+
+.drink-item-hot {
+  background: rgba(255,107,53,0.08);
+  border: 1px solid rgba(255,107,53,0.2);
+  border-radius: 10px;
+  padding: 0.65rem 0.7rem;
+  margin: -0.65rem -0.7rem;
+}
+
+/* PANEL SWITCHER */
+.cs-tab-bar {
+  display: flex;
+  align-items: stretch;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--red);
+}
+
+.cs-tab {
+  flex: 1;
+  position: relative;
+  padding: 1rem 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+}
+
+.cs-tab-text {
+  position: relative;
+  z-index: 2;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+}
+
+/* top + bottom border that scales in */
+.cs-tab-border {
+  position: absolute;
+  inset: 0;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: scaleY(2);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
+}
+
+/* white fill that slides in from top */
+.cs-tab-fill {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: top;
+}
+
+.cs-tab:hover .cs-tab-text,
+.cs-tab.cs-tab-active .cs-tab-text {
+  color: var(--red);
+}
+
+.cs-tab-bar[data-active="matcha"] {
+  background: var(--matcha);
+}
+
+.cs-tab-bar[data-active="matcha"] .cs-tab:hover .cs-tab-text,
+.cs-tab-bar[data-active="matcha"] .cs-tab.cs-tab-active .cs-tab-text {
+  color: var(--matcha);
+}
+
+.cs-tab:hover .cs-tab-border,
+.cs-tab.cs-tab-active .cs-tab-border {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.cs-tab:hover .cs-tab-fill,
+.cs-tab.cs-tab-active .cs-tab-fill {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.cs-panel-hidden {
+  display: none !important;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: white;
+  padding: 5rem 6rem 3rem;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.footer-col h5 {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c8392b;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-bottom: 0.7rem;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-jp {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.15);
+  letter-spacing: 0.1em;
+}
+
+/* footer-cols-row: transparent wrapper on desktop so cols remain flex children */
+@media(min-width:641px) {
+  .footer-cols-row {
+    display: contents;
+  }
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-hamburger {
+    display: flex;
+    z-index: 101;
+    position: relative;
+  }
+  .nav-logo img {
+    width: 140px;
+    height: auto;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-left {
+    padding: 7rem 2.5rem 4rem;
+  }
+  .hero-right {
+    height: 60vw;
+    min-height: 400px;
+  }
+  .fan-wrapper {
+    width: 360px;
+    height: 420px;
+    margin: 0 auto;
+  }
+  .fan-card {
+    width: 200px;
+    height: 290px;
+    margin-left: -100px;
+  }
+  .menu-feat {
+    grid-template-columns: 1fr;
+    padding: 0 2rem;
+  }
+  .matcha-top-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .matcha-section {
+    padding: 5rem 2.5rem;
+  }
+  .drinks-menu-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .footer-top {
+    justify-content: flex-start;
+    gap: 2.5rem;
+  }
+  footer {
+    padding: 4rem 2.5rem 2rem;
+  }
+}
+
+@media(max-width:640px) {
+  .nav-logo img {
+    width: 110px;
+    height: auto;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: unset;
+  }
+  .hero-left {
+    padding: 6.5rem 1.5rem 2.5rem;
+    order: 1;
+    justify-content: flex-start;
+  }
+  .hero-right {
+    order: 2;
+    height: 310px;
+    min-height: unset;
+    padding-bottom: 0;
+  }
+  .hero-image-stack {
+    padding: 1rem 0 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .fan-wrapper {
+    width: 230px;
+    height: 260px;
+    margin: 0 auto;
+  }
+  .fan-card {
+    width: 175px;
+    height: 255px;
+    margin-left: -87px;
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .hero-jp {
+    margin-bottom: 1rem;
+  }
+  .hero-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.65;
+  }
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.82rem;
+  }
+  .menu-section {
+    padding: 3rem 0 2rem;
+  }
+  .menu-feat {
+    padding: 0 1.5rem;
+  }
+  .matcha-section {
+    padding: 4rem 1.5rem;
+  }
+  .drinks-menu-grid {
+    grid-template-columns: 1fr;
+  }
+  .turnstile-stage {
+    height: 420px;
+  }
+  .tcard {
+    width: 230px;
+    height: 320px;
+  }
+  .tcard[data-pos="1"] {
+    transform: translateX(180px) translateZ(-100px) scale(0.74);
+    opacity: 0.45;
+  }
+  .tcard[data-pos="-1"] {
+    transform: translateX(-180px) translateZ(-100px) scale(0.74);
+    opacity: 0.45;
+  }
+  .tcard[data-pos="2"] {
+    transform: translateX(290px) translateZ(-190px) scale(0.55);
+    opacity: 0.18;
+  }
+  .tcard[data-pos="-2"] {
+    transform: translateX(-290px) translateZ(-190px) scale(0.55);
+    opacity: 0.18;
+  }
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-top > div:first-child {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-cols-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .footer-col {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-col a,
+  .footer-col p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.78rem;
+  }
+  .footer-col h5 {
+    font-size: 0.58rem;
+  }
+  footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+}
+
+.footer-credit {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-credit:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+.drink-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 1.6rem;
+}
+
+.drink-cat-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--matcha-pale);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.drink-cat-title-sm {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--matcha-pale);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.drink-cat-note {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+.drink-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drink-item-name {
+  color: white;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.drink-item-desc {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.72rem;
+  margin: 0.2rem 0;
+}
+
+.drink-item-price {
+  color: var(--matcha-pale);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.drink-addon {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.drink-addon-title {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.6rem;
+}
+
+.drink-addon-list {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.72rem;
+  line-height: 1.9;
+}
+
+.drink-addon-price {
+  color: var(--matcha-pale);
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi"></a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-order">Order Now</a></li>
+    <li><a href="events.html#enquiry" class="nav-cta">Book an Event</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="#menu">Menu</a>
+  <a href="our-story.html">Our Story</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="events.html">Events</a>
+  <a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-cta" style="background:var(--red);">Order Now</a>
+  <a href="events.html#enquiry" class="nav-cta" style="background:transparent;border:1.5px solid var(--ink);color:var(--ink)!important;">Book an Event</a>
+</div>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Made to order · Singapore</p>
+    <h1 class="hero-title">Hand&shy;crafted<br><span class="accent">Crepes</span><br>from Japan's<br>heart</h1>
+    <p class="hero-jp">クレープと抹茶の専門店</p>
+    <p class="hero-desc">Delicately made Japanese crepes and ceremonial-grade matcha — inspired by the streets of Japan, made fresh for you in Singapore.</p>
+    <div class="hero-actions">
+      <a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Order Now
+      </a>
+      <a href="#menu" class="btn-ghost-dark">View Menu →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-image-stack">
+      <div class="fan-wrapper">
+        <div class="fan-card fan-c"><img src="Strawberry_crepe.jpg" alt="Strawberry Crepe"></div>
+        <div class="fan-card fan-l"><img src="cookie_and_cream_crepe.webp" alt="Cookie and Cream Crepe"></div>
+        <div class="fan-card fan-r"><img src="matcha_crepe.webp" alt="Matcha Crepe"></div>
+        <div class="fan-card fan-ll"><img src="spicy_noodle_crepe.webp" alt="Spicy Noodle Crepe"></div>
+        <div class="fan-card fan-rr"><img src="kremi-strawberry-matcha.png" alt="Strawberry Matcha"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="cs-tab-bar" id="csTabBar" data-active="menu">
+  <button class="cs-tab cs-tab-active" data-panel="menu" onclick="switchPanel('menu')">
+    <span class="cs-tab-text">🥞 Crepes</span>
+    <span class="cs-tab-border"></span>
+    <span class="cs-tab-fill"></span>
+  </button>
+  <button class="cs-tab" data-panel="matcha" onclick="switchPanel('matcha')">
+    <span class="cs-tab-text">🍵 Matcha &amp; Drinks</span>
+    <span class="cs-tab-border"></span>
+    <span class="cs-tab-fill"></span>
+  </button>
+</div>
+
+<section class="menu-section" id="menu">
+  <div class="menu-header reveal">
+    <p class="section-label" style="justify-content:center;">Our Creations</p>
+    <h2 class="section-title" style="font-size:clamp(2rem,4vw,3.2rem);color:var(--red);">Every crepe, a<br>little piece of Japan</h2>
+    <p style="color:var(--ink-soft);font-size:0.95rem;line-height:1.8;font-weight:300;margin-top:1rem;">Made fresh to order, each crepe is wrapped with care and filled with ingredients chosen for balance of texture, flavour, and artistry.</p>
+  </div>
+  <div class="turnstile-wrap">
+    <div class="turnstile-stage" id="tStage"></div>
+    <div class="turnstile-controls">
+      <button class="tc-btn" onclick="tStep(-1)" aria-label="Previous"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="tc-dots" id="tDots"></div>
+      <button class="tc-btn" onclick="tStep(1)" aria-label="Next"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+
+</section>
+
+<div class="menu-modal-overlay" id="menuModal" onclick="handleModalOverlayClick(event)">
+  <div class="menu-modal">
+    <div class="menu-modal-header">
+      <div class="menu-modal-title">Kremi Full Menu <span>クレープと抹茶</span></div>
+      <div class="menu-modal-actions">
+        <a id="menuDownloadBtn" href="KremiCrepeMenu.png" download="Kremi_Crepe_Menu.png" class="menu-modal-download"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a>
+        <button class="menu-modal-close" onclick="closeMenuPDF()">✕</button>
+      </div>
+    </div>
+    <div style="display:flex;border-bottom:1px solid rgba(0,0,0,0.08);background:white;padding:0 1.8rem;">
+      <button id="tabCrepe" onclick="switchMenuTab('crepe')" style="padding:0.8rem 1.4rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;border:none;background:none;cursor:pointer;border-bottom:2px solid var(--red);color:var(--red);font-family:'DM Sans',sans-serif;">🥞 Crepe Menu</button>
+      <button id="tabDrinks" onclick="switchMenuTab('drinks')" style="padding:0.8rem 1.4rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;color:var(--ink-soft);font-family:'DM Sans',sans-serif;">🍵 Drinks Menu</button>
+    </div>
+    <div class="menu-modal-body"><img id="menuImgView" loading="lazy" src="KremiCrepeMenu.png" alt="Kremi Menu"></div>
+  </div>
+</div>
+
+<section class="matcha-section cs-panel-hidden" id="matcha">
+  <div class="matcha-top-grid">
+    <div class="matcha-content reveal">
+      <p class="section-label">The Purest Cup</p>
+      <h2 class="section-title">Ceremonial<br>Matcha</h2>
+      <p class="section-body" style="font-weight:700;letter-spacing:0.04em;">Vibrant. Smooth. Deep.</p>
+      <p class="section-body" id="matcha-rich-desc">Most matcha uses only <strong style="background:rgba(255,255,255,0.15);padding:0.1em 0.4em;border-radius:4px;color:#fff;">2g</strong> of powder. We believe in a richer experience. Each cup is crafted with a generous <strong style="background:var(--matcha, #6a9e5a);padding:0.1em 0.5em;border-radius:4px;color:#fff;font-size:1.05em;">6.5–7.5g</strong> of first-harvest matcha, delivering a rich, thick, and irresistibly smooth experience.</p>
+    </div>
+    <svg id="matcha-arrow-svg" width="0" height="0">
+      <defs>
+        <marker id="matcha-arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="rgba(200,230,180,0.8)"/>
+        </marker>
+      </defs>
+      <path id="matcha-arrow-path"/>
+    </svg>
+    <div class="matcha-latte-spotlight">
+      <div class="ml-orb ml-orb1"></div><div class="ml-orb ml-orb2"></div><div class="ml-orb ml-orb3"></div>
+      <div class="ml-kanji">抹茶</div>
+      <div class="ml-glass-card">
+        <div class="ml-img-wrap"><img loading="lazy" src="kremi_s_matcha_latte.png" alt="Kremi Matcha Latte" class="ml-img"></div>
+        <div class="ml-badge ml-badge-top"><span class="ml-badge-dot"></span>First Harvest</div>
+        <div class="ml-badge ml-badge-bottom"><span class="ml-badge-dot" style="background:#f5c97a;"></span>Ceremonial Grade</div>
+      </div>
+      <div class="ml-label-row"><span class="ml-label-name"><span style="color:var(--warm-white)">Kremi</span> Matcha Latte</span></div>
+    </div>
+  </div>
+  <div class="reveal drinks-menu-grid">
+    <div class="drink-card">
+      <div class="drink-cat-title">Matcha</div>
+      <div class="drink-cat-note">Oatmilk +$1.0 · Carrier +$0.2</div>
+      <div class="drink-items">
+        <div><div class="drink-item-name">Signature</div><div class="drink-item-desc">Floral, Nutty, Creamy</div><div class="drink-item-price">$7.50</div></div>
+        <div><div class="drink-item-name">Rin Matcha Latte</div><div class="drink-item-desc">Multi-dimensional Umami Flavour</div><div class="drink-item-price">$8.50</div></div>
+        <div><div class="drink-item-name">Ajisai Matcha Latte</div><div class="drink-item-desc">Umami, Soybean, Pistachio</div><div class="drink-item-price">$8.50</div></div>
+      </div>
+      <div class="drink-addon">
+        <div class="drink-addon-title">Add-ons</div>
+        <div class="drink-addon-list">Strawberry / Mango <span class="drink-addon-price">+$1</span><br>Banana Pudding <span class="drink-addon-price">+$2.50</span><br>Black Sesame Cold Foam <span class="drink-addon-price">+$2.50</span><br>Sea Salt Cold Foam <span class="drink-addon-price">+$2</span></div>
+      </div>
+    </div>
+    <div class="drink-card">
+      <div class="drink-cat-title-sm">Others</div>
+      <div class="drink-items">
+        <div><div class="drink-item-name">Hojicha Latte</div><div class="drink-item-desc">Dark Roast, Hazelnut Smokey Note</div><div class="drink-item-price">$7.00</div></div>
+        <div><div class="drink-item-name">Genmai Latte</div><div class="drink-item-desc">Toasty Aroma, Cereal Milk Taste</div><div class="drink-item-price">$7.00</div></div>
+        <div><div class="drink-item-name">Sea Salt Iced Chocolate</div><div class="drink-item-price">$6.00</div></div>
+      </div>
+    </div>
+    <div class="drink-card">
+      <div class="drink-cat-title-sm">Thirst Quencher</div>
+      <div class="drink-items">
+        <div><div class="drink-item-name">White Grape Fizz</div><div class="drink-item-price">$5.00</div></div>
+        <div><div class="drink-item-name">Sparkling Yuzu</div><div class="drink-item-price">$5.00</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="view-menu-strip reveal" style="text-align:center;">
+  <p>See our full Crepe &amp; Drinks menu</p>
+  <button class="btn-view-menu" onclick="openMenuPDF('crepe')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>View Full Menu<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <p style="font-size:0.75rem;color:var(--red-warm);opacity:0.75;margin-top:0.6rem;margin-bottom:0;">Crepe Menu &amp; Drinks Menu — switch between tabs</p>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div><img src="kremi_logo_white_removebg.png" alt="Kremi" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
+      <div class="footer-tagline">クレープと抹茶 · Japanese Crepes &amp; Matcha</div>
+      <p class="footer-desc">Handcrafted Japanese crepes and ceremonial-grade matcha, inspired by the streets of Japan. Made fresh for you at *SCAPE, Singapore.</p>
+    </div>
+    <div class="footer-cols-row">
+    <div class="footer-col"><h5>Explore</h5><a href="#menu">Menu</a><a href="#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
+    <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Kremi Singapore. All rights reserved.</span>
+    <a href="https://www.instagram.com/de.makers.space/" target="_blank" rel="noopener noreferrer" class="footer-credit">Website Designed by De Makers Space</a>
+    <span class="footer-jp">手作りクレープ</span>
+  </div>
+</footer>
+
+<script>
+var menuFiles={crepe:{img:'KremiCrepeMenu.png',dl:'Kremi_Crepe_Menu.png'},drinks:{img:'KremiDrinksMenuA4.png',dl:'Kremi_Drinks_Menu.png'}};
+function openMenuPDF(tab){tab=tab||'crepe';switchMenuTab(tab);document.getElementById('menuModal').classList.add('open');document.body.style.overflow='hidden';}
+function switchMenuTab(tab){var f=menuFiles[tab];document.getElementById('menuImgView').src=f.img;document.getElementById('menuDownloadBtn').href=f.img;document.getElementById('menuDownloadBtn').download=f.dl;document.getElementById('tabCrepe').style.borderBottomColor=tab==='crepe'?'var(--red)':'transparent';document.getElementById('tabCrepe').style.color=tab==='crepe'?'var(--matcha)':'var(--ink-soft)';document.getElementById('tabDrinks').style.borderBottomColor=tab==='drinks'?'var(--matcha)':'transparent';document.getElementById('tabDrinks').style.color=tab==='drinks'?'var(--matcha)':'var(--ink-soft)';}
+function closeMenuPDF(){document.getElementById('menuModal').classList.remove('open');document.body.style.overflow='';}
+function handleModalOverlayClick(e){if(e.target===document.getElementById('menuModal'))closeMenuPDF();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenuPDF();});
+var reveals=document.querySelectorAll('.reveal');
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.12});
+reveals.forEach(function(el){observer.observe(el);});
+document.body.classList.add('js-ready');
+var tCrepes=[{img:'menustrawberrycreamcheese.png',name:'Strawberry Cream Cheese',badge:'⭐ Bestseller',bc:'tb-special',price:'S$14.90'},{img:'menumochistrawberry.png',name:'Mochi Strawberry',badge:'⭐ Bestseller',bc:'tb-special',price:'S$11.90'},{img:'menuspicytunamayo.png',name:'Spicy Tuna Mayo',badge:'⭐ Bestseller',bc:'tb-savory',price:'S$9.90'},{img:'menubananapuddingbrulee.png',name:'Banana Pudding Matcha Brûlée',badge:'🔥 Limited Qty',bc:'tb-special',price:'S$14.90'},{img:'menustrawberrymatcha.png',name:'Strawberry Matcha',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menustrawberrynutella.png',name:'Strawberry Nutella',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menuoreocreamcheese.png',name:'Oreo Cream Cheese',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menumtbuldak.png',name:'Mt. Buldak',badge:'Savoury',bc:'tb-savory',price:'S$11.90'},{img:'menubananacookiebutter.png',name:'Banana Cookie Butter',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'},{img:'menuchoco.png',name:'Choco',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'}];
+var tCur=0,tN=tCrepes.length,tPaused=false,tTimer=null,tDragX=0,tDragging=false,tDelta=0;
+function tBuild(){var stage=document.getElementById('tStage');var dots=document.getElementById('tDots');if(!stage)return;stage.innerHTML='';dots.innerHTML='';tCrepes.forEach(function(c,i){var card=document.createElement('div');card.className='tcard';card.innerHTML='<img src="'+c.img+'" alt="'+c.name+'" loading="lazy"><div class="tcard-info"><span class="tcard-badge '+c.bc+'">'+c.badge+'</span><div class="tcard-name">'+c.name+'</div><div class="tcard-price">'+c.price+'</div></div>';stage.appendChild(card);var dot=document.createElement('div');dot.className='tc-dot'+(i===0?' on':'');dot.addEventListener('click',(function(idx){return function(){tGoTo(idx);};})(i));dots.appendChild(dot);});tRender();tAttachSwipe();tStartAuto();}
+function tRender(){var cards=document.querySelectorAll('.tcard');var dots=document.querySelectorAll('.tc-dot');cards.forEach(function(card,i){var rel=((i-tCur)%tN+tN)%tN;var signed=rel<=tN/2?rel:rel-tN;var pos;if(signed===0)pos='0';else if(signed===1)pos='1';else if(signed===-1)pos='-1';else if(signed===2)pos='2';else if(signed===-2)pos='-2';else pos='hidden';card.setAttribute('data-pos',pos);});dots.forEach(function(d,i){d.classList.toggle('on',i===tCur);});}
+function tStep(dir){tCur=(tCur+dir+tN)%tN;tRender();tResetAuto();}function tGoTo(idx){tCur=idx;tRender();tResetAuto();}
+function tStartAuto(){clearTimeout(tTimer);if(!tPaused)tTimer=setTimeout(function(){tStep(1);tStartAuto();},5000);}function tResetAuto(){if(!tPaused){clearTimeout(tTimer);tStartAuto();}}
+function tAttachSwipe(){var stage=document.getElementById('tStage');stage.addEventListener('touchstart',function(e){tDragX=e.touches[0].clientX;tDragging=true;},{passive:true});stage.addEventListener('touchmove',function(e){if(tDragging)tDelta=e.touches[0].clientX-tDragX;},{passive:true});stage.addEventListener('touchend',function(){if(tDragging&&Math.abs(tDelta)>45)tStep(tDelta<0?1:-1);tDragging=false;tDelta=0;});stage.addEventListener('mousedown',function(e){tDragX=e.clientX;tDragging=true;e.preventDefault();});window.addEventListener('mousemove',function(e){if(tDragging)tDelta=e.clientX-tDragX;});window.addEventListener('mouseup',function(){if(tDragging&&Math.abs(tDelta)>45)tStep(tDelta<0?1:-1);tDragging=false;tDelta=0;});}
+document.addEventListener('DOMContentLoaded',function(){tBuild();var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');if(h&&m){h.addEventListener('click',function(){
+    var isOpen=m.classList.contains('open');
+    if(isOpen){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}
+    else{h.classList.add('open');m.classList.add('open');document.body.style.overflow='hidden';}
+  });
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
+  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}});
+  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});}});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
+
+// Panel switcher
+var csCurrentPanel='menu';
+function switchPanel(panel){
+  csCurrentPanel=panel;
+  var isMenu=panel==='menu';
+  document.getElementById('menu').classList.toggle('cs-panel-hidden',!isMenu);
+  document.getElementById('matcha').classList.toggle('cs-panel-hidden',isMenu);
+  document.querySelectorAll('.cs-tab').forEach(function(tab){tab.classList.toggle('cs-tab-active',tab.dataset.panel===panel);});
+  var bar=document.getElementById('csTabBar');
+  if(bar){bar.dataset.active=panel;window.scrollTo({top:bar.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});}
+}
+// Swipe support
+(function(){
+  var sx=0,sy=0;
+  document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  document.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-sx;
+    var dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>60){
+      if(dx<0&&csCurrentPanel==='menu')switchPanel('matcha');
+      else if(dx>0&&csCurrentPanel==='matcha')switchPanel('menu');
+    }
+  },{passive:true});
+})();
+
+// Matcha arrow animation
+(function(){
+  var hasAnimated=false;
+  function buildArrow(){
+    var para=document.getElementById('matcha-rich-desc');
+    var card=document.querySelector('.ml-glass-card');
+    var grid=document.querySelector('.matcha-top-grid');
+    var svg=document.getElementById('matcha-arrow-svg');
+    var path=document.getElementById('matcha-arrow-path');
+    if(!para||!card||!grid||!svg||!path)return;
+    if(window.innerWidth<=1024){svg.style.display='none';return;}
+    svg.style.display='block';
+    var gr=grid.getBoundingClientRect();
+    var pr=para.getBoundingClientRect();
+    var cr=card.getBoundingClientRect();
+    var x1=pr.right-gr.left;
+    var y1=pr.top+pr.height/2-gr.top;
+    var x2=cr.left-gr.left;
+    var y2=cr.top+cr.height*0.38-gr.top;
+    var dx=x2-x1;
+    var cx1=x1+dx*0.35; var cy1=y1+35;
+    var cx2=x1+dx*0.65; var cy2=y2-20;
+    svg.setAttribute('width',gr.width);
+    svg.setAttribute('height',gr.height);
+    svg.setAttribute('viewBox','0 0 '+gr.width+' '+gr.height);
+    path.setAttribute('d','M'+x1+','+y1+' C'+cx1+','+cy1+' '+cx2+','+cy2+' '+x2+','+y2);
+    path.style.transition='none';
+    var len=path.getTotalLength();
+    path.style.strokeDasharray=len+' '+len;
+    path.style.strokeDashoffset=len;
+    return len;
+  }
+  function animateArrow(){
+    var len=buildArrow();
+    if(!len)return;
+    var path=document.getElementById('matcha-arrow-path');
+    var card=document.querySelector('.ml-glass-card');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        path.style.transition='stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) 0.2s';
+        path.style.strokeDashoffset='0';
+      });
+    });
+    setTimeout(function(){
+      if(card){card.classList.add('matcha-glow-active');}
+    },1700);
+  }
+  var section=document.getElementById('matcha');
+  if(section&&'IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting&&!hasAnimated){hasAnimated=true;animateArrow();}
+      });
+    },{threshold:0.45});
+    obs.observe(section);
+  }
+  window.addEventListener('resize',function(){
+    if(hasAnimated)buildArrow();
+  });
+})();
+</script>
+</body>
+</html>
