@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="kremi_logo_red.png" type="image/png">
 <meta property="og:title" content="Events — Kremi Singapore">
 <meta property="og:description" content="Book Kremi for your private event — birthdays, corporate events, weddings and pop-ups. Live crepe stations and ceremonial matcha bars.">
@@ -57,6 +58,11 @@ body {
   background: var(--warm-white);
   color: var(--ink);
   overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--honey);
+  outline-offset: 4px;
 }
 
 nav {
@@ -853,6 +859,17 @@ body.js-ready .reveal.visible {
   width: 100%;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -915,6 +932,12 @@ body.js-ready .reveal.visible {
 .form-submit:hover {
   background: var(--red-warm);
   transform: translateY(-2px);
+}
+
+.form-submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  transform: none;
 }
 
 .form-note {
@@ -1365,79 +1388,46 @@ footer {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://www.kremi.sg/events.html#webpage",
-      "url": "https://www.kremi.sg/events.html",
-      "name": "Book Kremi for Your Event — Private Parties, Corporate & Weddings · Singapore",
-      "description": "Hire Kremi for your next event in Singapore — birthdays, corporate gatherings, weddings, and pop-ups. Live Japanese crepe stations and ceremonial matcha bars made fresh on-site.",
-      "inLanguage": "en-SG",
-      "isPartOf": { "@type": "WebSite", "url": "https://www.kremi.sg", "name": "Kremi Singapore" },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.kremi.sg" },
-          { "@type": "ListItem", "position": 2, "name": "Events", "item": "https://www.kremi.sg/events.html" }
-        ]
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "https://www.kremi.sg/events.html#service",
-      "name": "Kremi Live Crepe Station & Matcha Bar — Event Catering Singapore",
-      "provider": {
-        "@type": "FoodEstablishment",
-        "@id": "https://www.kremi.sg/#business",
-        "name": "Kremi",
-        "url": "https://www.kremi.sg"
-      },
-      "description": "Live Japanese crepe stations and ceremonial matcha bars for birthdays, corporate events, weddings, and pop-ups across Singapore. Made fresh on-site by Kremi.",
-      "areaServed": { "@type": "City", "name": "Singapore" },
-      "serviceType": ["Event Catering", "Live Food Station", "Crepe Catering", "Matcha Bar", "Corporate Catering", "Wedding Catering"],
-      "url": "https://www.kremi.sg/events.html",
-      "offers": {
-        "@type": "Offer",
-        "description": "Custom event packages for live crepe stations and matcha bars. Contact for pricing.",
-        "url": "https://www.kremi.sg/events.html#enquiry"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Does Kremi do event catering in Singapore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Kremi provides live Japanese crepe stations and ceremonial matcha bars for private events including birthdays, corporate gatherings, weddings, and pop-ups across Singapore."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What kinds of events can Kremi cater?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kremi caters birthdays, corporate events, wedding receptions, school events, and pop-up activations. We provide a live, interactive crepe-making station and ceremonial matcha bar, made fresh on-site."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I book Kremi for an event?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Fill in the enquiry form at https://www.kremi.sg/events.html#enquiry or email kremicollective@gmail.com with your event details."
-          }
-        }
-      ]
+  "@type": "Service",
+  "name": "Kremi Event Catering",
+  "description": "Hire Kremi for private events in Singapore — birthdays, corporate gatherings, weddings, and pop-ups. Live handcrafted Japanese crepe stations and ceremonial matcha bars made fresh on-site.",
+  "provider": {
+    "@type": "FoodEstablishment",
+    "name": "Kremi",
+    "url": "https://www.kremi.sg",
+    "image": "https://www.kremi.sg/kremi-three-crepes.png",
+    "logo": "https://www.kremi.sg/kremi_logo_red.png",
+    "email": "kremicollective@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2 Orchard Link, #02-32",
+      "addressLocality": "Singapore",
+      "postalCode": "237978",
+      "addressCountry": "SG"
     }
-  ]
+  },
+  "serviceType": "Event Catering",
+  "areaServed": {
+    "@type": "City",
+    "name": "Singapore"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Individuals, Corporates, Wedding Planners, Event Organizers"
+  },
+  "url": "https://www.kremi.sg/events.html",
+  "offers": {
+    "@type": "Offer",
+    "description": "Live Japanese crepe stations and ceremonial matcha bars for private events, corporate gatherings, weddings, and pop-ups in Singapore.",
+    "areaServed": "Singapore",
+    "url": "https://www.kremi.sg/events.html"
+  }
 }
 </script>
 </head>
 <body>
 <nav id="nav">
-  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi Japanese Crepe Café Singapore logo"></a>
+  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" decoding="async"></a>
   <ul class="nav-links">
     <li><a href="index.html#menu">Menu</a></li>
     <li><a href="our-story.html">Our Story</a></li>
@@ -1446,7 +1436,7 @@ footer {
     <li><a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-order">Order Now</a></li>
     <li><a href="#enquiry" class="nav-cta">Book an Event</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="mobileNav">
   <a href="index.html#menu">Menu</a>
@@ -1477,9 +1467,9 @@ footer {
     <p style="font-size:0.95rem;color:var(--ink-soft);font-weight:300;line-height:1.8;margin-top:0.5rem;">From intimate birthday parties to corporate pop-ups — a few moments from our events.</p>
   </div>
   <div class="past-events-grid reveal">
-    <div class="ev-photo-card d1"><img loading="lazy" src="eventwedding.jpg" alt="Kremi live crepe station at Singapore wedding reception" style="object-position:center top;"><div class="ev-overlay"><div class="ev-overlay-label">Wedding · Matcha Live Station</div><div class="ev-overlay-title">Bridal Matcha Bar — complimentary ceremonial matcha for wedding guests</div></div></div>
-    <div class="ev-photo-card d2"><img loading="lazy" src="eventchristmascrepe.jpg" alt="Kremi live Japanese crepe station at Christmas event Singapore" style="object-position:center 20%;"><div class="ev-overlay"><div class="ev-overlay-label">Christmas · Crepe Live Station</div><div class="ev-overlay-title">Festive Crepe Station — fresh strawberry crepes made to order</div></div></div>
-    <div class="ev-photo-card d3"><img loading="lazy" src="eventmatchacorporate.jpg" alt="Kremi ceremonial matcha bar at Singapore corporate event" style="object-position:center top;"><div class="ev-overlay"><div class="ev-overlay-label">Corporate · Matcha Live Station</div><div class="ev-overlay-title">Office Matcha Bar — guests queue for freshly whisked ceremonial matcha</div></div></div>
+    <div class="ev-photo-card d1"><img loading="lazy" decoding="async" src="eventwedding.jpg" alt="Kremi matcha live station at wedding" width="960" height="968" style="object-position:center top;"><div class="ev-overlay"><div class="ev-overlay-label">Wedding · Matcha Live Station</div><div class="ev-overlay-title">Bridal Matcha Bar — complimentary ceremonial matcha for wedding guests</div></div></div>
+    <div class="ev-photo-card d2"><img loading="lazy" decoding="async" src="eventchristmascrepe.jpg" alt="Kremi live crepe station at Christmas event" width="720" height="1280" style="object-position:center 20%;"><div class="ev-overlay"><div class="ev-overlay-label">Christmas · Crepe Live Station</div><div class="ev-overlay-title">Festive Crepe Station — fresh strawberry crepes made to order</div></div></div>
+    <div class="ev-photo-card d3"><img loading="lazy" decoding="async" src="eventmatchacorporate-card.jpg" alt="Kremi matcha live station at corporate event" width="1200" height="675" style="object-position:center top;"><div class="ev-overlay"><div class="ev-overlay-label">Corporate · Matcha Live Station</div><div class="ev-overlay-title">Office Matcha Bar — guests queue for freshly whisked ceremonial matcha</div></div></div>
   </div>
   <div class="ig-strip reveal d2">
     <div class="ig-strip-text"><strong>See more from our events</strong>Follow us on Instagram for the latest highlights, behind-the-scenes, and event content from the Kremi team.</div>
@@ -1507,32 +1497,32 @@ footer {
           <div class="form-title">Event Enquiry Form</div>
           <div class="form-subtitle">Fill in the details below and we'll craft a response just for you. Fields marked <span style="color:var(--red);">*</span> are required.</div>
           <div class="form-row">
-            <div class="form-group"><label>Full Name <span class="req">*</span></label><input type="text" id="fname" placeholder="Jane Tan" autocomplete="name"><span class="field-error" id="err-fname"></span></div>
-            <div class="form-group"><label>Phone / WhatsApp <span class="req">*</span></label><input type="tel" id="fphone" placeholder="+65 9123 4567" inputmode="numeric" autocomplete="tel"><span class="field-error" id="err-fphone"></span></div>
+            <div class="form-group"><label for="fname">Full Name <span class="req">*</span></label><input type="text" id="fname" placeholder="Jane Tan" autocomplete="name" aria-describedby="err-fname"><span class="field-error" id="err-fname"></span></div>
+            <div class="form-group"><label for="fphone">Phone / WhatsApp <span class="req">*</span></label><input type="tel" id="fphone" placeholder="+65 9123 4567" inputmode="numeric" autocomplete="tel" aria-describedby="err-fphone"><span class="field-error" id="err-fphone"></span></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Event Type <span class="req">*</span></label><select id="feventType"><option value="" disabled selected>Select event type</option><option>Birthday Party</option><option>Corporate Event</option><option>Pop-up / Market</option><option>Wedding</option><option>School / Community Event</option><option>Brand Activation</option><option>Other</option></select><span class="field-error" id="err-feventType"></span></div>
-            <div class="form-group"><label>Estimated Guest Count <span class="req">*</span></label><select id="fguests"><option value="" disabled selected>Number of guests</option><option>80</option><option>100</option><option>150</option><option>200</option><option>250</option><option>300 and above</option></select><span class="field-error" id="err-fguests"></span></div>
+            <div class="form-group"><label for="feventType">Event Type <span class="req">*</span></label><select id="feventType" aria-describedby="err-feventType"><option value="" disabled selected>Select event type</option><option>Birthday Party</option><option>Corporate Event</option><option>Pop-up / Market</option><option>Wedding</option><option>School / Community Event</option><option>Brand Activation</option><option>Other</option></select><span class="field-error" id="err-feventType"></span></div>
+            <div class="form-group"><label for="fguests">Estimated Guest Count <span class="req">*</span></label><select id="fguests" aria-describedby="err-fguests"><option value="" disabled selected>Number of guests</option><option>80</option><option>100</option><option>150</option><option>200</option><option>250</option><option>300 and above</option></select><span class="field-error" id="err-fguests"></span></div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Event Date <span class="req">*</span></label>
+              <label for="fdate">Event Date <span class="req">*</span></label>
               <div class="date-mode-toggle">
                 <button type="button" class="date-mode-btn active" id="btnSingleDay" onclick="setDateMode('single')">Single Day</button>
                 <button type="button" class="date-mode-btn" id="btnMultiDay" onclick="setDateMode('multi')">Multiple Days</button>
               </div>
-              <div id="singleDateWrap"><input type="date" id="fdate"></div>
+              <div id="singleDateWrap"><input type="date" id="fdate" aria-describedby="err-fdate"></div>
               <div id="multiDateWrap" style="display:none;">
                 <div id="multiDateList"></div>
                 <button type="button" class="add-date-btn" onclick="addDateField()">+ Add another date</button>
               </div>
               <span class="field-error" id="err-fdate"></span>
             </div>
-            <div class="form-group"><label>Budget (optional)</label><select id="fbudget"><option value="" disabled selected>Approximate budget</option><option>Under S$300</option><option>S$300 – S$600</option><option>S$600 – S$1,000</option><option>S$1,000+</option><option>Not sure yet</option></select></div>
+            <div class="form-group"><label for="fbudget">Budget (optional)</label><select id="fbudget"><option value="" disabled selected>Approximate budget</option><option>Under S$300</option><option>S$300 – S$600</option><option>S$600 – S$1,000</option><option>S$1,000+</option><option>Not sure yet</option></select></div>
           </div>
           <div class="form-group"><label>Interested In</label><div class="checkbox-group"><label class="checkbox-item"><input type="checkbox"> Crepe Station</label><label class="checkbox-item"><input type="checkbox"> Matcha Drinks Bar</label><label class="checkbox-item"><input type="checkbox"> Custom Branding</label><label class="checkbox-item"><input type="checkbox"> Custom Menu</label><label class="checkbox-item"><input type="checkbox"> Not sure yet</label></div></div>
-          <div class="form-group"><label>Tell us more about your event</label><textarea id="fmsg" placeholder="Any special requests, dietary requirements, theme, or anything else you'd like us to know..."></textarea></div>
-          <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
+          <div class="form-group"><label for="fmsg">Tell us more about your event</label><textarea id="fmsg" placeholder="Any special requests, dietary requirements, theme, or anything else you'd like us to know..."></textarea></div>
+          <button class="form-submit" type="submit" id="formSubmitBtn">Send Enquiry →</button>
           <p class="form-note">We'll reply within 2 business days.</p>
         </form>
         <div class="form-success" id="formSuccess">
@@ -1549,7 +1539,7 @@ footer {
 <footer>
   <div class="footer-top">
     <div>
-      <div><img src="kremi_logo_white_removebg.png" alt="Kremi Japanese Crepe and Matcha café Singapore" loading="lazy" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
+      <div><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" loading="lazy" decoding="async" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
       <div class="footer-tagline">クレープと抹茶 · Japanese Crepes &amp; Matcha</div>
       <p class="footer-desc">Handcrafted Japanese crepes and ceremonial-grade matcha, inspired by the streets of Japan. Made fresh for you at *SCAPE, Singapore.</p>
     </div>
@@ -1574,12 +1564,12 @@ document.addEventListener('DOMContentLoaded',function(){
   var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');
   if(h&&m){h.addEventListener('click',function(){
     var isOpen=m.classList.contains('open');
-    if(isOpen){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}
-    else{h.classList.add('open');m.classList.add('open');document.body.style.overflow='hidden';}
+    if(isOpen){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+    else{h.classList.add('open');m.classList.add('open');h.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
   });
-  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
-  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}});
-  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}); }
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';});});
+  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}); }
 var nav=document.getElementById('nav');
 window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
   var ph=document.getElementById('fphone');
@@ -1610,9 +1600,11 @@ function addDateField(){
   btn.onclick=function(){if(document.querySelectorAll('.multi-date-row').length>1)row.remove();};
   row.appendChild(inp);row.appendChild(btn);list.appendChild(row);
 }
-function setError(id,msg){var el=document.getElementById('err-'+id);var inp=document.getElementById(id);if(el)el.textContent=msg;if(inp){inp.classList.toggle('invalid',!!msg);inp.classList.toggle('valid',!msg&&inp.value.trim()!=='');}}
+function setError(id,msg){var el=document.getElementById('err-'+id);var inp=document.getElementById(id);if(el)el.textContent=msg;if(inp){inp.classList.toggle('invalid',!!msg);inp.classList.toggle('valid',!msg&&inp.value.trim()!=='');inp.setAttribute('aria-invalid',msg?'true':'false');}}
 function isValidPhone(v){return /^[+]?[0-9][0-9\s\-]{6,18}$/.test(v.trim());}
+var formSubmitting=false;
 function submitForm(){
+  if(formSubmitting)return;
   var n=document.getElementById('fname').value.trim();
   var p=document.getElementById('fphone').value.trim();
   var t=document.getElementById('feventType').value;
@@ -1630,6 +1622,9 @@ function submitForm(){
   if(!g){setError('fguests','Please select a guest count.');valid=false;}else setError('fguests','');
   if(!d){setError('fdate',dateMode==='single'?'Please select your event date.':'Please select at least one date.');valid=false;}else setError('fdate','');
   if(!valid){var fe=document.querySelector('.field-error:not(:empty)');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  formSubmitting=true;
+  var submitBtn=document.getElementById('formSubmitBtn');
+  if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Opening email app...';}
   var subj=encodeURIComponent('Event Enquiry — '+t+' | '+n);
   var dateLabel=dateMode==='single'?'Event Date':'Event Date(s)';
   var body=encodeURIComponent('Hi Kremi Team,\n\nI would like to enquire about booking Kremi for my event.\n\n──────────────────────\nName: '+n+'\nPhone / WhatsApp: '+p+'\n──────────────────────\nEvent Type: '+t+'\n'+dateLabel+': '+d+'\nEstimated Guests: '+g+'\nBudget: '+budget+'\nInterested In: '+(interests.length?interests.join(', '):'Not specified')+'\n──────────────────────\nAdditional Details:\n'+(msg||'Nil')+'\n\nLooking forward to hearing from you!');

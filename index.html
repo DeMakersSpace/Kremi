@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="kremi_logo_red.png" type="image/png">
 <meta property="og:title" content="Kremi — Japanese Crepes &amp; Matcha · Singapore">
 <meta property="og:description" content="Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Sweet &amp; savoury crepe cones made fresh to order.">
@@ -60,6 +61,11 @@ body {
   background: var(--warm-white);
   color: var(--ink);
   overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--honey);
+  outline-offset: 4px;
 }
 
 nav {
@@ -773,6 +779,8 @@ body.js-ready .reveal.visible {
   height: 6px;
   border-radius: 50%;
   background: rgba(90,122,74,0.22);
+  border: 0;
+  padding: 0;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -781,6 +789,17 @@ body.js-ready .reveal.visible {
   width: 18px;
   border-radius: 3px;
   background: var(--red-warm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* MENU MODAL */
@@ -1687,153 +1706,38 @@ footer {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["FoodEstablishment", "LocalBusiness"],
-      "@id": "https://www.kremi.sg/#business",
-      "name": "Kremi",
-      "alternateName": "Kremi Singapore",
-      "description": "Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Sweet and savoury crepe cones made fresh to order.",
-      "image": [
-        "https://www.kremi.sg/kremithreecrepes.png",
-        "https://www.kremi.sg/kremistrawberrymatcha.png",
-        "https://www.kremi.sg/kremi_s_matcha_latte.png"
-      ],
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.kremi.sg/kremi_logo_red.png"
-      },
-      "servesCuisine": ["Japanese", "Dessert", "Crepes", "Matcha"],
-      "priceRange": "$$",
-      "email": "kremicollective@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2 Orchard Link, #02-32",
-        "addressLocality": "Singapore",
-        "addressRegion": "Singapore",
-        "postalCode": "237978",
-        "addressCountry": "SG"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 1.2994,
-        "longitude": 103.8389
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "12:00",
-          "closes": "20:45"
-        }
-      ],
-      "hasMap": "https://maps.google.com/?q=2+Orchard+Link+%2302-32+SCAPE+Singapore+237978",
-      "menu": "https://kremicollective.eposqr.com/menu/products",
-      "url": "https://www.kremi.sg",
-      "sameAs": [
-        "https://www.instagram.com/kremi.sg/"
-      ],
-      "currenciesAccepted": "SGD",
-      "paymentAccepted": "Cash, Credit Card",
-      "areaServed": {
-        "@type": "City",
-        "name": "Singapore"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "50"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.kremi.sg/#website",
-      "url": "https://www.kremi.sg",
-      "name": "Kremi Singapore",
-      "description": "Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore.",
-      "inLanguage": "en-SG",
-      "publisher": {
-        "@id": "https://www.kremi.sg/#business"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.kremi.sg/#webpage",
-      "url": "https://www.kremi.sg",
-      "name": "Kremi — Japanese Crepes & Matcha · Singapore",
-      "isPartOf": { "@id": "https://www.kremi.sg/#website" },
-      "about": { "@id": "https://www.kremi.sg/#business" },
-      "inLanguage": "en-SG",
-      "description": "Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Sweet & savoury crepe cones made fresh to order."
-    },
-    {
-      "@type": "Menu",
-      "@id": "https://www.kremi.sg/#menu",
-      "name": "Kremi Crepe & Drinks Menu",
-      "url": "https://kremicollective.eposqr.com/menu/products",
-      "hasMenuSection": [
-        {
-          "@type": "MenuSection",
-          "name": "Sweet Crepes",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Strawberry Cream Cheese", "offers": { "@type": "Offer", "price": "14.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Mochi Strawberry", "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Strawberry Matcha", "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Strawberry Nutella", "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Banana Nutella", "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Oreo Cream Cheese", "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Banana Cookie Butter", "offers": { "@type": "Offer", "price": "9.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Choco", "offers": { "@type": "Offer", "price": "9.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Banana Pudding Matcha Brûlée", "offers": { "@type": "Offer", "price": "14.90", "priceCurrency": "SGD" } }
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Savoury Crepes",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Spicy Tuna Mayo", "offers": { "@type": "Offer", "price": "9.90", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Mt. Buldak", "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "SGD" } }
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Matcha & Drinks",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Signature Matcha", "offers": { "@type": "Offer", "price": "7.50", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Rin Matcha Latte", "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Ajisai Matcha Latte", "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Hojicha Latte", "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Genmai Latte", "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Sea Salt Iced Chocolate", "offers": { "@type": "Offer", "price": "6.00", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "White Grape Fizz", "offers": { "@type": "Offer", "price": "5.00", "priceCurrency": "SGD" } },
-            { "@type": "MenuItem", "name": "Sparkling Yuzu", "offers": { "@type": "Offer", "price": "5.00", "priceCurrency": "SGD" } }
-          ]
-        }
-      ]
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.kremi.sg"
-    }
-  ]
+  "@type": "FoodEstablishment",
+  "name": "Kremi",
+  "alternateName": "Kremi Singapore",
+  "description": "Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Sweet and savoury crepe cones made fresh to order.",
+  "image": "https://www.kremi.sg/kremi-three-crepes.png",
+  "logo": "https://www.kremi.sg/kremi_logo_red.png",
+  "servesCuisine": ["Japanese", "Dessert", "Crepes", "Matcha"],
+  "priceRange": "$$",
+  "telephone": "",
+  "email": "kremicollective@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Orchard Link, #02-32",
+    "addressLocality": "Singapore",
+    "postalCode": "237978",
+    "addressCountry": "SG"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "12:00",
+    "closes": "20:45"
+  },
+  "hasMap": "https://maps.google.com/?q=2+Orchard+Link+%2302-32+SCAPE+Singapore+237978",
+  "menu": "https://kremicollective.eposqr.com/menu/products",
+  "url": "https://www.kremi.sg"
 }
 </script>
 </head>
 <body>
 <nav id="nav">
-  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi Japanese Crepe Café Singapore logo" width="250" height="80"></a>
+  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" decoding="async"></a>
   <ul class="nav-links">
     <li><a href="#menu">Menu</a></li>
     <li><a href="our-story.html">Our Story</a></li>
@@ -1842,7 +1746,7 @@ footer {
     <li><a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-order">Order Now</a></li>
     <li><a href="events.html#enquiry" class="nav-cta">Book an Event</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="mobileNav">
   <a href="#menu">Menu</a>
@@ -1871,11 +1775,11 @@ footer {
     <div class="hero-right-bg"></div>
     <div class="hero-image-stack">
       <div class="fan-wrapper">
-        <div class="fan-card fan-c"><img src="Strawberry_crepe.jpg" alt="Strawberry Japanese crepe cone by Kremi Singapore" width="300" height="400" loading="eager"></div>
-        <div class="fan-card fan-l"><img src="cookie_and_cream_crepe.webp" alt="Cookie and cream Japanese crepe cone by Kremi Singapore" width="300" height="400" loading="eager"></div>
-        <div class="fan-card fan-r"><img src="matcha_crepe.webp" alt="Matcha Japanese crepe cone by Kremi Singapore" width="300" height="400" loading="eager"></div>
-        <div class="fan-card fan-ll"><img src="spicy_noodle_crepe.webp" alt="Spicy noodle savoury crepe cone by Kremi Singapore" width="300" height="400" loading="lazy"></div>
-        <div class="fan-card fan-rr"><img src="kremi-strawberry-matcha.png" alt="Strawberry matcha Japanese crepe at Kremi Singapore" loading="lazy"></div>
+        <div class="fan-card fan-c"><img src="Strawberry_crepe.jpg" alt="Strawberry Crepe" width="600" height="800" decoding="async"></div>
+        <div class="fan-card fan-l"><img src="cookie_and_cream_crepe.webp" alt="Cookie and Cream Crepe" width="600" height="800" decoding="async"></div>
+        <div class="fan-card fan-r"><img src="matcha_crepe.webp" alt="Matcha Crepe" width="600" height="800" decoding="async"></div>
+        <div class="fan-card fan-ll"><img src="spicy_noodle_crepe.webp" alt="Spicy Noodle Crepe" width="600" height="800" decoding="async"></div>
+        <div class="fan-card fan-rr"><img src="kremi-strawberry-matcha.png" alt="Strawberry Matcha" width="443" height="590" decoding="async"></div>
       </div>
     </div>
   </div>
@@ -1912,20 +1816,20 @@ footer {
 
 </section>
 
-<div class="menu-modal-overlay" id="menuModal" onclick="handleModalOverlayClick(event)">
+<div class="menu-modal-overlay" id="menuModal" onclick="handleModalOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="menuModalTitle">
   <div class="menu-modal">
     <div class="menu-modal-header">
-      <div class="menu-modal-title">Kremi Full Menu <span>クレープと抹茶</span></div>
+      <div class="menu-modal-title" id="menuModalTitle">Kremi Full Menu <span>クレープと抹茶</span></div>
       <div class="menu-modal-actions">
         <a id="menuDownloadBtn" href="KremiCrepeMenu.png" download="Kremi_Crepe_Menu.png" class="menu-modal-download"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a>
-        <button class="menu-modal-close" onclick="closeMenuPDF()">✕</button>
+        <button class="menu-modal-close" onclick="closeMenuPDF()" aria-label="Close menu">✕</button>
       </div>
     </div>
     <div style="display:flex;border-bottom:1px solid rgba(0,0,0,0.08);background:white;padding:0 1.8rem;">
       <button id="tabCrepe" onclick="switchMenuTab('crepe')" style="padding:0.8rem 1.4rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;border:none;background:none;cursor:pointer;border-bottom:2px solid var(--red);color:var(--red);font-family:'DM Sans',sans-serif;">🥞 Crepe Menu</button>
       <button id="tabDrinks" onclick="switchMenuTab('drinks')" style="padding:0.8rem 1.4rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;color:var(--ink-soft);font-family:'DM Sans',sans-serif;">🍵 Drinks Menu</button>
     </div>
-    <div class="menu-modal-body"><img id="menuImgView" loading="lazy" src="KremiCrepeMenu.png" alt="Kremi full crepe menu Singapore — all flavours and prices"></div>
+    <div class="menu-modal-body"><img id="menuImgView" loading="lazy" decoding="async" width="1600" height="1132" alt="Kremi Menu preview"></div>
   </div>
 </div>
 
@@ -1949,7 +1853,7 @@ footer {
       <div class="ml-orb ml-orb1"></div><div class="ml-orb ml-orb2"></div><div class="ml-orb ml-orb3"></div>
       <div class="ml-kanji">抹茶</div>
       <div class="ml-glass-card">
-        <div class="ml-img-wrap"><img loading="lazy" src="kremi_s_matcha_latte.png" alt="Kremi ceremonial grade matcha latte at SCAPE Orchard Singapore" class="ml-img"></div>
+        <div class="ml-img-wrap"><img loading="lazy" decoding="async" src="kremi_s_matcha_latte.png" alt="Kremi Matcha Latte" class="ml-img" width="408" height="612"></div>
         <div class="ml-badge ml-badge-top"><span class="ml-badge-dot"></span>First Harvest</div>
         <div class="ml-badge ml-badge-bottom"><span class="ml-badge-dot" style="background:#f5c97a;"></span>Ceremonial Grade</div>
       </div>
@@ -1997,7 +1901,7 @@ footer {
 <footer>
   <div class="footer-top">
     <div>
-      <div><img src="kremi_logo_white_removebg.png" alt="Kremi Japanese Crepe and Matcha café Singapore" loading="lazy" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
+      <div><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" loading="lazy" decoding="async" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
       <div class="footer-tagline">クレープと抹茶 · Japanese Crepes &amp; Matcha</div>
       <p class="footer-desc">Handcrafted Japanese crepes and ceremonial-grade matcha, inspired by the streets of Japan. Made fresh for you at *SCAPE, Singapore.</p>
     </div>
@@ -2015,9 +1919,9 @@ footer {
 </footer>
 
 <script>
-var menuFiles={crepe:{img:'KremiCrepeMenu.png',dl:'Kremi_Crepe_Menu.png'},drinks:{img:'KremiDrinksMenuA4.png',dl:'Kremi_Drinks_Menu.png'}};
+var menuFiles={crepe:{preview:'KremiCrepeMenu-preview.jpg',full:'KremiCrepeMenu.png',dl:'Kremi_Crepe_Menu.png',w:1600,h:1132},drinks:{preview:'KremiDrinksMenuA4-preview.jpg',full:'KremiDrinksMenuA4.png',dl:'Kremi_Drinks_Menu.png',w:1200,h:1697}};
 function openMenuPDF(tab){tab=tab||'crepe';switchMenuTab(tab);document.getElementById('menuModal').classList.add('open');document.body.style.overflow='hidden';}
-function switchMenuTab(tab){var f=menuFiles[tab];document.getElementById('menuImgView').src=f.img;document.getElementById('menuDownloadBtn').href=f.img;document.getElementById('menuDownloadBtn').download=f.dl;document.getElementById('tabCrepe').style.borderBottomColor=tab==='crepe'?'var(--red)':'transparent';document.getElementById('tabCrepe').style.color=tab==='crepe'?'var(--matcha)':'var(--ink-soft)';document.getElementById('tabDrinks').style.borderBottomColor=tab==='drinks'?'var(--matcha)':'transparent';document.getElementById('tabDrinks').style.color=tab==='drinks'?'var(--matcha)':'var(--ink-soft)';}
+function switchMenuTab(tab){var f=menuFiles[tab];var img=document.getElementById('menuImgView');img.src=f.preview;img.width=f.w;img.height=f.h;document.getElementById('menuDownloadBtn').href=f.full;document.getElementById('menuDownloadBtn').download=f.dl;document.getElementById('tabCrepe').style.borderBottomColor=tab==='crepe'?'var(--red)':'transparent';document.getElementById('tabCrepe').style.color=tab==='crepe'?'var(--matcha)':'var(--ink-soft)';document.getElementById('tabDrinks').style.borderBottomColor=tab==='drinks'?'var(--matcha)':'transparent';document.getElementById('tabDrinks').style.color=tab==='drinks'?'var(--matcha)':'var(--ink-soft)';}
 function closeMenuPDF(){document.getElementById('menuModal').classList.remove('open');document.body.style.overflow='';}
 function handleModalOverlayClick(e){if(e.target===document.getElementById('menuModal'))closeMenuPDF();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenuPDF();});
@@ -2025,21 +1929,21 @@ var reveals=document.querySelectorAll('.reveal');
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.12});
 reveals.forEach(function(el){observer.observe(el);});
 document.body.classList.add('js-ready');
-var tCrepes=[{img:'menustrawberrycreamcheese.png',name:'Strawberry Cream Cheese',calt:'Strawberry cream cheese Japanese crepe cone at Kremi Singapore',badge:'⭐ Bestseller',bc:'tb-special',price:'S$14.90'},{img:'menumochistrawberry.png',name:'Mochi Strawberry',calt:'Mochi strawberry Japanese crepe at Kremi Singapore',badge:'⭐ Bestseller',bc:'tb-special',price:'S$11.90'},{img:'menuspicytunamayo.png',name:'Spicy Tuna Mayo',calt:'Spicy tuna mayo savoury crepe at Kremi Singapore',badge:'⭐ Bestseller',bc:'tb-savory',price:'S$9.90'},{img:'menubananapuddingbrulee.png',name:'Banana Pudding Matcha Brûlée',calt:'Banana pudding matcha brûlée Japanese crepe at Kremi Singapore',badge:'🔥 Limited Qty',bc:'tb-special',price:'S$14.90'},{img:'menustrawberrymatcha.png',name:'Strawberry Matcha',calt:'Strawberry matcha Japanese crepe at Kremi Singapore',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menustrawberrynutella.png',name:'Strawberry Nutella',calt:'Strawberry Nutella Japanese crepe at Kremi Singapore',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'banananutella.png',name:'Banana Nutella',calt:'Banana Nutella Japanese crepe at Kremi Singapore',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menuoreocreamcheese.png',name:'Oreo Cream Cheese',calt:'Oreo cream cheese Japanese crepe at Kremi Singapore',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menumtbuldak.png',name:'Mt. Buldak',calt:'Mt Buldak spicy savoury crepe at Kremi Singapore',badge:'Savoury',bc:'tb-savory',price:'S$11.90'},{img:'menubananacookiebutter.png',name:'Banana Cookie Butter',calt:'Banana cookie butter Japanese crepe at Kremi Singapore',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'},{img:'menuchoco.png',name:'Choco',calt:'Chocolate Japanese crepe at Kremi Singapore',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'}];
+var tCrepes=[{img:'menustrawberrycreamcheese2.png',name:'Strawberry Cream Cheese',badge:'⭐ Bestseller',bc:'tb-special',price:'S$14.90'},{img:'menumochistrawberry-card.jpg',name:'Mochi Strawberry',badge:'⭐ Bestseller',bc:'tb-special',price:'S$11.90'},{img:'menuspicytunamayo2.png',name:'Spicy Tuna Mayo',badge:'⭐ Bestseller',bc:'tb-savory',price:'S$9.90'},{img:'menubananapuddingbrulee2.png',name:'Banana Pudding Matcha Brûlée',badge:'🔥 Limited Qty',bc:'tb-special',price:'S$14.90'},{img:'menustrawberrymatcha2.png',name:'Strawberry Matcha',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menustrawberrynutella2.png',name:'Strawberry Nutella',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'banananutella-card.jpg',name:'Banana Nutella',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menuoreocreamcheese2.png',name:'Oreo Cream Cheese',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menumtbuldak2.png',name:'Mt. Buldak',badge:'Savoury',bc:'tb-savory',price:'S$11.90'},{img:'menubananacookiebutter2.png',name:'Banana Cookie Butter',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'},{img:'menuchoco 2.png',name:'Choco',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'}];
 var tCur=0,tN=tCrepes.length,tPaused=false,tTimer=null,tDragX=0,tDragging=false,tDelta=0;
-function tBuild(){var stage=document.getElementById('tStage');var dots=document.getElementById('tDots');if(!stage)return;stage.innerHTML='';dots.innerHTML='';tCrepes.forEach(function(c,i){var card=document.createElement('div');card.className='tcard';card.innerHTML='<img src="'+c.img+'" alt="'+c.calt+'" loading="lazy"><div class="tcard-info"><span class="tcard-badge '+c.bc+'">'+c.badge+'</span><div class="tcard-name">'+c.name+'</div><div class="tcard-price">'+c.price+'</div></div>';stage.appendChild(card);var dot=document.createElement('div');dot.className='tc-dot'+(i===0?' on':'');dot.addEventListener('click',(function(idx){return function(){tGoTo(idx);};})(i));dots.appendChild(dot);});tRender();tAttachSwipe();tStartAuto();}
-function tRender(){var cards=document.querySelectorAll('.tcard');var dots=document.querySelectorAll('.tc-dot');cards.forEach(function(card,i){var rel=((i-tCur)%tN+tN)%tN;var signed=rel<=tN/2?rel:rel-tN;var pos;if(signed===0)pos='0';else if(signed===1)pos='1';else if(signed===-1)pos='-1';else if(signed===2)pos='2';else if(signed===-2)pos='-2';else pos='hidden';card.setAttribute('data-pos',pos);});dots.forEach(function(d,i){d.classList.toggle('on',i===tCur);});}
+function tBuild(){var stage=document.getElementById('tStage');var dots=document.getElementById('tDots');if(!stage)return;stage.innerHTML='';dots.innerHTML='';tCrepes.forEach(function(c,i){var card=document.createElement('div');card.className='tcard';card.innerHTML='<img src="'+c.img+'" alt="'+c.name+'" loading="lazy" decoding="async" width="700" height="700"><div class="tcard-info"><span class="tcard-badge '+c.bc+'">'+c.badge+'</span><div class="tcard-name">'+c.name+'</div><div class="tcard-price">'+c.price+'</div></div>';stage.appendChild(card);var dot=document.createElement('button');dot.type='button';dot.className='tc-dot'+(i===0?' on':'');dot.setAttribute('aria-label','Show '+c.name);dot.addEventListener('click',(function(idx){return function(){tGoTo(idx);};})(i));dots.appendChild(dot);});tRender();tAttachSwipe();tStartAuto();}
+function tRender(){var cards=document.querySelectorAll('.tcard');var dots=document.querySelectorAll('.tc-dot');cards.forEach(function(card,i){var rel=((i-tCur)%tN+tN)%tN;var signed=rel<=tN/2?rel:rel-tN;var pos;if(signed===0)pos='0';else if(signed===1)pos='1';else if(signed===-1)pos='-1';else if(signed===2)pos='2';else if(signed===-2)pos='-2';else pos='hidden';card.setAttribute('data-pos',pos);});dots.forEach(function(d,i){var active=i===tCur;d.classList.toggle('on',active);d.setAttribute('aria-current',active?'true':'false');});}
 function tStep(dir){tCur=(tCur+dir+tN)%tN;tRender();tResetAuto();}function tGoTo(idx){tCur=idx;tRender();tResetAuto();}
 function tStartAuto(){clearTimeout(tTimer);if(!tPaused)tTimer=setTimeout(function(){tStep(1);tStartAuto();},5000);}function tResetAuto(){if(!tPaused){clearTimeout(tTimer);tStartAuto();}}
 function tAttachSwipe(){var stage=document.getElementById('tStage');stage.addEventListener('touchstart',function(e){tDragX=e.touches[0].clientX;tDragging=true;},{passive:true});stage.addEventListener('touchmove',function(e){if(tDragging)tDelta=e.touches[0].clientX-tDragX;},{passive:true});stage.addEventListener('touchend',function(){if(tDragging&&Math.abs(tDelta)>45)tStep(tDelta<0?1:-1);tDragging=false;tDelta=0;});stage.addEventListener('mousedown',function(e){tDragX=e.clientX;tDragging=true;e.preventDefault();});window.addEventListener('mousemove',function(e){if(tDragging)tDelta=e.clientX-tDragX;});window.addEventListener('mouseup',function(){if(tDragging&&Math.abs(tDelta)>45)tStep(tDelta<0?1:-1);tDragging=false;tDelta=0;});}
 document.addEventListener('DOMContentLoaded',function(){tBuild();var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');if(h&&m){h.addEventListener('click',function(){
     var isOpen=m.classList.contains('open');
-    if(isOpen){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}
-    else{h.classList.add('open');m.classList.add('open');document.body.style.overflow='hidden';}
+    if(isOpen){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+    else{h.classList.add('open');m.classList.add('open');h.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
   });
-  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
-  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}});
-  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});}});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';});});
+  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';});}});
 var nav=document.getElementById('nav');
 window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
 

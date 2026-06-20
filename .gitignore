@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+*.log
+
+# Generated video/build output
+kremi-reel/out/
+kremi-reel/node_modules/
+kremi-reel/.superpowers/
+kremi-reel/docs/superpowers/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="kremi_logo_red.png" type="image/png">
 <meta property="og:title" content="Reviews — 5-Star Japanese Crepes & Matcha · Kremi Singapore">
 <meta property="og:description" content="Kremi is rated 5.0 stars on Google Maps. Read customer reviews for our handcrafted Japanese crepes and ceremonial matcha at *SCAPE Orchard — and see why we're Singapore's favourite crepe café.">
@@ -12,9 +13,9 @@
 <meta property="og:site_name" content="Kremi Singapore">
 <meta property="og:locale" content="en_SG">
 <link rel="canonical" href="https://www.kremi.sg/reviews.html">
-<title>Customer Reviews — Kremi Japanese Crepes & Matcha · Singapore</title>
+<title>Reviews — 5-Star Japanese Crepes & Matcha Café · Kremi Singapore</title>
 <meta name="description" content="Kremi is rated 5.0 stars on Google Maps. Read real customer reviews for our handcrafted Japanese crepes, ceremonial matcha, and live event catering at *SCAPE Orchard, Singapore.">
-<meta name="keywords" content="Kremi reviews, Kremi Singapore review, Japanese crepe Singapore review, best crepe Singapore, matcha cafe reviews Singapore, *SCAPE cafe review, Kremi Google reviews, crepe cafe Orchard review, best Japanese dessert Singapore, Kremi 5 star, best Japanese crepe Singapore, crepe cafe SCAPE, Kremi catering review, matcha latte Singapore review">
+<meta name="keywords" content="Kremi reviews, Kremi Singapore review, Japanese crepe Singapore review, best crepe Singapore, matcha cafe reviews Singapore, *SCAPE cafe review, Kremi Google reviews, crepe cafe Orchard review, best Japanese dessert Singapore, Kremi 5 star">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Kremi Singapore">
 <meta name="geo.region" content="SG">
@@ -56,6 +57,11 @@ body {
   background: var(--warm-white);
   color: var(--ink);
   overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--honey);
+  outline-offset: 4px;
 }
 
 /* NAV — dark always */
@@ -275,6 +281,17 @@ body.js-ready .reveal.visible {
 
 .d5 {
   transition-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* PAGE HERO */
@@ -861,54 +878,76 @@ footer {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "FoodEstablishment",
+  "name": "Kremi",
+  "alternateName": "Kremi Singapore",
+  "description": "Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Made fresh to order.",
+  "url": "https://www.kremi.sg",
+  "image": "https://www.kremi.sg/kremi-three-crepes.png",
+  "logo": "https://www.kremi.sg/kremi_logo_red.png",
+  "email": "kremicollective@gmail.com",
+  "servesCuisine": ["Japanese", "Dessert", "Crepes", "Matcha"],
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Orchard Link, #02-32",
+    "addressLocality": "Singapore",
+    "postalCode": "237978",
+    "addressCountry": "SG"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "12:00",
+    "closes": "20:45"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "6",
+    "reviewCount": "6"
+  },
+  "review": [
     {
-      "@type": "WebPage",
-      "@id": "https://www.kremi.sg/reviews.html#webpage",
-      "url": "https://www.kremi.sg/reviews.html",
-      "name": "Customer Reviews — Kremi Japanese Crepes & Matcha · Singapore",
-      "description": "Kremi is rated 5.0 stars on Google Maps. Read real customer reviews for our handcrafted Japanese crepes, ceremonial matcha, and live event catering at *SCAPE Orchard, Singapore.",
-      "inLanguage": "en-SG",
-      "isPartOf": { "@type": "WebSite", "url": "https://www.kremi.sg", "name": "Kremi Singapore" },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.kremi.sg" },
-          { "@type": "ListItem", "position": 2, "name": "Reviews", "item": "https://www.kremi.sg/reviews.html" }
-        ]
-      }
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "calzburps" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Yummy crepes and matcha!! Got the strawberry matcha crepe that was so gao and yummy, not gelat at all!! Love the shop design too super aesthetic and many nice photospots!! Love their matcha and can't wait to try their other crepes next time!",
+      "publisher": { "@type": "Organization", "name": "Google Maps" }
     },
     {
-      "@type": "FoodEstablishment",
-      "@id": "https://www.kremi.sg/#business",
-      "name": "Kremi",
-      "url": "https://www.kremi.sg",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "6",
-        "reviewCount": "6"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-          "author": { "@type": "Person", "name": "calzburps" },
-          "reviewBody": "Yummy crepes and matcha!! Got the strawberry matcha crepe that was so gao and yummy, not gelat at all!! Love the shop design too super aesthetic and many nice photospots!! Love their matcha and can't wait to try their other crepes next time!",
-          "publisher": { "@type": "Organization", "name": "Google Maps" },
-          "datePublished": "2025-12-01"
-        },
-        {
-          "@type": "Review",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-          "author": { "@type": "Person", "name": "Nomninjas" },
-          "reviewBody": "Rich matcha latte — bigger than normal cup! Sweet and savory crepes are recommended to share, even 3 pax potentially cos they are generous with the filling. Support youth passion!",
-          "publisher": { "@type": "Organization", "name": "Google Maps" },
-          "datePublished": "2025-11-15"
-        }
-      ]
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Nomninjas" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Rich matcha latte — bigger than normal cup! Sweet and savory crepes are recommended to share, even 3 pax potentially cos they are generous with the filling. Support youth passion!",
+      "publisher": { "@type": "Organization", "name": "Google Maps" }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Alson Tan" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Been a regular since their soft launch. The Strawberry Cream Cheese crepe is beautifully balanced — tangy cream cheese, sweet strawberry jam, rich yet refreshing. Generous with fillings every single time.",
+      "publisher": { "@type": "Organization", "name": "Google Maps" }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Sarah Lim" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "We had Kremi at our office appreciation day and it was a massive hit. The live crepe station kept everyone buzzing the whole time. Seamless setup, professional team, and the food was absolutely delicious."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Jamie T." },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Had Kremi at my birthday gathering — the banana pudding matcha brûlée crepes were the star of the night. Everyone was taking photos. Lia and Tessa were so professional and warm throughout."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Marcus Ng" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Booked Kremi for our company's end-of-year party and they exceeded all expectations. The matcha live station was a conversation starter all evening. Will be booking them again."
     }
   ]
 }
@@ -927,7 +966,7 @@ footer {
 </svg>
 
 <nav id="nav">
-  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi Japanese Crepe Café Singapore logo"></a>
+  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" decoding="async"></a>
   <ul class="nav-links">
     <li><a href="index.html#menu">Menu</a></li>
     <li><a href="our-story.html">Our Story</a></li>
@@ -936,7 +975,7 @@ footer {
     <li><a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-order">Order Now</a></li>
     <li><a href="events.html#enquiry" class="nav-cta">Book an Event</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="mobileNav">
   <a href="index.html#menu">Menu</a>
@@ -1071,7 +1110,7 @@ footer {
 <footer>
   <div class="footer-top">
     <div>
-      <div><img src="kremi_logo_white_removebg.png" alt="Kremi Japanese Crepe and Matcha café Singapore" loading="lazy" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
+      <div><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" loading="lazy" decoding="async" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
       <div class="footer-tagline">クレープと抹茶 · Japanese Crepes &amp; Matcha</div>
       <p class="footer-desc">Handcrafted Japanese crepes and ceremonial-grade matcha, inspired by the streets of Japan. Made fresh for you at *SCAPE, Singapore.</p>
     </div>
@@ -1097,12 +1136,12 @@ document.addEventListener('DOMContentLoaded',function(){
   var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');
   if(h&&m){h.addEventListener('click',function(){
     var isOpen=m.classList.contains('open');
-    if(isOpen){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}
-    else{h.classList.add('open');m.classList.add('open');document.body.style.overflow='hidden';}
+    if(isOpen){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+    else{h.classList.add('open');m.classList.add('open');h.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
   });
-  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
-  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}});
-  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';}); }
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';});});
+  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}); }
 var nav=document.getElementById('nav');
 window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
 });
