@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kremi Seasonal Publisher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --matcha: #5a7a4a;
+      --red: #c8392b;
+      --red-warm: #d4504a;
+      --cream: #faf6ef;
+      --warm-white: #fffdf8;
+      --ink: #1a1714;
+      --ink-soft: #3d3530;
+      --border: rgba(90,122,74,0.14);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(90,122,74,0.09), transparent 34%),
+        linear-gradient(180deg, #fcfaf4 0%, #f4efe3 100%);
+      color: var(--ink);
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--matcha);
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      margin: 0;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .lede {
+      max-width: 60rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      margin: 12px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(200,57,43,0.15);
+      background: rgba(255,255,255,0.72);
+      color: var(--red);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(90,122,74,0.16);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(26,23,20,0.08);
+      overflow: hidden;
+    }
+
+    .panel-hd {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(90,122,74,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .panel-hd h2 {
+      margin: 0;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--matcha);
+    }
+
+    .panel-bd {
+      padding: 18px 20px 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #786a58;
+      font-weight: 700;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(90,122,74,0.2);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.94);
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+
+    textarea { min-height: 104px; resize: vertical; line-height: 1.7; }
+    input:focus, textarea:focus { border-color: rgba(200,57,43,0.45); box-shadow: 0 0 0 4px rgba(200,57,43,0.08); }
+
+    .token-note {
+      margin-top: 10px;
+      font-size: 0.76rem;
+      color: #786a58;
+      line-height: 1.7;
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .item {
+      border: 1px solid rgba(90,122,74,0.16);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .item-top strong {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .remove {
+      border: 0;
+      background: transparent;
+      color: var(--red);
+      font: inherit;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .item-grid .full { grid-column: 1 / -1; }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 12px 24px rgba(200,57,43,0.2);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(90,122,74,0.2);
+      color: var(--ink-soft);
+    }
+
+    .status {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(90,122,74,0.08);
+      border: 1px solid rgba(90,122,74,0.16);
+      color: var(--ink-soft);
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .preview-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .preview-card {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid rgba(90,122,74,0.14);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.82);
+    }
+
+    .preview-card img {
+      width: 100px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(90,122,74,0.12);
+      background: #f5efe4;
+    }
+
+    .preview-card h3 {
+      margin: 0 0 6px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.02rem;
+      line-height: 1.2;
+    }
+
+    .preview-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      font-size: 0.88rem;
+    }
+
+    .preview-card .meta {
+      margin-top: 8px;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .hint {
+      font-size: 0.78rem;
+      color: #786a58;
+      line-height: 1.7;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .page { padding: 18px 14px 36px; }
+      .hero { flex-direction: column; align-items: flex-start; }
+      .form-grid, .item-grid { grid-template-columns: 1fr; }
+      .preview-card { grid-template-columns: 1fr; }
+      .preview-card img { width: 100%; height: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Kremi Seasonal Publisher</p>
+        <h1>Upload seasonal crepes and publish straight to GitHub.</h1>
+        <p class="lede">Use this page to add limited-time crepes, attach product photos, and push the latest menu into the repository. The public site reads <code>seasonal-crepes.json</code> from the repo and renders the section automatically.</p>
+      </div>
+      <div class="pill">GitHub Contents API · direct publish to <strong>main</strong></div>
+    </div>
+
+    <div class="layout">
+      <section class="panel">
+        <div class="panel-hd">
+          <h2>Publish form</h2>
+          <span class="pill" style="padding:8px 12px;">Token stays local</span>
+        </div>
+        <div class="panel-bd">
+          <div class="form-grid">
+            <div class="field">
+              <label for="owner">Repo owner</label>
+              <input id="owner" value="DeMakersSpace" />
+            </div>
+            <div class="field">
+              <label for="repo">Repo name</label>
+              <input id="repo" value="Kremi" />
+            </div>
+            <div class="field">
+              <label for="branch">Branch</label>
+              <input id="branch" value="main" />
+            </div>
+            <div class="field">
+              <label for="token">GitHub token</label>
+              <input id="token" type="password" placeholder="Fine-grained token with contents:write" />
+            </div>
+            <div class="field full">
+              <label for="eyebrow">Section label</label>
+              <input id="eyebrow" value="Seasonal Crepes" />
+            </div>
+            <div class="field full">
+              <label for="title">Section title</label>
+              <input id="title" value="Limited drops, freshly published" />
+            </div>
+            <div class="field full">
+              <label for="description">Section description</label>
+              <textarea id="description">Upload new seasonal images and descriptions from the admin page. The site reads the latest menu directly from the repository, so the update appears once it is published to GitHub.</textarea>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 14px;">
+            <h3 style="margin:0;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--matcha);">Seasonal items</h3>
+            <button type="button" id="addItem" class="btn btn-ghost">Add item</button>
+          </div>
+
+          <div class="items" id="items"></div>
+
+          <div class="actions">
+            <button type="button" id="publish" class="btn btn-primary">Publish to GitHub</button>
+            <button type="button" id="reset" class="btn btn-ghost">Reset items</button>
+          </div>
+
+          <div class="token-note">Use a fine-grained token with repository contents write access only. The browser sends the token directly to GitHub for this publish request and does not save it anywhere.</div>
+          <div class="status" id="status">Ready.</div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <div class="panel-hd">
+          <h2>Live preview</h2>
+          <span class="pill" style="padding:8px 12px;">What will be published</span>
+        </div>
+        <div class="panel-bd">
+          <div class="preview-list" id="preview"></div>
+          <div class="hint">The uploader rewrites <code>seasonal-crepes.json</code> and stores each uploaded image in <code>seasonal/</code> inside the repo. The public homepage uses those paths directly.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <template id="itemTemplate">
+    <div class="item">
+      <div class="item-top">
+        <strong>Seasonal item</strong>
+        <button type="button" class="remove">Remove</button>
+      </div>
+      <div class="item-grid">
+        <div class="field full">
+          <label>Image</label>
+          <input type="file" accept="image/*" class="image" />
+        </div>
+        <div class="field">
+          <label>Name</label>
+          <input class="name" placeholder="Mango Cream Crepe" />
+        </div>
+        <div class="field">
+          <label>Badge</label>
+          <input class="badge" placeholder="Limited Drop" />
+        </div>
+        <div class="field full">
+          <label>Description</label>
+          <textarea class="description" placeholder="Fresh mango cream with soft vanilla whip and toasted crumbs."></textarea>
+        </div>
+        <div class="field">
+          <label>Price</label>
+          <input class="price" placeholder="S$12.90" />
+        </div>
+        <div class="field">
+          <label>Alt text</label>
+          <input class="alt" placeholder="Mango cream crepe on a plate" />
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    const itemsEl = document.getElementById('items');
+    const previewEl = document.getElementById('preview');
+    const statusEl = document.getElementById('status');
+    const template = document.getElementById('itemTemplate');
+
+    function setStatus(message) {
+      statusEl.textContent = message;
+    }
+
+    function makeItem() {
+      const node = template.content.firstElementChild.cloneNode(true);
+      const image = node.querySelector('.image');
+      const name = node.querySelector('.name');
+      const badge = node.querySelector('.badge');
+      const description = node.querySelector('.description');
+      const price = node.querySelector('.price');
+      const alt = node.querySelector('.alt');
+
+      const refresh = () => renderPreview();
+      [image, name, badge, description, price, alt].forEach((el) => {
+        el.addEventListener('input', refresh);
+        el.addEventListener('change', refresh);
+      });
+
+      node.querySelector('.remove').addEventListener('click', () => {
+        node.remove();
+        renderPreview();
+      });
+
+      image.addEventListener('change', () => {
+        const file = image.files && image.files[0];
+        if (file && !alt.value) {
+          alt.value = name.value ? `${name.value} seasonal crepe` : file.name.replace(/\.[^.]+$/, '');
+        }
+        renderPreview();
+      });
+
+      return node;
+    }
+
+    function itemData() {
+      return Array.from(itemsEl.querySelectorAll('.item')).map((node) => ({
+        node,
+        file: node.querySelector('.image').files && node.querySelector('.image').files[0],
+        name: node.querySelector('.name').value.trim(),
+        badge: node.querySelector('.badge').value.trim(),
+        description: node.querySelector('.description').value.trim(),
+        price: node.querySelector('.price').value.trim(),
+        alt: node.querySelector('.alt').value.trim(),
+      }));
+    }
+
+    function renderPreview() {
+      const items = itemData().filter((item) => item.name || item.description || item.file);
+      previewEl.innerHTML = '';
+      if (!items.length) {
+        previewEl.innerHTML = '<div class="seasonal-empty">Add a seasonal crepe to see the live preview here.</div>';
+        return;
+      }
+
+      items.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'preview-card';
+        const img = document.createElement('img');
+        if (item.file) {
+          img.src = URL.createObjectURL(item.file);
+          img.onload = () => URL.revokeObjectURL(img.src);
+        } else {
+          img.alt = '';
+          img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="450"><rect width="100%" height="100%" fill="#f5efe4"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7b6a55" font-family="sans-serif" font-size="16">Upload image</text></svg>');
+        }
+        img.alt = item.alt || item.name || 'Seasonal crepe preview';
+
+        const body = document.createElement('div');
+        const name = document.createElement('h3');
+        name.textContent = item.name || 'Unnamed seasonal item';
+        const desc = document.createElement('p');
+        desc.textContent = item.description || 'No description yet.';
+        body.appendChild(name);
+        body.appendChild(desc);
+        if (item.badge) {
+          const badge = document.createElement('p');
+          badge.className = 'meta';
+          badge.textContent = item.badge + (item.price ? ` · ${item.price}` : '');
+          body.appendChild(badge);
+        } else if (item.price) {
+          const price = document.createElement('p');
+          price.className = 'meta';
+          price.textContent = item.price;
+          body.appendChild(price);
+        }
+
+        card.appendChild(img);
+        card.appendChild(body);
+        previewEl.appendChild(card);
+      });
+    }
+
+    function slugify(value) {
+      return value.toLowerCase().trim()
+        .replace(/['"]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 48) || 'seasonal-crepe';
+    }
+
+    function bytesToBase64(bytes) {
+      let binary = '';
+      const chunkSize = 0x8000;
+      for (let i = 0; i < bytes.length; i += chunkSize) {
+        binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+      }
+      return btoa(binary);
+    }
+
+    async function githubRequest({ owner, repo, path, token, branch, message, content, sha }) {
+      const response = await fetch(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${path}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json',
+          'X-GitHub-Api-Version': '2022-11-28',
+        },
+        body: JSON.stringify({
+          message,
+          content,
+          branch,
+          sha,
+        }),
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.message || `GitHub request failed (${response.status})`);
+      }
+      return payload;
+    }
+
+    async function getSha({ owner, repo, token, branch, path }) {
+      const response = await fetch(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${path}?ref=${encodeURIComponent(branch)}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
+        },
+      });
+      if (response.status === 404) return null;
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.message || `Failed to read ${path}`);
+      }
+      const payload = await response.json();
+      return payload.sha || null;
+    }
+
+    async function publish() {
+      const owner = document.getElementById('owner').value.trim();
+      const repo = document.getElementById('repo').value.trim();
+      const branch = document.getElementById('branch').value.trim() || 'main';
+      const token = document.getElementById('token').value.trim();
+      const eyebrow = document.getElementById('eyebrow').value.trim();
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const items = itemData();
+
+      if (!owner || !repo || !token) {
+        setStatus('Fill in the GitHub repo fields and token first.');
+        return;
+      }
+      if (!items.length) {
+        setStatus('Add at least one seasonal item before publishing.');
+        return;
+      }
+
+      setStatus('Validating seasonal items...');
+      const payloadItems = [];
+
+      for (let i = 0; i < items.length; i += 1) {
+        const item = items[i];
+        if (!item.file) {
+          setStatus(`Item ${i + 1} is missing an image.`);
+          return;
+        }
+        if (!item.name) {
+          setStatus(`Item ${i + 1} is missing a name.`);
+          return;
+        }
+        const ext = item.file.name.includes('.') ? item.file.name.slice(item.file.name.lastIndexOf('.')) : '.jpg';
+        const stamp = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        const imgPath = `seasonal/${stamp}-${String(i + 1).padStart(2, '0')}-${slugify(item.name)}${ext.toLowerCase()}`;
+        const bytes = new Uint8Array(await item.file.arrayBuffer());
+        setStatus(`Uploading image ${i + 1} of ${items.length}...`);
+        await githubRequest({
+          owner,
+          repo,
+          path: imgPath,
+          token,
+          branch,
+          message: `Add seasonal image: ${item.name}`,
+          content: bytesToBase64(bytes),
+        });
+        payloadItems.push({
+          name: item.name,
+          badge: item.badge,
+          description: item.description,
+          price: item.price,
+          alt: item.alt || `${item.name} seasonal crepe`,
+          image: imgPath,
+        });
+      }
+
+      const seasonalFile = 'seasonal-crepes.json';
+      const sha = await getSha({ owner, repo, token, branch, path: seasonalFile });
+      const seasonalPayload = {
+        eyebrow: eyebrow || 'Seasonal Crepes',
+        title: title || 'Limited drops, freshly published',
+        description: description || '',
+        items: payloadItems,
+      };
+
+      setStatus('Publishing seasonal menu JSON...');
+      const jsonBytes = new TextEncoder().encode(JSON.stringify(seasonalPayload, null, 2) + '\n');
+      const result = await githubRequest({
+        owner,
+        repo,
+        path: seasonalFile,
+        token,
+        branch,
+        message: `Update seasonal crepes: ${payloadItems.map((x) => x.name).join(', ')}`,
+        content: bytesToBase64(jsonBytes),
+        sha,
+      });
+
+      const url = result?.commit?.html_url || result?.content?.html_url || `https://github.com/${owner}/${repo}/tree/${branch}`;
+      setStatus(`Published successfully.\n${url}`);
+    }
+
+    document.getElementById('addItem').addEventListener('click', () => {
+      itemsEl.appendChild(makeItem());
+      renderPreview();
+    });
+
+    document.getElementById('reset').addEventListener('click', () => {
+      itemsEl.innerHTML = '';
+      itemsEl.appendChild(makeItem());
+      renderPreview();
+      setStatus('Reset.');
+    });
+
+    document.getElementById('publish').addEventListener('click', () => {
+      publish().catch((error) => {
+        setStatus(error.message || 'Publish failed.');
+      });
+    });
+
+    itemsEl.appendChild(makeItem());
+    renderPreview();
+  </script>
+</body>
+</html>
