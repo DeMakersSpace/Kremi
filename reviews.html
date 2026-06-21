@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="kremi_logo_red.png" type="image/png">
+<meta property="og:title" content="Reviews — 5-Star Japanese Crepes & Matcha · Kremi Singapore">
+<meta property="og:description" content="Kremi is rated 5.0 stars on Google Maps. Read customer reviews for our handcrafted Japanese crepes and ceremonial matcha at *SCAPE Orchard — and see why we're Singapore's favourite crepe café.">
+<meta property="og:image" content="https://www.kremi.sg/kremi-three-crepes.png">
+<meta property="og:url" content="https://www.kremi.sg/reviews.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kremi Singapore">
+<meta property="og:locale" content="en_SG">
+<link rel="canonical" href="https://www.kremi.sg/reviews.html">
+<title>Reviews — 5-Star Japanese Crepes & Matcha Café · Kremi Singapore</title>
+<meta name="description" content="Kremi is rated 5.0 stars on Google Maps. Read real customer reviews for our handcrafted Japanese crepes, ceremonial matcha, and live event catering at *SCAPE Orchard, Singapore.">
+<meta name="keywords" content="Kremi reviews, Kremi Singapore review, Japanese crepe Singapore review, best crepe Singapore, matcha cafe reviews Singapore, *SCAPE cafe review, Kremi Google reviews, crepe cafe Orchard review, best Japanese dessert Singapore, Kremi 5 star">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Kremi Singapore">
+<meta name="geo.region" content="SG">
+<meta name="geo.placename" content="Singapore">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reviews — 5-Star Japanese Crepes & Matcha · Kremi Singapore">
+<meta name="twitter:description" content="Kremi is rated 5.0 stars on Google Maps. Real reviews from customers who love our handcrafted Japanese crepes and ceremonial matcha at *SCAPE Orchard, Singapore.">
+<meta name="twitter:image" content="https://www.kremi.sg/kremi-three-crepes.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --matcha: #5a7a4a;
+  --matcha-light: #8aaa6a;
+  --matcha-pale: #d4e5c4;
+  --matcha-wash: #f0f5ea;
+  --red: #c8392b;
+  --red-warm: #d4504a;
+  --cream: #faf6ef;
+  --warm-white: #fffdf8;
+  --ink: #1a1714;
+  --ink-soft: #3d3530;
+  --honey: #f5c97a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--honey);
+  outline-offset: 4px;
+}
+
+/* NAV — dark always */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(250,246,239,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(90,122,74,0.15);
+}
+
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 250px;
+  height: 80px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  margin-left: -0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 100px;
+}
+
+.nav-cta:hover {
+  background: var(--red-warm) !important;
+}
+
+.nav-order {
+  color: var(--red) !important;
+  border: 1.5px solid var(--red);
+  padding: 0.5rem 1.3rem;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-order:hover {
+  background: var(--red) !important;
+  color: white !important;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px,-5px);
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(250,246,239,0.98);
+  backdrop-filter: blur(16px);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-mobile.open {
+  display: flex;
+}
+
+.nav-mobile a {
+  font-size: 1.4rem;
+  font-family: 'Shippori Mincho', serif;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--red);
+}
+
+.nav-mobile .nav-cta {
+  background: var(--red);
+  color: white !important;
+  padding: 0.8rem 2.2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+/* COMMON */
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--matcha);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--matcha);
+  display: block;
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2rem,3.5vw,3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+body.js-ready .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+body.js-ready .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.d1 {
+  transition-delay: 0.1s;
+}
+
+.d2 {
+  transition-delay: 0.2s;
+}
+
+.d3 {
+  transition-delay: 0.3s;
+}
+
+.d4 {
+  transition-delay: 0.4s;
+}
+
+.d5 {
+  transition-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* PAGE HERO */
+.page-hero {
+  padding: 10rem 6rem 5rem;
+  background: var(--cream);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '口コミ';
+  position: absolute;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 18rem;
+  font-weight: 700;
+  color: rgba(90,122,74,0.04);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.page-hero-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--matcha);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.page-hero-label::before,
+.page-hero-label::after {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--matcha);
+  display: block;
+}
+
+.page-hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2.5rem,6vw,4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.score-num {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.score-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.score-stars {
+  color: #f5a623;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+}
+
+.score-source {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.score-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(0,0,0,0.1);
+}
+
+/* REVIEW SECTION WRAPPER */
+.reviews-page {
+  background: var(--cream);
+  padding: 5rem 6rem 8rem;
+}
+
+.reviews-page-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* SECTION HEADING */
+.review-section-head {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.review-section-head h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.6rem,2.5vw,2.2rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.review-section-divider {
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin-bottom: 0.4rem;
+}
+
+.review-section-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.35rem 1rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  margin-bottom: 0.3rem;
+}
+
+.tag-food {
+  background: rgba(194,54,22,0.1);
+  color: var(--red);
+}
+
+.tag-events {
+  background: #fde9b0;
+  color: #7a5200;
+}
+
+/* DIVIDER between sections */
+.section-separator {
+  margin: 4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.section-separator::before,
+.section-separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,0.07);
+}
+
+.section-separator span {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* REVIEW CARDS GRID */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem;
+  margin-bottom: 0;
+}
+
+.review-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.review-stars {
+  color: #f5a623;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+}
+
+.review-text {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  font-weight: 300;
+  flex: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.review-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.review-meta {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.review-type-tag {
+  display: inline-block;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  margin-bottom: 0.3rem;
+}
+
+.rtag-food {
+  background: rgba(194,54,22,0.1);
+  color: var(--red);
+}
+
+.rtag-event {
+  background: #fde9b0;
+  color: #7a5200;
+}
+
+/* EVENT REVIEW CARDS — slightly different feel */
+.review-card.event-card {
+  border-left: 3px solid var(--honey);
+}
+
+/* CTA — Japan Flag */
+.reviews-cta {
+  background: white;
+  padding: 6rem 6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.reviews-cta::before {
+  content: '';
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  background: #c8392b;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+}
+
+.reviews-cta h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.8rem,3.5vw,2.8rem);
+  font-weight: 900;
+  color: white;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-cta p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-white {
+  background: white;
+  color: #c8392b;
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200,57,43,0.3);
+}
+
+.btn-ghost-white {
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 100px;
+}
+
+.btn-ghost-white:hover {
+  opacity: 1;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: white;
+  padding: 5rem 6rem 3rem;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.footer-col h5 {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c8392b;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-bottom: 0.7rem;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-jp {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.15);
+  letter-spacing: 0.1em;
+}
+
+.footer-credit {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-credit:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+@media(min-width:641px) {
+  .footer-cols-row { display: contents; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    z-index: 101;
+    position: relative;
+  }
+
+  .nav-logo img {
+    width: 140px;
+    height: auto;
+  }
+
+  .page-hero {
+    padding: 8rem 2.5rem 4rem;
+  }
+
+  .reviews-page {
+    padding: 4rem 2.5rem 6rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .reviews-cta {
+    padding: 4rem 2.5rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  footer {
+    padding: 4rem 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-logo img {
+    width: 110px;
+    height: auto;
+  }
+
+  .page-hero {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .score-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .score-divider {
+    display: none;
+  }
+
+  .reviews-page {
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-section-head {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .review-section-divider {
+    display: none;
+  }
+
+  .reviews-cta {
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-top > div:first-child {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-cols-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .footer-col {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-col a,
+  .footer-col p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.78rem;
+  }
+  .footer-col h5 {
+    font-size: 0.58rem;
+  }
+  footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Kremi",
+  "alternateName": "Kremi Singapore",
+  "description": "Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Made fresh to order.",
+  "url": "https://www.kremi.sg",
+  "image": "https://www.kremi.sg/kremi-three-crepes.png",
+  "logo": "https://www.kremi.sg/kremi_logo_red.png",
+  "email": "kremicollective@gmail.com",
+  "servesCuisine": ["Japanese", "Dessert", "Crepes", "Matcha"],
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Orchard Link, #02-32",
+    "addressLocality": "Singapore",
+    "postalCode": "237978",
+    "addressCountry": "SG"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "12:00",
+    "closes": "20:45"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "6",
+    "reviewCount": "6"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "calzburps" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Yummy crepes and matcha!! Got the strawberry matcha crepe that was so gao and yummy, not gelat at all!! Love the shop design too super aesthetic and many nice photospots!! Love their matcha and can't wait to try their other crepes next time!",
+      "publisher": { "@type": "Organization", "name": "Google Maps" }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Nomninjas" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Rich matcha latte — bigger than normal cup! Sweet and savory crepes are recommended to share, even 3 pax potentially cos they are generous with the filling. Support youth passion!",
+      "publisher": { "@type": "Organization", "name": "Google Maps" }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Alson Tan" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Been a regular since their soft launch. The Strawberry Cream Cheese crepe is beautifully balanced — tangy cream cheese, sweet strawberry jam, rich yet refreshing. Generous with fillings every single time.",
+      "publisher": { "@type": "Organization", "name": "Google Maps" }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Sarah Lim" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "We had Kremi at our office appreciation day and it was a massive hit. The live crepe station kept everyone buzzing the whole time. Seamless setup, professional team, and the food was absolutely delicious."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Jamie T." },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Had Kremi at my birthday gathering — the banana pudding matcha brûlée crepes were the star of the night. Everyone was taking photos. Lia and Tessa were so professional and warm throughout."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Marcus Ng" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Booked Kremi for our company's end-of-year party and they exceeded all expectations. The matcha live station was a conversation starter all evening. Will be booking them again."
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Google icon symbol -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-google" viewBox="0 0 24 24">
+    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+  </symbol>
+</svg>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" decoding="async"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="reviews.html" style="color:var(--red);font-weight:700;">Reviews</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-order">Order Now</a></li>
+    <li><a href="events.html#enquiry" class="nav-cta">Book an Event</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html#menu">Menu</a>
+  <a href="our-story.html">Our Story</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="events.html">Events</a>
+  <a href="https://kremicollective.eposqr.com/menu/products" target="_blank" rel="noopener noreferrer" class="nav-cta" style="background:var(--red);">Order Now</a>
+  <a href="events.html#enquiry" class="nav-cta" style="background:transparent;border:1.5px solid var(--ink);color:var(--ink)!important;">Book an Event</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero reveal">
+  <p class="page-hero-label">What People Are Saying</p>
+  <h1>Food &amp; Event<br>Reviews</h1>
+  <div class="score-row">
+    <div class="score-num">5.0</div>
+    <div class="score-divider"></div>
+    <div class="score-detail">
+      <div class="score-stars">★★★★★</div>
+      <div class="score-source">on Google Maps</div>
+    </div>
+  </div>
+</div>
+
+<!-- ALL REVIEWS -->
+<section class="reviews-page" id="reviews">
+  <div class="reviews-page-inner">
+
+    <!-- ── FOOD REVIEWS ── -->
+    <div class="review-section-head reveal">
+      <h2>🍓 Food Reviews</h2>
+      <div class="review-section-divider"></div>
+      <span class="review-section-tag tag-food">Crepes &amp; Matcha</span>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <span class="review-type-tag rtag-food">Food Review</span>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Yummy crepes and matcha!! Got the strawberry matcha crepe that was so gao and yummy, not gelat at all!! Love the shop design too super aesthetic and many nice photospots!! Love their matcha and can't wait to try their other crepes next time!"</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:var(--matcha);">C</div>
+          <div><div class="review-name">calzburps</div><div class="review-meta">Local Guide · 2 months ago</div></div>
+          <svg style="margin-left:auto;flex-shrink:0;" width="18" height="18" aria-label="Google review"><use href="#icon-google"/></svg>
+        </div>
+      </div>
+
+      <div class="review-card reveal d1">
+        <span class="review-type-tag rtag-food">Food Review</span>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Rich matcha latte (from $7.50) — bigger than normal cup! Sweet &amp; savory crepes (from $9.90) are recommended to share, even 3 pax potentially cos they are generous with the filling. Support youth passion!"</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:var(--red);">N</div>
+          <div><div class="review-name">Nomninjas</div><div class="review-meta">Local Guide · 1 month ago</div></div>
+          <svg style="margin-left:auto;flex-shrink:0;" width="18" height="18" aria-label="Google review"><use href="#icon-google"/></svg>
+        </div>
+      </div>
+
+      <div class="review-card reveal d3">
+        <span class="review-type-tag rtag-food">Food Review</span>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Been a regular since their soft launch. The Strawberry Cream Cheese crepe is beautifully balanced — tangy cream cheese, sweet strawberry jam, rich yet refreshing. Generous with fillings every single time. They also have a loyalty card — free crepe every 6 purchased. Even with 15–20 min wait, every crepe is made fresh to order and it shows."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#4a6a8a;">A</div>
+          <div><div class="review-name">Alson Tan</div><div class="review-meta">1 review · 13 photos · 3 months ago</div></div>
+          <svg style="margin-left:auto;flex-shrink:0;" width="18" height="18" aria-label="Google review"><use href="#icon-google"/></svg>
+        </div>
+      </div>
+
+    </div><!-- end food reviews grid -->
+
+    <!-- SEPARATOR -->
+    <div class="section-separator reveal">
+      <span>Event Reviews</span>
+    </div>
+
+    <!-- ── EVENT REVIEWS ── -->
+    <div class="review-section-head reveal">
+      <h2>🎉 Event Reviews</h2>
+      <div class="review-section-divider"></div>
+      <span class="review-section-tag tag-events">Corporate &amp; Private Events</span>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card event-card reveal">
+        <span class="review-type-tag rtag-event">Event Review</span>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We had Kremi at our office appreciation day and it was a massive hit. The live crepe station kept everyone buzzing the whole time. Multiple colleagues asked if we could book them again. Seamless setup, professional team, and the food was absolutely delicious."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:var(--red);">S</div>
+          <div><div class="review-name">Sarah Lim</div><div class="review-meta">HR Manager · Corporate Event · via direct feedback</div></div>
+        </div>
+      </div>
+
+      <div class="review-card event-card reveal d1">
+        <span class="review-type-tag rtag-event">Event Review</span>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Had Kremi at my birthday gathering — the banana pudding matcha brûlée crepes were the star of the night. Everyone was taking photos. Lia and Tessa were so professional and warm throughout. Guests kept coming back for seconds. Highly, highly recommend for any celebration."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#8aaa6a;">J</div>
+          <div><div class="review-name">Jamie T.</div><div class="review-meta">Birthday Celebration · Private Residence · via direct feedback</div></div>
+        </div>
+      </div>
+
+      <div class="review-card event-card reveal d2">
+        <span class="review-type-tag rtag-event">Event Review</span>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Booked Kremi for our company's end-of-year party and they exceeded all expectations. The matcha live station was a conversation starter all evening. Setup was clean and quick, the team was incredibly friendly, and every single crepe was made fresh. Will be booking them again."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#5a6a8a;">M</div>
+          <div><div class="review-name">Marcus Ng</div><div class="review-meta">Event Organiser · Corporate Year-End Party · via direct feedback</div></div>
+        </div>
+      </div>
+
+    </div><!-- end event reviews grid -->
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="reviews-cta">
+  <h2>Come taste it yourself —<br>or bring us to your event</h2>
+  <p>Whether you're dropping by *SCAPE or planning something special, Kremi is ready for you.</p>
+  <div class="cta-actions">
+    <a href="our-story.html#visit" class="btn-white">Find Us at *SCAPE</a>
+    <a href="events.html#enquiry" class="btn-ghost-white">Book an Event</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" loading="lazy" decoding="async" style="width:150px;height:auto;display:block;margin:0 auto 0.5rem;"></div>
+      <div class="footer-tagline">クレープと抹茶 · Japanese Crepes &amp; Matcha</div>
+      <p class="footer-desc">Handcrafted Japanese crepes and ceremonial-grade matcha, inspired by the streets of Japan. Made fresh for you at *SCAPE, Singapore.</p>
+    </div>
+    <div class="footer-cols-row">
+    <div class="footer-col"><h5>Explore</h5><a href="index.html#menu">Menu</a><a href="index.html#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
+    <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Kremi Singapore. All rights reserved.</span>
+    <a href="https://www.instagram.com/de.makers.space/" target="_blank" rel="noopener noreferrer" class="footer-credit">Website Designed by De Makers Space</a>
+    <span class="footer-jp">手作りクレープ</span>
+  </div>
+</footer>
+
+<script>
+var reveals=document.querySelectorAll('.reveal');
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.12});
+reveals.forEach(function(el){observer.observe(el);});
+document.body.classList.add('js-ready');
+document.addEventListener('DOMContentLoaded',function(){
+  var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');
+  if(h&&m){h.addEventListener('click',function(){
+    var isOpen=m.classList.contains('open');
+    if(isOpen){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+    else{h.classList.add('open');m.classList.add('open');h.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  });
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';});});
+  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}); }
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
+});
+</script>
+</body>
+</html>

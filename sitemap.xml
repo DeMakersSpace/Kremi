@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://www.kremi.sg/</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.kremi.sg/kremithreecrepes.png</image:loc>
+      <image:title>Three handcrafted Japanese crepe cones by Kremi Singapore</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.kremi.sg/kremi_s_matcha_latte.png</image:loc>
+      <image:title>Kremi ceremonial grade matcha latte Singapore</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.kremi.sg/our-story.html</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.kremi.sg/bossfoundersfirst.jpg</image:loc>
+      <image:title>Kremi founders at *SCAPE Orchard Singapore</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.kremi.sg/events.html</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.kremi.sg/eventwedding.jpg</image:loc>
+      <image:title>Kremi live crepe station at Singapore wedding reception</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.kremi.sg/eventmatchacorporate.jpg</image:loc>
+      <image:title>Kremi matcha bar at Singapore corporate event</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.kremi.sg/reviews.html</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.kremi.sg/kremistrawberrymatcha.png</image:loc>
+      <image:title>Strawberry matcha crepe and drink by Kremi Singapore</image:title>
+    </image:image>
+  </url>
+
+</urlset>
