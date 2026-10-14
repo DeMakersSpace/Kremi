@@ -1,0 +1,227 @@
+{
+  "crepes": [
+    {
+      "name": "Strawberry Mochi Crepe",
+      "price": 9.9,
+      "category": "Popular",
+      "image": "menumochistrawberry-card-optimized.webp",
+      "featured": true
+    },
+    {
+      "name": "Chocolate Banana",
+      "price": 9.9,
+      "category": "Popular"
+    },
+    {
+      "name": "Strawberry Creamcheese Cake",
+      "price": 14.9,
+      "category": "Popular",
+      "image": "menustrawberrycreamcheese-optimized.webp",
+      "featured": true
+    },
+    {
+      "name": "Strawberry Pistachio",
+      "price": 12.9,
+      "category": "Sweet crepes"
+    },
+    {
+      "name": "Biscoff Brulee",
+      "price": 12.9,
+      "category": "Sweet crepes"
+    },
+    {
+      "name": "Blueberry Creamcheese",
+      "price": 10.9,
+      "category": "Sweet crepes"
+    },
+    {
+      "name": "Strawberry/Banana Nutella",
+      "price": 11.9,
+      "category": "Sweet crepes",
+      "image": "menustrawberrynutella-optimized.webp",
+      "featured": true
+    },
+    {
+      "name": "Plated Crepe",
+      "price": 7.9,
+      "description": "1 fruit + 1 sauce",
+      "category": "Sweet crepes"
+    },
+    {
+      "name": "Buldak (spicy)",
+      "price": 11.9,
+      "category": "Savoury crepes",
+      "image": "menumtbuldak-optimized.webp",
+      "featured": true
+    },
+    {
+      "name": "Tuna Mayo",
+      "price": 9.9,
+      "category": "Savoury crepes",
+      "image": "menuspicytunamayo-optimized.webp",
+      "featured": true
+    },
+    {
+      "name": "Ham & Cheese",
+      "price": 9.9,
+      "category": "Savoury crepes"
+    }
+  ],
+  "crepeAddons": [
+    {
+      "name": "Strawberry, banana or blueberry",
+      "price": 2
+    },
+    {
+      "name": "Nutella, Biscoff, dark chocolate or caramel",
+      "price": 2
+    },
+    {
+      "name": "Biscoff crunch, cornflakes or Oreo crumbs",
+      "price": 1
+    },
+    {
+      "name": "Mochi",
+      "price": 1.5
+    },
+    {
+      "name": "Ice cream",
+      "price": 2
+    },
+    {
+      "name": "Tuna",
+      "price": 2
+    },
+    {
+      "name": "Ham, cheese or egg",
+      "price": 1
+    }
+  ],
+  "crepeNote": "Takeaway box +S$0.30 · No pork, no lard",
+  "drinks": [
+    {
+      "category": "Coffee",
+      "items": [
+        [
+          "Americano",
+          5
+        ],
+        [
+          "Orange Americano",
+          6
+        ],
+        [
+          "Iced Latte",
+          6
+        ],
+        [
+          "Vanilla Latte",
+          6.5
+        ],
+        [
+          "Mocha",
+          6.5
+        ],
+        [
+          "Oreo Latte",
+          6.5
+        ],
+        [
+          "Biscoff Caramel Latte",
+          7
+        ],
+        [
+          "Cheese Foam Latte",
+          7
+        ]
+      ]
+    },
+    {
+      "category": "Matcha",
+      "note": "Ceremonial grade · Rin / Ajisai matcha powder +S$1",
+      "items": [
+        [
+          "Matcha Latte",
+          7.5
+        ],
+        [
+          "Strawberry Matcha",
+          8.5
+        ],
+        [
+          "Blueberry Matcha",
+          8.5
+        ],
+        [
+          "Pistachio Matcha",
+          8.5
+        ],
+        [
+          "Banana Pudding Matcha",
+          9.9
+        ]
+      ]
+    },
+    {
+      "category": "Hojicha",
+      "note": "By Niko Neko",
+      "items": [
+        [
+          "Hojicha Latte",
+          7.5
+        ],
+        [
+          "Strawberry Hojicha",
+          8.5
+        ],
+        [
+          "Blueberry Hojicha",
+          8.5
+        ],
+        [
+          "Banana Pudding Hojicha",
+          9.9
+        ]
+      ]
+    },
+    {
+      "category": "Speciality Matcha",
+      "items": [
+        [
+          "Whipped Honey Matcha",
+          9.5
+        ],
+        [
+          "Sea-salt Cold Foam Matcha",
+          9
+        ],
+        [
+          "Sea-salt Cheese Foam Matcha",
+          9
+        ]
+      ]
+    },
+    {
+      "category": "Others",
+      "items": [
+        [
+          "Hanami Lychee Fizz",
+          5
+        ],
+        [
+          "White Grape Fizz",
+          5
+        ],
+        [
+          "Ichigo Strawberry Milk",
+          6
+        ],
+        [
+          "Pistachio Latte",
+          6.5
+        ]
+      ]
+    }
+  ],
+  "drinksNote": "Sugar: 0, half or full · Oat milk +S$1"
+}

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kremi Admin Login</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -109,7 +110,7 @@
     <label for="password">Owner password</label>
     <input id="password" type="password" autocomplete="current-password" />
     <button id="login">Sign in</button>
-    <div class="status" id="status"></div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
   </div>
 
   <script>
@@ -118,6 +119,7 @@
     const loginBtn = document.getElementById('login');
 
     async function login() {
+      if (loginBtn.disabled) return;
       statusEl.textContent = 'Checking password...';
       const response = await fetch('/api/login', {
         method: 'POST',
@@ -131,6 +133,14 @@
       }
       window.location.href = '/seasonal-admin.html';
     }
+
+    loginBtn.disabled = true;
+    fetch('/api/status', {cache:'no-store'}).then(async response => {
+      if (!response.ok || !(response.headers.get('content-type') || '').includes('application/json')) throw new Error('The owner editor runs on your computer. Start the local Kremi server to sign in.');
+      const config = await response.json();
+      if (!config.editorConfigured) throw new Error('Owner setup is needed. Follow the local editor setup in README.md, then restart the server.');
+      loginBtn.disabled = false;
+    }).catch(error => {statusEl.textContent = error.message;});
 
     loginBtn.addEventListener('click', () => login().catch((error) => {
       statusEl.textContent = error.message || 'Login failed';

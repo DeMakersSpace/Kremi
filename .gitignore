@@ -12,3 +12,9 @@ kremi-reel/docs/superpowers/
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# Local owner configuration and generated deployment output
+.env
+.env.local
+_site/
+!.env.example

@@ -936,7 +936,12 @@ footer {
     "image": "https://www.kremi.sg/kremi-three-crepes.png",
     "logo": "https://www.kremi.sg/kremi_logo_red.png",
     "email": "kremicollective@gmail.com",
-    "servesCuisine": ["Japanese", "Dessert", "Crepes", "Matcha"],
+    "servesCuisine": [
+      "Japanese",
+      "Dessert",
+      "Crepes",
+      "Matcha"
+    ],
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -945,12 +950,29 @@ footer {
       "postalCode": "237978",
       "addressCountry": "SG"
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "12:00",
-      "closes": "20:45"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Sunday"
+        ],
+        "opens": "12:00",
+        "closes": "20:45"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "12:00",
+        "closes": "21:00"
+      }
+    ],
     "hasMap": "https://maps.google.com/?q=2+Orchard+Link+%2302-32+SCAPE+Singapore+237978"
   },
   "founder": {
@@ -964,8 +986,11 @@ footer {
   }
 }
 </script>
+<link rel="stylesheet" href="site-fixes.css?v=20261013">
+<script src="site.js?v=20261013" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <nav id="nav">
   <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" decoding="async"></a>
   <ul class="nav-links">
@@ -993,6 +1018,7 @@ footer {
   <p>Two friends, a love for Japan, and over 15kg of flour later — Kremi was born.</p>
 </div>
 
+<main id="main-content">
 <section class="story" id="story">
   <div class="story-visual reveal">
     <div class="story-img-main"><img src="boss-founders-first.jpg" alt="Lia and Tessa, co-founders of Kremi" loading="lazy" decoding="async" width="1200" height="900"></div>
@@ -1051,6 +1077,7 @@ footer {
   </div>
 </section>
 
+</main>
 <footer>
   <div class="footer-top">
     <div>
@@ -1061,7 +1088,7 @@ footer {
     <div class="footer-cols-row">
     <div class="footer-col"><h5>Explore</h5><a href="index.html#menu">Menu</a><a href="index.html#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
     <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
-    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Sun–Thu 12pm – 8:45pm<br>Fri–Sat 12pm – 9pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
     </div>
   </div>
   <div class="footer-bottom">

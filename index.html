@@ -1815,7 +1815,12 @@ footer {
   "description": "Handcrafted Japanese crepes and ceremonial-grade matcha at *SCAPE Orchard, Singapore. Sweet and savoury crepe cones made fresh to order.",
   "image": "https://www.kremi.sg/kremi-three-crepes.png",
   "logo": "https://www.kremi.sg/kremi_logo_red.png",
-  "servesCuisine": ["Japanese", "Dessert", "Crepes", "Matcha"],
+  "servesCuisine": [
+    "Japanese",
+    "Dessert",
+    "Crepes",
+    "Matcha"
+  ],
   "priceRange": "$$",
   "telephone": "",
   "email": "kremicollective@gmail.com",
@@ -1826,19 +1831,39 @@ footer {
     "postalCode": "237978",
     "addressCountry": "SG"
   },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "12:00",
-    "closes": "20:45"
-  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Sunday"
+      ],
+      "opens": "12:00",
+      "closes": "20:45"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "12:00",
+      "closes": "21:00"
+    }
+  ],
   "hasMap": "https://maps.google.com/?q=2+Orchard+Link+%2302-32+SCAPE+Singapore+237978",
   "menu": "https://kremicollective.eposqr.com/menu/products",
   "url": "https://www.kremi.sg"
 }
 </script>
+<link rel="stylesheet" href="site-fixes.css?v=20261013">
+<script src="site.js?v=20261013" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <nav id="nav">
   <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" decoding="async"></a>
   <ul class="nav-links">
@@ -1860,6 +1885,7 @@ footer {
   <a href="events.html#enquiry" class="nav-cta" style="background:transparent;border:1.5px solid var(--ink);color:var(--ink)!important;">Book an Event</a>
 </div>
 
+<main id="main-content">
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Made to order · Singapore</p>
@@ -1908,9 +1934,10 @@ footer {
     <h2 class="section-title" style="font-size:clamp(2rem,4vw,3.2rem);color:var(--red);">Every crepe, a<br>little piece of Japan</h2>
     <p style="color:var(--ink-soft);font-size:0.95rem;line-height:1.8;font-weight:300;margin-top:1rem;">Made fresh to order, each crepe is wrapped with care and filled with ingredients chosen for balance of texture, flavour, and artistry.</p>
   </div>
-  <div class="turnstile-wrap">
+  <div class="turnstile-wrap" role="region" aria-roledescription="carousel" aria-label="Featured crêpes">
     <div class="turnstile-stage" id="tStage"></div>
     <div class="turnstile-controls">
+      <button class="tc-pause" id="carouselPause" type="button" onclick="tTogglePause()" aria-pressed="false">Pause slideshow</button>
       <button class="tc-btn" onclick="tStep(-1)" aria-label="Previous"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
       <div class="tc-dots" id="tDots"></div>
       <button class="tc-btn" onclick="tStep(1)" aria-label="Next"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
@@ -1919,12 +1946,12 @@ footer {
 
 </section>
 
-<div class="menu-modal-overlay" id="menuModal" onclick="handleModalOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="menuModalTitle">
+<dialog class="menu-modal-overlay" id="menuModal" onclick="handleModalOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="menuModalTitle">
   <div class="menu-modal">
     <div class="menu-modal-header">
       <div class="menu-modal-title" id="menuModalTitle">Kremi Full Menu <span>クレープと抹茶</span></div>
       <div class="menu-modal-actions">
-        <a id="menuDownloadBtn" href="KremiCrepeMenu.png" download="Kremi_Crepe_Menu.png" class="menu-modal-download"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a>
+        <a id="menuDownloadBtn" href="KremiCrepeMenu.png?v=4f451bee65" download="Kremi_Crepe_Menu.png" class="menu-modal-download"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a>
         <button class="menu-modal-close" onclick="closeMenuPDF()" aria-label="Close menu">✕</button>
       </div>
     </div>
@@ -1932,17 +1959,23 @@ footer {
       <button id="tabCrepe" onclick="switchMenuTab('crepe')" style="padding:0.8rem 1.4rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;border:none;background:none;cursor:pointer;border-bottom:2px solid var(--red);color:var(--red);font-family:'DM Sans',sans-serif;">🥞 Crepe Menu</button>
       <button id="tabDrinks" onclick="switchMenuTab('drinks')" style="padding:0.8rem 1.4rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;color:var(--ink-soft);font-family:'DM Sans',sans-serif;">🍵 Drinks Menu</button>
     </div>
-    <div class="menu-modal-body"><img id="menuImgView" loading="lazy" decoding="async" width="1600" height="1132" alt="Kremi Menu preview"></div>
+    <div class="menu-modal-body"><img id="menuImgView" decoding="async" width="1600" height="1132" alt="Kremi crêpe menu"><details class="menu-readable"><summary>Read menu as text</summary><!-- MENU_TEXT_START -->
+<div id="menuTextCrepe"><h3>Popular</h3><dl class="menu-price-list"><div><dt>Strawberry Mochi Crepe</dt><dd>S$9.90</dd></div><div><dt>Chocolate Banana</dt><dd>S$9.90</dd></div><div><dt>Strawberry Creamcheese Cake</dt><dd>S$14.90</dd></div></dl><h3>Sweet crepes</h3><dl class="menu-price-list"><div><dt>Strawberry Pistachio</dt><dd>S$12.90</dd></div><div><dt>Biscoff Brulee</dt><dd>S$12.90</dd></div><div><dt>Blueberry Creamcheese</dt><dd>S$10.90</dd></div><div><dt>Strawberry/Banana Nutella</dt><dd>S$11.90</dd></div><div><dt>Plated Crepe<small>1 fruit + 1 sauce</small></dt><dd>S$7.90</dd></div></dl><h3>Savoury crepes</h3><dl class="menu-price-list"><div><dt>Buldak (spicy)</dt><dd>S$11.90</dd></div><div><dt>Tuna Mayo</dt><dd>S$9.90</dd></div><div><dt>Ham &amp; Cheese</dt><dd>S$9.90</dd></div></dl><h3>Add-ons</h3><dl class="menu-price-list"><div><dt>Strawberry, banana or blueberry</dt><dd>S$2.00</dd></div><div><dt>Nutella, Biscoff, dark chocolate or caramel</dt><dd>S$2.00</dd></div><div><dt>Biscoff crunch, cornflakes or Oreo crumbs</dt><dd>S$1.00</dd></div><div><dt>Mochi</dt><dd>S$1.50</dd></div><div><dt>Ice cream</dt><dd>S$2.00</dd></div><div><dt>Tuna</dt><dd>S$2.00</dd></div><div><dt>Ham, cheese or egg</dt><dd>S$1.00</dd></div></dl><p>Takeaway box +S$0.30 · No pork, no lard</p></div><div id="menuTextDrinks" hidden><p class="menu-options">Sugar: 0, half or full · Oat milk +S$1</p><div class="drinks-menu-grid"><section class="drink-card"><h3 class="drink-cat-title">Coffee</h3><dl class="menu-price-list"><div><dt>Americano</dt><dd>S$5.00</dd></div><div><dt>Orange Americano</dt><dd>S$6.00</dd></div><div><dt>Iced Latte</dt><dd>S$6.00</dd></div><div><dt>Vanilla Latte</dt><dd>S$6.50</dd></div><div><dt>Mocha</dt><dd>S$6.50</dd></div><div><dt>Oreo Latte</dt><dd>S$6.50</dd></div><div><dt>Biscoff Caramel Latte</dt><dd>S$7.00</dd></div><div><dt>Cheese Foam Latte</dt><dd>S$7.00</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Matcha</h3><p class="drink-cat-note">Ceremonial grade · Rin / Ajisai matcha powder +S$1</p><dl class="menu-price-list"><div><dt>Matcha Latte</dt><dd>S$7.50</dd></div><div><dt>Strawberry Matcha</dt><dd>S$8.50</dd></div><div><dt>Blueberry Matcha</dt><dd>S$8.50</dd></div><div><dt>Pistachio Matcha</dt><dd>S$8.50</dd></div><div><dt>Banana Pudding Matcha</dt><dd>S$9.90</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Hojicha</h3><p class="drink-cat-note">By Niko Neko</p><dl class="menu-price-list"><div><dt>Hojicha Latte</dt><dd>S$7.50</dd></div><div><dt>Strawberry Hojicha</dt><dd>S$8.50</dd></div><div><dt>Blueberry Hojicha</dt><dd>S$8.50</dd></div><div><dt>Banana Pudding Hojicha</dt><dd>S$9.90</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Speciality Matcha</h3><dl class="menu-price-list"><div><dt>Whipped Honey Matcha</dt><dd>S$9.50</dd></div><div><dt>Sea-salt Cold Foam Matcha</dt><dd>S$9.00</dd></div><div><dt>Sea-salt Cheese Foam Matcha</dt><dd>S$9.00</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Others</h3><dl class="menu-price-list"><div><dt>Hanami Lychee Fizz</dt><dd>S$5.00</dd></div><div><dt>White Grape Fizz</dt><dd>S$5.00</dd></div><div><dt>Ichigo Strawberry Milk</dt><dd>S$6.00</dd></div><div><dt>Pistachio Latte</dt><dd>S$6.50</dd></div></dl></section></div></div>
+<!-- MENU_TEXT_END --></details></div>
   </div>
-</div>
+</dialog>
 
 <section class="seasonal-section" id="seasonal" hidden>
   <div class="seasonal-shell reveal">
     <div class="seasonal-head">
       <div>
         <p class="section-label">Seasonal Crepes</p>
-        <h2 class="section-title" style="font-size:clamp(2rem,4vw,3.2rem);color:var(--red);">Limited drops,<br>freshly published</h2>
-        <p class="seasonal-copy">Upload new seasonal images and descriptions from the admin page. The site reads the latest menu directly from the repository, so the update appears once it is published to GitHub.</p>
+        <h2 class="section-title" style="font-size:clamp(2rem,4vw,3.2rem);color:var(--red);">Fresh flavours, here for a season</h2>
+        <p class="seasonal-copy">Discover our latest seasonal crêpes, made fresh with flavours worth coming back for.</p>
       </div>
     </div>
     <div class="seasonal-grid" id="seasonalGrid"></div>
@@ -1976,36 +2009,13 @@ footer {
       <div class="ml-label-row"><span class="ml-label-name"><span style="color:var(--warm-white)">Kremi</span> Matcha Latte</span></div>
     </div>
   </div>
-  <div class="reveal drinks-menu-grid">
-    <div class="drink-card">
-      <div class="drink-cat-title">Matcha</div>
-      <div class="drink-cat-note">Oatmilk +$1.0 · Carrier +$0.2</div>
-      <div class="drink-items">
-        <div><div class="drink-item-name">Signature</div><div class="drink-item-desc">Floral, Nutty, Creamy</div><div class="drink-item-price">$7.50</div></div>
-        <div><div class="drink-item-name">Rin Matcha Latte</div><div class="drink-item-desc">Multi-dimensional Umami Flavour</div><div class="drink-item-price">$8.50</div></div>
-        <div><div class="drink-item-name">Ajisai Matcha Latte</div><div class="drink-item-desc">Umami, Soybean, Pistachio</div><div class="drink-item-price">$8.50</div></div>
-      </div>
-      <div class="drink-addon">
-        <div class="drink-addon-title">Add-ons</div>
-        <div class="drink-addon-list">Strawberry / Mango <span class="drink-addon-price">+$1</span><br>Banana Pudding <span class="drink-addon-price">+$2.50</span><br>Black Sesame Cold Foam <span class="drink-addon-price">+$2.50</span><br>Sea Salt Cold Foam <span class="drink-addon-price">+$2</span></div>
-      </div>
-    </div>
-    <div class="drink-card">
-      <div class="drink-cat-title-sm">Others</div>
-      <div class="drink-items">
-        <div><div class="drink-item-name">Hojicha Latte</div><div class="drink-item-desc">Dark Roast, Hazelnut Smokey Note</div><div class="drink-item-price">$7.00</div></div>
-        <div><div class="drink-item-name">Genmai Latte</div><div class="drink-item-desc">Toasty Aroma, Cereal Milk Taste</div><div class="drink-item-price">$7.00</div></div>
-        <div><div class="drink-item-name">Sea Salt Iced Chocolate</div><div class="drink-item-price">$6.00</div></div>
-      </div>
-    </div>
-    <div class="drink-card">
-      <div class="drink-cat-title-sm">Thirst Quencher</div>
-      <div class="drink-items">
-        <div><div class="drink-item-name">White Grape Fizz</div><div class="drink-item-price">$5.00</div></div>
-        <div><div class="drink-item-name">Sparkling Yuzu</div><div class="drink-item-price">$5.00</div></div>
-      </div>
-    </div>
-  </div>
+  <!-- DRINKS_START -->
+<p class="menu-options">Sugar: 0, half or full · Oat milk +S$1</p><div class="drinks-menu-grid"><section class="drink-card"><h3 class="drink-cat-title">Coffee</h3><dl class="menu-price-list"><div><dt>Americano</dt><dd>S$5.00</dd></div><div><dt>Orange Americano</dt><dd>S$6.00</dd></div><div><dt>Iced Latte</dt><dd>S$6.00</dd></div><div><dt>Vanilla Latte</dt><dd>S$6.50</dd></div><div><dt>Mocha</dt><dd>S$6.50</dd></div><div><dt>Oreo Latte</dt><dd>S$6.50</dd></div><div><dt>Biscoff Caramel Latte</dt><dd>S$7.00</dd></div><div><dt>Cheese Foam Latte</dt><dd>S$7.00</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Matcha</h3><p class="drink-cat-note">Ceremonial grade · Rin / Ajisai matcha powder +S$1</p><dl class="menu-price-list"><div><dt>Matcha Latte</dt><dd>S$7.50</dd></div><div><dt>Strawberry Matcha</dt><dd>S$8.50</dd></div><div><dt>Blueberry Matcha</dt><dd>S$8.50</dd></div><div><dt>Pistachio Matcha</dt><dd>S$8.50</dd></div><div><dt>Banana Pudding Matcha</dt><dd>S$9.90</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Hojicha</h3><p class="drink-cat-note">By Niko Neko</p><dl class="menu-price-list"><div><dt>Hojicha Latte</dt><dd>S$7.50</dd></div><div><dt>Strawberry Hojicha</dt><dd>S$8.50</dd></div><div><dt>Blueberry Hojicha</dt><dd>S$8.50</dd></div><div><dt>Banana Pudding Hojicha</dt><dd>S$9.90</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Speciality Matcha</h3><dl class="menu-price-list"><div><dt>Whipped Honey Matcha</dt><dd>S$9.50</dd></div><div><dt>Sea-salt Cold Foam Matcha</dt><dd>S$9.00</dd></div><div><dt>Sea-salt Cheese Foam Matcha</dt><dd>S$9.00</dd></div></dl></section>
+<section class="drink-card"><h3 class="drink-cat-title">Others</h3><dl class="menu-price-list"><div><dt>Hanami Lychee Fizz</dt><dd>S$5.00</dd></div><div><dt>White Grape Fizz</dt><dd>S$5.00</dd></div><div><dt>Ichigo Strawberry Milk</dt><dd>S$6.00</dd></div><div><dt>Pistachio Latte</dt><dd>S$6.50</dd></div></dl></section></div>
+<!-- DRINKS_END -->
 </section>
 
 <section class="view-menu-strip reveal" style="text-align:center;">
@@ -2014,6 +2024,7 @@ footer {
   <p style="font-size:0.75rem;color:var(--red-warm);opacity:0.75;margin-top:0.6rem;margin-bottom:0;">Crepe Menu &amp; Drinks Menu — switch between tabs</p>
 </section>
 
+</main>
 <footer>
   <div class="footer-top">
     <div>
@@ -2024,7 +2035,7 @@ footer {
     <div class="footer-cols-row">
     <div class="footer-col"><h5>Explore</h5><a href="#menu">Menu</a><a href="#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
     <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
-    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Sun–Thu 12pm – 8:45pm<br>Fri–Sat 12pm – 9pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -2034,179 +2045,6 @@ footer {
   </div>
 </footer>
 
-<script>
-var menuFiles={crepe:{preview:'KremiCrepeMenu-preview.jpg',full:'KremiCrepeMenu.png',dl:'Kremi_Crepe_Menu.png',w:1600,h:1132},drinks:{preview:'KremiDrinksMenuA4-preview.jpg',full:'KremiDrinksMenuA4.png',dl:'Kremi_Drinks_Menu.png',w:1200,h:1697}};
-function openMenuPDF(tab){tab=tab||'crepe';switchMenuTab(tab);document.getElementById('menuModal').classList.add('open');document.body.style.overflow='hidden';}
-function switchMenuTab(tab){var f=menuFiles[tab];var img=document.getElementById('menuImgView');img.src=f.preview;img.width=f.w;img.height=f.h;document.getElementById('menuDownloadBtn').href=f.full;document.getElementById('menuDownloadBtn').download=f.dl;document.getElementById('tabCrepe').style.borderBottomColor=tab==='crepe'?'var(--red)':'transparent';document.getElementById('tabCrepe').style.color=tab==='crepe'?'var(--matcha)':'var(--ink-soft)';document.getElementById('tabDrinks').style.borderBottomColor=tab==='drinks'?'var(--matcha)':'transparent';document.getElementById('tabDrinks').style.color=tab==='drinks'?'var(--matcha)':'var(--ink-soft)';}
-function closeMenuPDF(){document.getElementById('menuModal').classList.remove('open');document.body.style.overflow='';}
-function handleModalOverlayClick(e){if(e.target===document.getElementById('menuModal'))closeMenuPDF();}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenuPDF();});
-var reveals=document.querySelectorAll('.reveal');
-var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.12});
-reveals.forEach(function(el){observer.observe(el);});
-document.body.classList.add('js-ready');
-var tCrepes=[{img:'menustrawberrycreamcheese.png',name:'Strawberry Cream Cheese',badge:'⭐ Bestseller',bc:'tb-special',price:'S$14.90'},{img:'menumochistrawberry-card.jpg',name:'Mochi Strawberry',badge:'⭐ Bestseller',bc:'tb-special',price:'S$11.90'},{img:'menuspicytunamayo.png',name:'Spicy Tuna Mayo',badge:'⭐ Bestseller',bc:'tb-savory',price:'S$9.90'},{img:'menubananapuddingbrulee.png',name:'Banana Pudding Matcha Brûlée',badge:'🔥 Limited Qty',bc:'tb-special',price:'S$14.90'},{img:'menustrawberrymatcha.png',name:'Strawberry Matcha',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menustrawberrynutella.png',name:'Strawberry Nutella',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'banananutella-card.jpg',name:'Banana Nutella',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menuoreocreamcheese.png',name:'Oreo Cream Cheese',badge:'Sweet',bc:'tb-sweet',price:'S$11.90'},{img:'menumtbuldak.png',name:'Mt. Buldak',badge:'Savoury',bc:'tb-savory',price:'S$11.90'},{img:'menubananacookiebutter.png',name:'Banana Cookie Butter',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'},{img:'menuchoco.png',name:'Choco',badge:'Sweet',bc:'tb-sweet',price:'S$9.90'}];
-var tCur=0,tN=tCrepes.length,tPaused=false,tTimer=null,tDragX=0,tDragging=false,tDelta=0;
-function tBuild(){var stage=document.getElementById('tStage');var dots=document.getElementById('tDots');if(!stage)return;stage.innerHTML='';dots.innerHTML='';tCrepes.forEach(function(c,i){var card=document.createElement('div');card.className='tcard';card.innerHTML='<img src="'+c.img+'" alt="'+c.name+'" loading="lazy" decoding="async" width="700" height="700"><div class="tcard-info"><span class="tcard-badge '+c.bc+'">'+c.badge+'</span><div class="tcard-name">'+c.name+'</div><div class="tcard-price">'+c.price+'</div></div>';stage.appendChild(card);var dot=document.createElement('button');dot.type='button';dot.className='tc-dot'+(i===0?' on':'');dot.setAttribute('aria-label','Show '+c.name);dot.addEventListener('click',(function(idx){return function(){tGoTo(idx);};})(i));dots.appendChild(dot);});tRender();tAttachSwipe();tStartAuto();}
-function tRender(){var cards=document.querySelectorAll('.tcard');var dots=document.querySelectorAll('.tc-dot');cards.forEach(function(card,i){var rel=((i-tCur)%tN+tN)%tN;var signed=rel<=tN/2?rel:rel-tN;var pos;if(signed===0)pos='0';else if(signed===1)pos='1';else if(signed===-1)pos='-1';else if(signed===2)pos='2';else if(signed===-2)pos='-2';else pos='hidden';card.setAttribute('data-pos',pos);});dots.forEach(function(d,i){var active=i===tCur;d.classList.toggle('on',active);d.setAttribute('aria-current',active?'true':'false');});}
-function tStep(dir){tCur=(tCur+dir+tN)%tN;tRender();tResetAuto();}function tGoTo(idx){tCur=idx;tRender();tResetAuto();}
-function tStartAuto(){clearTimeout(tTimer);if(!tPaused)tTimer=setTimeout(function(){tStep(1);tStartAuto();},5000);}function tResetAuto(){if(!tPaused){clearTimeout(tTimer);tStartAuto();}}
-function tAttachSwipe(){var stage=document.getElementById('tStage');stage.addEventListener('touchstart',function(e){tDragX=e.touches[0].clientX;tDragging=true;},{passive:true});stage.addEventListener('touchmove',function(e){if(tDragging)tDelta=e.touches[0].clientX-tDragX;},{passive:true});stage.addEventListener('touchend',function(){if(tDragging&&Math.abs(tDelta)>45)tStep(tDelta<0?1:-1);tDragging=false;tDelta=0;});stage.addEventListener('mousedown',function(e){tDragX=e.clientX;tDragging=true;e.preventDefault();});window.addEventListener('mousemove',function(e){if(tDragging)tDelta=e.clientX-tDragX;});window.addEventListener('mouseup',function(){if(tDragging&&Math.abs(tDelta)>45)tStep(tDelta<0?1:-1);tDragging=false;tDelta=0;});}
-async function seasonalBuild(){
-  var section=document.getElementById('seasonal');
-  var grid=document.getElementById('seasonalGrid');
-  if(!section||!grid)return;
-  try{
-    var res=await fetch('seasonal-crepes.json',{cache:'no-store'});
-    if(!res.ok) return;
-    var data=await res.json();
-    var items=Array.isArray(data.items)?data.items:[];
-    if(!items.length){section.hidden=true;return;}
-    section.hidden=false;
-    var label=section.querySelector('.section-label');
-    var title=section.querySelector('.section-title');
-    var copy=section.querySelector('.seasonal-copy');
-    if(label&&data.eyebrow)label.textContent=data.eyebrow;
-    if(title&&data.title)title.textContent=data.title;
-    if(copy&&data.description)copy.textContent=data.description;
-    grid.innerHTML='';
-    items.forEach(function(item){
-      var card=document.createElement('article');
-      card.className='seasonal-card';
-      var img=document.createElement('img');
-      img.className='seasonal-card-img';
-      img.loading='lazy';
-      img.decoding='async';
-      img.src=item.image||'';
-      img.alt=item.alt||item.name||'Seasonal crepe';
-      card.appendChild(img);
-      var body=document.createElement('div');
-      body.className='seasonal-card-body';
-      if(item.badge){
-        var badge=document.createElement('div');
-        badge.className='seasonal-card-label';
-        badge.textContent=item.badge;
-        body.appendChild(badge);
-      }
-      var name=document.createElement('div');
-      name.className='seasonal-card-name';
-      name.textContent=item.name||'Seasonal crepe';
-      body.appendChild(name);
-      if(item.description){
-        var desc=document.createElement('div');
-        desc.className='seasonal-card-desc';
-        desc.textContent=item.description;
-        body.appendChild(desc);
-      }
-      if(item.price){
-        var price=document.createElement('div');
-        price.className='seasonal-card-price';
-        price.textContent=item.price;
-        body.appendChild(price);
-      }
-      card.appendChild(body);
-      grid.appendChild(card);
-    });
-  }catch(err){
-    section.hidden=true;
-  }
-}
-document.addEventListener('DOMContentLoaded',function(){tBuild();seasonalBuild();var h=document.getElementById('hamburger');var m=document.getElementById('mobileNav');if(h&&m){h.addEventListener('click',function(){
-    var isOpen=m.classList.contains('open');
-    if(isOpen){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-    else{h.classList.add('open');m.classList.add('open');h.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-  });
-  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';});});
-  m.addEventListener('click',function(e){if(e.target===m){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
-  window.addEventListener('pageshow',function(){h.classList.remove('open');m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';});}});
-var nav=document.getElementById('nav');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
-
-// Panel switcher
-var csCurrentPanel='menu';
-function switchPanel(panel){
-  csCurrentPanel=panel;
-  var isMenu=panel==='menu';
-  document.getElementById('menu').classList.toggle('cs-panel-hidden',!isMenu);
-  document.getElementById('matcha').classList.toggle('cs-panel-hidden',isMenu);
-  document.querySelectorAll('.cs-tab').forEach(function(tab){tab.classList.toggle('cs-tab-active',tab.dataset.panel===panel);});
-  var bar=document.getElementById('csTabBar');
-  if(bar){bar.dataset.active=panel;window.scrollTo({top:bar.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});}
-}
-// Swipe support
-(function(){
-  var sx=0,sy=0;
-  document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
-  document.addEventListener('touchend',function(e){
-    var dx=e.changedTouches[0].clientX-sx;
-    var dy=e.changedTouches[0].clientY-sy;
-    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>60){
-      if(dx<0&&csCurrentPanel==='menu')switchPanel('matcha');
-      else if(dx>0&&csCurrentPanel==='matcha')switchPanel('menu');
-    }
-  },{passive:true});
-})();
-
-// Matcha arrow animation
-(function(){
-  var hasAnimated=false;
-  function buildArrow(){
-    var para=document.getElementById('matcha-rich-desc');
-    var card=document.querySelector('.ml-glass-card');
-    var grid=document.querySelector('.matcha-top-grid');
-    var svg=document.getElementById('matcha-arrow-svg');
-    var path=document.getElementById('matcha-arrow-path');
-    if(!para||!card||!grid||!svg||!path)return;
-    if(window.innerWidth<=1024){svg.style.display='none';return;}
-    svg.style.display='block';
-    var gr=grid.getBoundingClientRect();
-    var pr=para.getBoundingClientRect();
-    var cr=card.getBoundingClientRect();
-    var x1=pr.right-gr.left;
-    var y1=pr.top+pr.height/2-gr.top;
-    var x2=cr.left-gr.left;
-    var y2=cr.top+cr.height*0.38-gr.top;
-    var dx=x2-x1;
-    var cx1=x1+dx*0.35; var cy1=y1+35;
-    var cx2=x1+dx*0.65; var cy2=y2-20;
-    svg.setAttribute('width',gr.width);
-    svg.setAttribute('height',gr.height);
-    svg.setAttribute('viewBox','0 0 '+gr.width+' '+gr.height);
-    path.setAttribute('d','M'+x1+','+y1+' C'+cx1+','+cy1+' '+cx2+','+cy2+' '+x2+','+y2);
-    path.style.transition='none';
-    var len=path.getTotalLength();
-    path.style.strokeDasharray=len+' '+len;
-    path.style.strokeDashoffset=len;
-    return len;
-  }
-  function animateArrow(){
-    var len=buildArrow();
-    if(!len)return;
-    var path=document.getElementById('matcha-arrow-path');
-    var card=document.querySelector('.ml-glass-card');
-    requestAnimationFrame(function(){
-      requestAnimationFrame(function(){
-        path.style.transition='stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) 0.2s';
-        path.style.strokeDashoffset='0';
-      });
-    });
-    setTimeout(function(){
-      if(card){card.classList.add('matcha-glow-active');}
-    },1700);
-  }
-  var section=document.getElementById('matcha');
-  if(section&&'IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting&&!hasAnimated){hasAnimated=true;animateArrow();}
-      });
-    },{threshold:0.45});
-    obs.observe(section);
-  }
-  window.addEventListener('resize',function(){
-    if(hasAnimated)buildArrow();
-  });
-})();
-</script>
+<script src="home.js" defer></script>
 </body>
 </html>

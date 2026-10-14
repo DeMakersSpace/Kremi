@@ -886,7 +886,12 @@ footer {
   "image": "https://www.kremi.sg/kremi-three-crepes.png",
   "logo": "https://www.kremi.sg/kremi_logo_red.png",
   "email": "kremicollective@gmail.com",
-  "servesCuisine": ["Japanese", "Dessert", "Crepes", "Matcha"],
+  "servesCuisine": [
+    "Japanese",
+    "Dessert",
+    "Crepes",
+    "Matcha"
+  ],
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -895,12 +900,29 @@ footer {
     "postalCode": "237978",
     "addressCountry": "SG"
   },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "12:00",
-    "closes": "20:45"
-  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Sunday"
+      ],
+      "opens": "12:00",
+      "closes": "20:45"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "12:00",
+      "closes": "21:00"
+    }
+  ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
@@ -912,48 +934,102 @@ footer {
   "review": [
     {
       "@type": "Review",
-      "author": { "@type": "Person", "name": "calzburps" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": {
+        "@type": "Person",
+        "name": "calzburps"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
       "reviewBody": "Yummy crepes and matcha!! Got the strawberry matcha crepe that was so gao and yummy, not gelat at all!! Love the shop design too super aesthetic and many nice photospots!! Love their matcha and can't wait to try their other crepes next time!",
-      "publisher": { "@type": "Organization", "name": "Google Maps" }
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google Maps"
+      }
     },
     {
       "@type": "Review",
-      "author": { "@type": "Person", "name": "Nomninjas" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": {
+        "@type": "Person",
+        "name": "Nomninjas"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
       "reviewBody": "Rich matcha latte — bigger than normal cup! Sweet and savory crepes are recommended to share, even 3 pax potentially cos they are generous with the filling. Support youth passion!",
-      "publisher": { "@type": "Organization", "name": "Google Maps" }
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google Maps"
+      }
     },
     {
       "@type": "Review",
-      "author": { "@type": "Person", "name": "Alson Tan" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": {
+        "@type": "Person",
+        "name": "Alson Tan"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
       "reviewBody": "Been a regular since their soft launch. The Strawberry Cream Cheese crepe is beautifully balanced — tangy cream cheese, sweet strawberry jam, rich yet refreshing. Generous with fillings every single time.",
-      "publisher": { "@type": "Organization", "name": "Google Maps" }
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google Maps"
+      }
     },
     {
       "@type": "Review",
-      "author": { "@type": "Person", "name": "Sarah Lim" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": {
+        "@type": "Person",
+        "name": "Sarah Lim"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
       "reviewBody": "We had Kremi at our office appreciation day and it was a massive hit. The live crepe station kept everyone buzzing the whole time. Seamless setup, professional team, and the food was absolutely delicious."
     },
     {
       "@type": "Review",
-      "author": { "@type": "Person", "name": "Jamie T." },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": {
+        "@type": "Person",
+        "name": "Jamie T."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
       "reviewBody": "Had Kremi at my birthday gathering — the banana pudding matcha brûlée crepes were the star of the night. Everyone was taking photos. Lia and Tessa were so professional and warm throughout."
     },
     {
       "@type": "Review",
-      "author": { "@type": "Person", "name": "Marcus Ng" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": {
+        "@type": "Person",
+        "name": "Marcus Ng"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
       "reviewBody": "Booked Kremi for our company's end-of-year party and they exceeded all expectations. The matcha live station was a conversation starter all evening. Will be booking them again."
     }
   ]
 }
 </script>
+<link rel="stylesheet" href="site-fixes.css?v=20261013">
+<script src="site.js?v=20261013" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- Google icon symbol -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -1001,6 +1077,7 @@ footer {
 </div>
 
 <!-- ALL REVIEWS -->
+<main id="main-content">
 <section class="reviews-page" id="reviews">
   <div class="reviews-page-inner">
 
@@ -1107,6 +1184,7 @@ footer {
   </div>
 </section>
 
+</main>
 <footer>
   <div class="footer-top">
     <div>
@@ -1117,7 +1195,7 @@ footer {
     <div class="footer-cols-row">
     <div class="footer-col"><h5>Explore</h5><a href="index.html#menu">Menu</a><a href="index.html#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
     <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
-    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Sun–Thu 12pm – 8:45pm<br>Fri–Sat 12pm – 9pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
     </div>
   </div>
   <div class="footer-bottom">

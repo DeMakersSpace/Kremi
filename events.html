@@ -1424,8 +1424,11 @@ footer {
   }
 }
 </script>
+<link rel="stylesheet" href="site-fixes.css?v=20261013">
+<script src="site.js?v=20261013" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <nav id="nav">
   <a href="index.html" class="nav-logo"><img src="kremi_logo_white_removebg.png" alt="Kremi" width="274" height="154" decoding="async"></a>
   <ul class="nav-links">
@@ -1447,6 +1450,7 @@ footer {
   <a href="#enquiry" class="nav-cta" style="background:transparent;border:1.5px solid var(--ink);color:var(--ink)!important;">Book an Event</a>
 </div>
 
+<main id="main-content">
 <section class="events-divider" id="events">
   <div class="events-divider-content reveal">
     <p class="section-label">Private Events &amp; Bookings</p>
@@ -1493,7 +1497,7 @@ footer {
       <h2 class="section-title">Tell us about<br>your event</h2>
       <p style="font-size:0.9rem;line-height:1.8;color:var(--ink-soft);font-weight:300;margin-bottom:2rem;">We'd love to be part of your celebration. Fill in the form and we'll get back to you within 2 business days.</p>
       <div class="enquiry-form" id="formWrapper">
-        <form id="formContent" onsubmit="event.preventDefault(); submitForm();">
+        <form id="formContent" novalidate onsubmit="event.preventDefault(); submitForm();">
           <div class="form-title">Event Enquiry Form</div>
           <div class="form-subtitle">Fill in the details below and we'll craft a response just for you. Fields marked <span style="color:var(--red);">*</span> are required.</div>
           <div class="form-row">
@@ -1508,8 +1512,8 @@ footer {
             <div class="form-group">
               <label for="fdate">Event Date <span class="req">*</span></label>
               <div class="date-mode-toggle">
-                <button type="button" class="date-mode-btn active" id="btnSingleDay" onclick="setDateMode('single')">Single Day</button>
-                <button type="button" class="date-mode-btn" id="btnMultiDay" onclick="setDateMode('multi')">Multiple Days</button>
+                <button type="button" class="date-mode-btn active" id="btnSingleDay" aria-pressed="true" onclick="setDateMode('single')">Single Day</button>
+                <button type="button" class="date-mode-btn" id="btnMultiDay" aria-pressed="false" onclick="setDateMode('multi')">Multiple Days</button>
               </div>
               <div id="singleDateWrap"><input type="date" id="fdate" aria-describedby="err-fdate"></div>
               <div id="multiDateWrap" style="display:none;">
@@ -1522,20 +1526,23 @@ footer {
           </div>
           <div class="form-group"><label>Interested In</label><div class="checkbox-group"><label class="checkbox-item"><input type="checkbox"> Crepe Station</label><label class="checkbox-item"><input type="checkbox"> Matcha Drinks Bar</label><label class="checkbox-item"><input type="checkbox"> Custom Branding</label><label class="checkbox-item"><input type="checkbox"> Custom Menu</label><label class="checkbox-item"><input type="checkbox"> Not sure yet</label></div></div>
           <div class="form-group"><label for="fmsg">Tell us more about your event</label><textarea id="fmsg" placeholder="Any special requests, dietary requirements, theme, or anything else you'd like us to know..."></textarea></div>
-          <button class="form-submit" type="submit" id="formSubmitBtn">Send Enquiry →</button>
-          <p class="form-note">We'll reply within 2 business days.</p>
+          <button class="form-submit" type="submit" id="formSubmitBtn">Prepare email enquiry →</button>
+          <p class="form-note">Review your enquiry, then send it from your email app. We reply within 2 business days of receiving it.</p>
         </form>
-        <div class="form-success" id="formSuccess">
-          <div class="success-icon">📬</div>
-          <div class="success-title">Almost there!</div>
-          <p class="success-msg">Your enquiry details have been filled into your mail app — <strong>please press Send</strong> to complete your submission to Kremi.</p>
-          <p class="success-msg" style="margin-top:0.8rem;padding:0.8rem 1rem;background:var(--matcha-wash);border-radius:10px;border-left:3px solid var(--matcha);">If your mail app didn't open, reach us at <a href="mailto:kremicollective@gmail.com" style="color:var(--matcha);font-weight:600;">kremicollective@gmail.com</a>.</p>
+        <div class="form-success" id="formSuccess" hidden>
+          <h3 class="success-title" id="draftTitle" tabindex="-1">Your enquiry is ready to send</h3>
+          <p class="success-msg">Nothing has been sent yet. Open your email app and press Send, or copy the details into an email to <a href="mailto:kremicollective@gmail.com">kremicollective@gmail.com</a>.</p>
+          <label for="enquiryDraft">Your enquiry details</label>
+          <textarea id="enquiryDraft" readonly></textarea>
+          <div class="enquiry-actions"><a id="openEnquiryEmail" href="mailto:kremicollective@gmail.com">Open email app</a><button type="button" onclick="copyEnquiry()">Copy enquiry</button><button type="button" onclick="editEnquiry()">Edit details</button></div>
+          <p id="draftStatus" role="status" aria-live="polite"></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+</main>
 <footer>
   <div class="footer-top">
     <div>
@@ -1546,7 +1553,7 @@ footer {
     <div class="footer-cols-row">
     <div class="footer-col"><h5>Explore</h5><a href="index.html#menu">Menu</a><a href="index.html#matcha">Matcha &amp; Drinks</a><a href="our-story.html#visit">Visit Us</a><a href="our-story.html">Our Story</a><a href="reviews.html">Reviews</a></div>
     <div class="footer-col"><h5>Events</h5><a href="events.html">Book an Event</a><a href="events.html#past-events">Past Events</a><a href="events.html#enquiry">Send Enquiry</a></div>
-    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Daily 12pm – 8.45pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
+    <div class="footer-col"><h5>Visit</h5><p>2 Orchard Link, #02-32</p><p>*SCAPE, Singapore 237978</p><p style="margin-top:0.5rem;">Sun–Thu 12pm – 8:45pm<br>Fri–Sat 12pm – 9pm</p><a href="mailto:kremicollective@gmail.com" style="margin-top:0.5rem;">kremicollective@gmail.com</a></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1585,52 +1592,50 @@ function setDateMode(mode){
   document.getElementById('multiDateWrap').style.display=mode==='multi'?'':'none';
   document.getElementById('btnSingleDay').classList.toggle('active',mode==='single');
   document.getElementById('btnMultiDay').classList.toggle('active',mode==='multi');
+  document.getElementById('btnSingleDay').setAttribute('aria-pressed',String(mode==='single'));
+  document.getElementById('btnMultiDay').setAttribute('aria-pressed',String(mode==='multi'));
+  invalidateDraft();
   setError('fdate','');
 }
-function getMinDate(){var t=new Date();t.setDate(t.getDate()+7);return t.toISOString().split('T')[0];}
+function getMinDate(){var parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Singapore',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(Date.now()+7*86400000));return ['year','month','day'].map(function(key){return parts.find(function(p){return p.type===key;}).value;}).join('-');}
 function addDateField(){
+  invalidateDraft();
   var list=document.getElementById('multiDateList');
   var row=document.createElement('div');
   row.className='multi-date-row';
   var inp=document.createElement('input');
-  inp.type='date';inp.min=getMinDate();
+  inp.type='date';inp.min=getMinDate();inp.setAttribute('aria-label','Event date');inp.setAttribute('aria-describedby','err-fdate');
   var btn=document.createElement('button');
   btn.type='button';btn.className='remove-date-btn';
-  btn.textContent='\u00d7';
-  btn.onclick=function(){if(document.querySelectorAll('.multi-date-row').length>1)row.remove();};
+  btn.textContent='\u00d7';btn.setAttribute('aria-label','Remove event date');
+  btn.onclick=function(){if(document.querySelectorAll('.multi-date-row').length>1){row.remove();invalidateDraft();}};
   row.appendChild(inp);row.appendChild(btn);list.appendChild(row);
 }
 function setError(id,msg){var el=document.getElementById('err-'+id);var inp=document.getElementById(id);if(el)el.textContent=msg;if(inp){inp.classList.toggle('invalid',!!msg);inp.classList.toggle('valid',!msg&&inp.value.trim()!=='');inp.setAttribute('aria-invalid',msg?'true':'false');}}
 function isValidPhone(v){return /^[+]?[0-9][0-9\s\-]{6,18}$/.test(v.trim());}
-var formSubmitting=false;
+function invalidateDraft(){var box=document.getElementById('formSuccess');box.hidden=true;box.classList.remove('show');}
+function editEnquiry(){invalidateDraft();document.getElementById('fname').focus();}
+async function copyEnquiry(){var draft=document.getElementById('enquiryDraft'),status=document.getElementById('draftStatus');try{await navigator.clipboard.writeText(draft.value);status.textContent='Copied. Paste into an email to kremicollective@gmail.com and send.';}catch(err){draft.focus();draft.select();status.textContent='Select and copy the highlighted text, then paste it into your email app.';}}
 function submitForm(){
-  if(formSubmitting)return;
-  var n=document.getElementById('fname').value.trim();
-  var p=document.getElementById('fphone').value.trim();
-  var t=document.getElementById('feventType').value;
-  var g=document.getElementById('fguests').value;
-  var d;
-  if(dateMode==='single'){d=document.getElementById('fdate').value;}
-  else{var picks=[];document.querySelectorAll('#multiDateList input[type="date"]').forEach(function(i){if(i.value)picks.push(i.value);});d=picks.join(', ');}
-  var budget=document.getElementById('fbudget').value||'Not specified';
-  var msg=document.getElementById('fmsg').value.trim();
-  var interests=[];document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(function(cb){if(cb.checked)interests.push(cb.parentElement.textContent.trim());});
-  var valid=true;
-  if(!n){setError('fname','Please enter your name.');valid=false;}else setError('fname','');
-  if(!p){setError('fphone','Please enter your phone number.');valid=false;}else if(!isValidPhone(p)){setError('fphone','Please enter a valid phone number.');valid=false;}else setError('fphone','');
-  if(!t){setError('feventType','Please select an event type.');valid=false;}else setError('feventType','');
-  if(!g){setError('fguests','Please select a guest count.');valid=false;}else setError('fguests','');
-  if(!d){setError('fdate',dateMode==='single'?'Please select your event date.':'Please select at least one date.');valid=false;}else setError('fdate','');
-  if(!valid){var fe=document.querySelector('.field-error:not(:empty)');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
-  formSubmitting=true;
-  var submitBtn=document.getElementById('formSubmitBtn');
-  if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Opening email app...';}
-  var subj=encodeURIComponent('Event Enquiry — '+t+' | '+n);
-  var dateLabel=dateMode==='single'?'Event Date':'Event Date(s)';
-  var body=encodeURIComponent('Hi Kremi Team,\n\nI would like to enquire about booking Kremi for my event.\n\n──────────────────────\nName: '+n+'\nPhone / WhatsApp: '+p+'\n──────────────────────\nEvent Type: '+t+'\n'+dateLabel+': '+d+'\nEstimated Guests: '+g+'\nBudget: '+budget+'\nInterested In: '+(interests.length?interests.join(', '):'Not specified')+'\n──────────────────────\nAdditional Details:\n'+(msg||'Nil')+'\n\nLooking forward to hearing from you!');
-  location.href='mailto:kremicollective@gmail.com?subject='+subj+'&body='+body;
-  setTimeout(function(){document.getElementById('formContent').style.display='none';document.getElementById('formSuccess').classList.add('show');document.getElementById('formWrapper').scrollIntoView({behavior:'smooth',block:'center'});},400);
+  var n=document.getElementById('fname').value.trim(),p=document.getElementById('fphone').value.trim(),t=document.getElementById('feventType').value,g=document.getElementById('fguests').value;
+  var dateInputs=dateMode==='single'?[document.getElementById('fdate')]:Array.from(document.querySelectorAll('#multiDateList input[type="date"]'));
+  var min=getMinDate(),dates=dateInputs.map(function(i){i.min=min;return i.value;});
+  var budget=document.getElementById('fbudget').value||'Not specified',msg=document.getElementById('fmsg').value.trim();
+  var interests=Array.from(document.querySelectorAll('.checkbox-item input:checked')).map(function(cb){return cb.parentElement.textContent.trim();});
+  var errors={fname:n?'':'Please enter your name.',fphone:!p?'Please enter your phone number.':!isValidPhone(p)?'Please enter a valid phone number.':'',feventType:t?'':'Please select an event type.',fguests:g?'':'Please select a guest count.'};
+  errors.fdate=!dates.length||dates.some(function(d){return !d;})?'Please choose every event date, or remove an unused date.':dates.some(function(d){return d<min;})?'Please choose dates at least 7 days from today.':new Set(dates).size!==dates.length?'Please choose different dates for a multi-day event.':'';
+  Object.keys(errors).forEach(function(id){setError(id,errors[id]);});
+  dateInputs.forEach(function(i){i.setAttribute('aria-invalid',String(!!errors.fdate));});
+  var invalid=Object.keys(errors).find(function(id){return errors[id];});
+  if(invalid){invalidateDraft();(invalid==='fdate'?dateInputs[0]:document.getElementById(invalid)).focus();return;}
+  var subject='Event Enquiry — '+t+' | '+n;
+  var body='Hi Kremi Team,\n\nI would like to enquire about booking Kremi for my event.\n\nName: '+n+'\nPhone / WhatsApp: '+p+'\nEvent Type: '+t+'\nEvent Date(s): '+dates.join(', ')+'\nEstimated Guests: '+g+'\nBudget: '+budget+'\nInterested In: '+(interests.join(', ')||'Not specified')+'\n\nAdditional Details:\n'+(msg||'Nil')+'\n\nLooking forward to hearing from you!';
+  document.getElementById('enquiryDraft').value='To: kremicollective@gmail.com\nSubject: '+subject+'\n\n'+body;
+  document.getElementById('openEnquiryEmail').href='mailto:kremicollective@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  var box=document.getElementById('formSuccess');box.hidden=false;box.classList.add('show');document.getElementById('draftStatus').textContent='';document.getElementById('draftTitle').focus();
 }
+document.getElementById('formContent').addEventListener('input',invalidateDraft);
+document.getElementById('formContent').addEventListener('change',invalidateDraft);
 </script>
 </body>
 </html>

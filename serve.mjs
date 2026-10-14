@@ -180,7 +180,7 @@ async function publishSeasonal(payload) {
 
   const seasonalPayload = {
     eyebrow: payload.eyebrow || "Seasonal Crepes",
-    title: payload.title || "Limited drops, freshly published",
+    title: payload.title || "Fresh flavours, here for a season",
     description: payload.description || "",
     items: published,
   };
@@ -200,7 +200,8 @@ async function publishSeasonal(payload) {
 }
 
 const server = http.createServer(async (req, res) => {
-  const urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
+  let urlPath;
+  try { urlPath = decodeURIComponent((req.url || "/").split("?")[0]); } catch { return send(res, 400, "Invalid URL"); }
 
   if (req.method === "GET" && urlPath === "/admin-login.html") {
     return serveStatic(res, "admin-login.html");
@@ -212,6 +213,10 @@ const server = http.createServer(async (req, res) => {
       return res.end();
     }
     return serveStatic(res, "seasonal-admin.html");
+  }
+
+  if (req.method === "GET" && urlPath === "/api/status") {
+    return sendJson(res, 200, { editorConfigured: Boolean(adminPassword && githubToken) });
   }
 
   if (req.method === "GET" && urlPath === "/api/me") {
@@ -257,7 +262,10 @@ const server = http.createServer(async (req, res) => {
 });
 
 async function serveStatic(res, relativePath) {
-  const filePath = path.join(root, relativePath);
+  const filePath = path.resolve(root, relativePath);
+  const relative = path.relative(root, filePath);
+  const allowed = /\.(?:html|css|js|png|jpe?g|webp|svg|xml|ico)$/i.test(relativePath) || ["seasonal-crepes.json", "menu-data.json"].includes(relativePath);
+  if (!allowed || relative.startsWith("..") || path.isAbsolute(relative) || relative.split(/[\\/]/).some(part => part.startsWith("."))) return send(res, 404, "Not found");
   try {
     const data = await readFile(filePath);
     res.writeHead(200, {
@@ -270,5 +278,5 @@ async function serveStatic(res, relativePath) {
 }
 
 server.listen(port, "127.0.0.1", () => {
-  console.log(`http://127.0.0.1:${port}`);
+  console.log(`http://127.0.0.1:${server.address().port}`);
 });
